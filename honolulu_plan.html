@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Road to Honolulu 12/13 🌺</title>
+<style>
+  :root{
+    --bg:#0f1220; --card:#1a1f35; --card2:#222847; --text:#f4f1ea; --muted:#a3a8c3;
+    --run:#ff7a59; --str:#6ec6ff; --long:#ffd166; --rest:#5c6386; --race:#ff4d8d;
+    --done:#4ade80;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  header{
+    background:linear-gradient(135deg,#ff9a56 0%,#ff5e7d 35%,#7b4dff 75%,#1a2a6c 100%);
+    padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden
+  }
+  header::after{content:"🌺 🏝️ 🌊 🌴 🌅";position:absolute;bottom:8px;right:16px;font-size:26px;opacity:.55;letter-spacing:6px}
+  #who{border-bottom:2px dashed rgba(255,255,255,.6);padding:0 4px;cursor:text;outline:none}
+  header h1{margin:0;font-size:34px;letter-spacing:.5px;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+  header p{margin:6px 0 0;opacity:.95}
+  .countdown{display:flex;justify-content:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+  .cd{background:rgba(0,0,0,.28);backdrop-filter:blur(4px);border-radius:14px;padding:12px 18px;min-width:110px}
+  .cd b{display:block;font-size:34px;line-height:1.1}
+  .cd span{font-size:12px;opacity:.9}
+  main{max-width:960px;margin:0 auto;padding:22px 16px 60px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:-46px 0 26px}
+  .stat{background:var(--card);border-radius:16px;padding:16px 18px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  .stat small{color:var(--muted);font-size:12px}
+  .stat b{font-size:26px;display:block}
+  .bar{height:10px;background:#2c3357;border-radius:999px;overflow:hidden;margin-top:8px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--run),var(--long));width:0;transition:width .5s}
+  .cheer{background:linear-gradient(90deg,#2b2f55,#1a1f35);border-left:5px solid var(--long);border-radius:12px;padding:14px 18px;margin-bottom:26px;font-size:17px}
+  h2{font-size:20px;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+  .rule{background:#3a1e2a;border:1px solid #ff4d8d55;border-radius:12px;padding:12px 16px;margin-bottom:22px}
+  .rule b{color:#ff8fb3}
+  .week{background:var(--card);border-radius:18px;padding:18px 18px 12px;margin-bottom:16px;border:1px solid #2a3054;transition:transform .15s}
+  .week.current{border-color:var(--long);box-shadow:0 0 0 2px #ffd16644,0 10px 30px rgba(0,0,0,.4)}
+  .week.complete{opacity:.72}
+  .wh{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 14px;margin-bottom:8px}
+  .wh h3{margin:0;font-size:18px}
+  .wh .range{color:var(--muted);font-size:14px}
+  .badge{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--card2);color:var(--text)}
+  .badge.now{background:var(--long);color:#1a1a1a;font-weight:700}
+  .point{font-size:14px;color:#d9dcef;background:var(--card2);border-radius:10px;padding:8px 12px;margin-bottom:12px}
+  .sessions{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+  .s{border-radius:12px;padding:12px 12px 10px;background:#141830;border-left:5px solid var(--rest);cursor:pointer;position:relative;user-select:none}
+  .s.run{border-color:var(--run)} .s.str{border-color:var(--str)} .s.long{border-color:var(--long)} .s.race{border-color:var(--race);background:#2a1630} .s.info{border-color:#8b93b8;cursor:default}
+  .s .d{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+  .s .d .edit{border-bottom:1px dashed #6c739a;padding:0 2px;min-width:60px;display:inline-block}
+  .s .d .edit:focus{outline:none;border-bottom-color:var(--long);background:#0c0f1e}
+  .s .t{font-weight:700;margin:3px 0 2px;font-size:15px}
+  .s .x{font-size:12.5px;color:#c9cde3}
+  .s .chk{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;border:2px solid #4a5280;display:flex;align-items:center;justify-content:center;font-size:13px;background:#0f1220}
+  .s.done{opacity:.55}
+  .s.done .chk{background:var(--done);border-color:var(--done);color:#0f1220}
+  .s.done .t{text-decoration:line-through}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:6px 0 18px}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+  .tip{background:var(--card);border-radius:14px;padding:14px 16px;font-size:14px}
+  .tip h4{margin:0 0 6px;font-size:16px}
+  .tip ul{margin:0;padding-left:18px}
+  .tip li{margin:3px 0}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}
+  .small{font-size:12px;color:var(--muted)}
+  #confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<header>
+  <h1><span id="who" contenteditable="true" spellcheck="false" title="クリックで名前を編集">あなた</span> の Road to Honolulu 🌺</h1>
+  <p>2026.12.13 (Sun) 5:00 AM スタート ・ 42.195 km ・ 制限時間なし。歩いてもいい、進み続ければゴール。</p>
+  <div class="countdown">
+    <div class="cd"><b id="cd-days">--</b><span>本番まで（日）</span></div>
+    <div class="cd"><b id="cd-weeks">--</b><span>残り週</span></div>
+    <div class="cd"><b id="cd-flight">--</b><span>出発 12/11 まで（日）</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="stats">
+    <div class="stat"><small>練習の消化率</small><b id="st-pct">0%</b><div class="bar"><i id="st-bar"></i></div><span class="small" id="st-cnt"></span></div>
+    <div class="stat"><small>動いた合計時間（チェック済み）</small><b id="st-min">0 分</b><span class="small">平日ラン＋週末ロングの本体時間</span></div>
+    <div class="stat"><small>週末ロングの最長記録</small><b id="st-long">0 分</b><span class="small">ピーク目標: 180 分（11/28-29）</span></div>
+  </div>
+
+  <div class="cheer" id="cheer">🔥 今日から始まる。1kmしか走ったことない人が、11週間後にダイヤモンドヘッドを越える。</div>
+
+  <div class="rule">
+    <b>🩹 いちばん大事なルール:</b> 膝・スネ・足の甲に「痛み」が出たら、その週は歩きだけにして様子を見る。比率がキツければ前の週の比率に戻す。<br>
+    早く進めるより、<b>12/13にスタートラインに立てること</b>が最優先。
+  </div>
+
+  <div class="rule" style="background:#1d2a3a;border-color:#6ec6ff55">
+    <b style="color:#9ad8ff">🧠 「この量で足りるの？」への正直な答え</b>
+    <ul style="margin:6px 0 0;padding-left:20px">
+      <li>本番の6〜7時間を練習で再現することはしない。どの計画でも最長は3時間前後で、それ以上は怪我のリスクが利益を超える。残りの距離は「歩きを混ぜる作戦」と「テーパーで貯めた力」でカバーする</li>
+      <li>11/28の3時間ロングを終えた時点で「約20km動き続けられる体」になっている。ホノルルは制限時間がないので、そこから先は気持ちの勝負</li>
+      <li>この計画で一番危ないのは「量が足りない」ではなく「途中で膝やスネを痛めて2週間走れなくなる」こと。痛みが出たら歩きだけにする、というルールが最優先なのはそのため</li>
+    </ul>
+  </div>
+
+  <div class="rule" style="background:#1f2a1f;border-color:#4ade8055">
+    <b style="color:#86efac">💪 「今日はもっと走れそう」と思ったら</b>
+    <ul style="margin:6px 0 0;padding-left:20px">
+      <li><b>時間は増やさない。</b>「もっと走れる」と感じたら、それは計画が正しく効いている合図</li>
+      <li>心肺は数日で慣れるが、脚の腱・骨・靭帯が強くなるには数週間かかる。初心者の怪我は、ほぼ「元気だから今日は多めに」を数回やった後に、2〜3日遅れて「スネが痛い」という形で出る</li>
+      <li>余裕がある日に許すのは2つだけ: ① 走る速度を +0.5 km/h（それでも会話できる範囲で） ② クールダウンの歩きを5分→10分</li>
+      <li>余った元気は次のランとロングに持っていく。計画は毎週勝手に増えるので、追い越す必要はない</li>
+    </ul>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--run)"></i>ラン（走る:歩く インターバル）</span>
+    <span><i style="background:var(--str)"></i>筋トレ・軽い有酸素</span>
+    <span><i style="background:var(--long)"></i>週末ロング（外）</span>
+    <span><i style="background:var(--race)"></i>本番・移動</span>
+    <span>👉 カードをタップで完了チェック（ブラウザに保存されます）</span>
+    <span>📅 「仮」の日付は 月・木＋土 の仮置き。クリックで書き換え可</span>
+  </div>
+
+  <div id="weeks">
+<section class="week"><div class="wh"><h3>Week 1 <span style="color:var(--muted);font-weight:400">/ はじめの一歩</span></h3><span class="range">9/28 – 10/4</span><span class="badge">走1分 : 歩1分</span></div><div class="point">💡 とにかく「軽い」を守る。走1分は"早歩きよりちょっと速い"くらい。終わったあと「もっとできた」と思えたら正解。</div><div class="sessions">
+<div class="s run" data-id="0-0"><div class="d"><span>9/28 (月)</span></div><div class="t">ラン 20分</div><div class="x">歩き5分 → (走1分・歩1分)×10 → 歩き5分。新しい靴デビュー👟 ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="0-1"><div class="d"><span>9/29 (火)</span></div><div class="t">坂道ウォーク15分 + 筋トレ</div><div class="x">坂道ウォーク 傾斜10 / 5.0 km/h で15分（ダイヤモンドヘッド対策）→ スクワット・ランジ・カーフレイズ・ヒップリフト・プランク 各2セット</div><div class="chk"></div></div>
+<div class="s run" data-id="0-2"><div class="d"><span>10/2 (金)</span></div><div class="t">ラン 20分 + 筋トレ</div><div class="x">(走1・歩1)×10。終わったら筋トレ軽く1〜2セット ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="0-3"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">10/3 (土) 仮</span></div><div class="t">外でロング 30分 🌳</div><div class="x">(走1・歩1)×15。公園や川沿いへ。外はペースが分からないので「会話できる速さ」だけ守る。景色を楽しむのが目的</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 2 <span style="color:var(--muted);font-weight:400">/ 習慣になる週</span></h3><span class="range">10/5 – 10/11</span><span class="badge">走1分 : 歩1分</span></div><div class="point">💡 2週目は一番サボりやすい。ジムに行くだけで勝ち。</div><div class="sessions">
+<div class="s run" data-id="1-0"><div class="d"><span>10/5 (月)</span></div><div class="t">ラン 25分</div><div class="x">(走1・歩1)×12〜13。前後に歩き5分 ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="1-1"><div class="d"><span>10/8 (木)</span></div><div class="t">ラン 25分 + 筋トレ</div><div class="x">(走1・歩1)×12〜13 → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="1-2"><div class="d"><span>10/9 (金)</span></div><div class="t">バイク or 歩き 20分 + ストレッチ</div><div class="x">昨日走ったので今日は脚を休める日。バイク軽く20分（負荷は軽め・会話できる強度）、ふくらはぎ・前もも・お尻をしっかり伸ばす</div><div class="chk"></div></div>
+<div class="s long" data-id="1-3"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">10/10 (土) 仮</span></div><div class="t">外でロング 40分 🌳</div><div class="x">(走1・歩1)×20。水を一口持って行く</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 3 <span style="color:var(--muted);font-weight:400">/ 比率アップ</span></h3><span class="range">10/12 – 10/18</span><span class="badge">走2分 : 歩1分</span></div><div class="point">💡 ジム2日＋外1日でちょうど3回。走る時間が倍になる週。キツければ走1:歩1のままでOK。</div><div class="sessions">
+<div class="s run" data-id="2-0"><div class="d"><span>10/13 (火)</span></div><div class="t">ラン 30分</div><div class="x">(走2・歩1)×10。前後に歩き5分 ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="2-1"><div class="d"><span>10/15 (木)</span></div><div class="t">ラン 40分 + 筋トレ</div><div class="x">(走2・歩1)×13 → 筋トレ 各2〜3セット ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="2-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">10/17 (土) 仮</span></div><div class="t">外でロング 50分 🌳</div><div class="x">(走2・歩1)×17。水を持って、20〜30分ごとに一口</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 4 <span style="color:var(--muted);font-weight:400">/ 1時間の壁を越える</span></h3><span class="range">10/19 – 10/25</span><span class="badge">走2分 : 歩1分</span></div><div class="point">💡 ジム4日行けるけど走るのは2日だけ。残り2日は坂道ウォークと筋トレで脚を作る。平日②が45分に伸びる。</div><div class="sessions">
+<div class="s run" data-id="3-0"><div class="d"><span>10/19 (月)</span></div><div class="t">ラン 30分</div><div class="x">(走2・歩1)×10 ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="3-1"><div class="d"><span>10/20 (火)</span></div><div class="t">坂道ウォーク15分 + 筋トレ</div><div class="x">坂道ウォーク 傾斜10 / 5.0 km/h 15分 → スクワット・ランジ・カーフレイズ・ヒップリフト・プランク 各3セット</div><div class="chk"></div></div>
+<div class="s run" data-id="3-2"><div class="d"><span>10/22 (木)</span></div><div class="t">ラン 45分</div><div class="x">(走2・歩1)×15。余裕なら最後の3本だけ走3・歩1を試す ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="3-3"><div class="d"><span>10/23 (金)</span></div><div class="t">坂道ウォーク20分 + ストレッチ</div><div class="x">傾斜10 / 5.0 km/h で20分歩く → ふくらはぎ・前もも・お尻をしっかり伸ばす。週末のロングに脚を残す日</div><div class="chk"></div></div>
+<div class="s long" data-id="3-4"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">10/24 (土) 仮</span></div><div class="t">外でロング 70分 🌳</div><div class="x">(走2・歩1)×23。初めて1時間超え！水必須、ワセリン試す</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 5 <span style="color:var(--muted);font-weight:400">/ 90分ランナー</span></h3><span class="range">10/26 – 11/1</span><span class="badge">走3分 : 歩1分</span></div><div class="point">💡 ここまで来たらもう「走る人」。週末90分＝ハーフの半分くらいの距離になる。</div><div class="sessions">
+<div class="s run" data-id="4-0"><div class="d"><span>10/26 (月)</span></div><div class="t">ラン 35分</div><div class="x">(走3・歩1)×9 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="4-1"><div class="d"><span>10/27 (火)</span></div><div class="t">坂道ウォーク15分 + 筋トレ</div><div class="x">坂道ウォーク 傾斜10 / 5.0 km/h 15分 → 筋トレ 各3セット。片足カーフレイズを追加</div><div class="chk"></div></div>
+<div class="s run" data-id="4-2"><div class="d"><span>10/29 (木)</span></div><div class="t">ラン 50分</div><div class="x">(走3・歩1)×12〜13 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s str" data-id="4-3"><div class="d"><span>10/30 (金)</span></div><div class="t">坂道ウォーク20分 + ストレッチ</div><div class="x">傾斜10 / 5.0 km/h で20分歩く → ストレッチ。土日のロングに向けて脚を休める</div><div class="chk"></div></div>
+<div class="s long" data-id="4-4"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">10/31 (土) 仮</span></div><div class="t">外でロング 90分 🌳</div><div class="x">(走3・歩1)×22〜23。スポドリ持参。ハロウィン🎃</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 6 <span style="color:var(--muted);font-weight:400">/ 回復週（わざと落とす）</span></h3><span class="range">11/2 – 11/8</span><span class="badge">走3分 : 歩1分</span></div><div class="point">💡 あえて落とす週。体が追いつく時間。休むのも練習。11/3(火・祝)が空いてるなら平日①をそこに動かしてもOK。</div><div class="sessions">
+<div class="s run" data-id="5-0"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/2 (月) 仮</span></div><div class="t">ラン 35分</div><div class="x">(走3・歩1)×9 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="5-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/5 (木) 仮</span></div><div class="t">ラン 45分 + 筋トレ</div><div class="x">(走3・歩1)×11 → 筋トレ 各3セット ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="5-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/7 (土) 仮</span></div><div class="t">外でロング 60分 🌳</div><div class="x">(走3・歩1)×15。短いけど気持ちよく</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 7 <span style="color:var(--muted);font-weight:400">/ 2時間 & 補給練習スタート</span></h3><span class="range">11/9 – 11/15</span><span class="badge">走3分 : 歩1分</span></div><div class="point">💡 ここから本番のリハーサル。平日②が1時間の「中ロング」になる。週末は補給練習と、少し厚着して汗をかく練習。</div><div class="sessions">
+<div class="s run" data-id="6-0"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/9 (月) 仮</span></div><div class="t">ラン 40分</div><div class="x">(走3・歩1)×10 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="6-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/12 (木) 仮</span></div><div class="t">中ロング 60分 + 筋トレ</div><div class="x">(走3・歩1)×15。平日でも1時間。水を一口ずつ → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="6-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/14 (土) 仮</span></div><div class="t">外でロング 2時間 🌳</div><div class="x">(走3・歩1)×30。45分ごとにジェル/羊羹、20〜30分ごとに一口。本番ウェアで</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 8 <span style="color:var(--muted);font-weight:400">/ 2時間30分</span></h3><span class="range">11/16 – 11/22</span><span class="badge">走4分 : 歩1分</span></div><div class="point">💡 一番タフな2週間の入り。ロングの後はサウナ→しっかり食べる→早く寝る。</div><div class="sessions">
+<div class="s run" data-id="7-0"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/16 (月) 仮</span></div><div class="t">ラン 40分</div><div class="x">(走4・歩1)×8 ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="7-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/19 (木) 仮</span></div><div class="t">中ロング 70分 + 筋トレ</div><div class="x">(走4・歩1)×14。ジェルを1つ試す → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="7-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/21 (土) 仮</span></div><div class="t">外でロング 2時間30分 🌳</div><div class="x">(走4・歩1)×30。補給フル装備。終わった後にサウナ10〜15分</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 9 <span style="color:var(--muted);font-weight:400">/ ⛰️ ピーク: 3時間</span></h3><span class="range">11/23 – 11/29</span><span class="badge">走4分 : 歩1分</span></div><div class="point">💡 これが練習の頂上。週合計5時間。3時間動き続けられたら、本番の6〜7時間は「同じことをもう1回」なだけ。</div><div class="sessions">
+<div class="s run" data-id="8-0"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/23 (月・祝) 仮</span></div><div class="t">ラン 40分</div><div class="x">(走4・歩1)×8 ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="8-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/26 (木) 仮</span></div><div class="t">中ロング 75分 + 筋トレ</div><div class="x">(走4・歩1)×15 → 筋トレ 各2セット（最後の筋トレ） ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="8-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/28 (土) 仮</span></div><div class="t">外でロング 3時間 🌳🏆</div><div class="x">(走4・歩1)×36。本番と同じ靴・服・補給・ワセリン。完全リハーサル</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 10 <span style="color:var(--muted);font-weight:400">/ テーパー（貯める週）</span></h3><span class="range">11/30 – 12/6</span><span class="badge">走4分 : 歩1分</span></div><div class="point">💡 ここから練習量を落として体に力を貯める。「物足りない」と感じたら正解。筋トレはもうやらない。</div><div class="sessions">
+<div class="s run" data-id="9-0"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">11/30 (月) 仮</span></div><div class="t">ラン 30分</div><div class="x">(走4・歩1)×6。軽く気持ちよく ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="9-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">12/3 (木) 仮</span></div><div class="t">ラン 40分</div><div class="x">(走4・歩1)×8。筋トレなし ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s long" data-id="9-2"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">12/5 (土) 仮</span></div><div class="t">外でロング 90分 🌳</div><div class="x">(走4・歩1)×18。最後のロング。持ち物の最終チェック</div><div class="chk"></div></div>
+</div></section>
+<section class="week"><div class="wh"><h3>Week 11 <span style="color:var(--muted);font-weight:400">/ 🌺 RACE WEEK</span></h3><span class="range">12/7 – 12/13</span><span class="badge">走4分 : 歩1分</span></div><div class="point">💡 もう体は出来てる。この週にやることは「寝る・食べる・荷造り」。走るのは脚を忘れさせないためだけ。</div><div class="sessions">
+<div class="s run" data-id="10-0"><div class="d"><span>12/8 (火)</span></div><div class="t">ラン 30分</div><div class="x">(走4・歩1)×6。今夜から寝る時間を1〜2時間遅らせる ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s run" data-id="10-1"><div class="d"><span class="edit" contenteditable="true" spellcheck="false">12/10 (木) 仮</span></div><div class="t">ラン 20分</div><div class="x">(走4・歩1)×4。これで練習は終わり。荷造り: 靴・ウェア・ゼッケン留め・ワセリン・補給・キャップ ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h</div><div class="chk"></div></div>
+<div class="s race" data-id="10-2"><div class="d"><span>12/11 (金)</span></div><div class="t">✈️ 出発</div><div class="x">機内は後半で寝る。水をこまめに。ふくらはぎを動かす</div><div class="chk"></div></div>
+<div class="s race" data-id="10-3"><div class="d"><span>12/12 (土)</span></div><div class="t">🌴 ホノルル到着 → エキスポ</div><div class="x">ゼッケン受け取り → 昼寝2時間まで → 夕食17〜18時（炭水化物）→ 20時就寝 → 2:30起床</div><div class="chk"></div></div>
+<div class="s race" data-id="10-4"><div class="d"><span>12/13 (日) 5:00</span></div><div class="t">🏁 HONOLULU MARATHON 42.195km</div><div class="x">走4・歩1を最初から最後まで。給水所は全部歩く。登りは歩く。笑って進む。ゴールはカピオラニ公園</div><div class="chk"></div></div>
+</div></section>
+</div>
+
+  <h2>🧭 本番に向けての準備メモ</h2>
+  <div class="tips">
+    <div class="tip"><h4>🏋️ ジムのトレッドミル設定</h4><ul>
+      <li><b>傾斜 1%</b>: 外を走るのと同じ負荷になる基準。ランの日はずっと1%</li>
+      <li><b>走る: 7.0 km/h</b>から（1km 約8分半）。「会話できる速さ」が基準なので、キツければ 6.5、余裕なら +0.5</li>
+      <li><b>歩く: 5.0 km/h</b>。速歩き。ウォームアップ・クールダウンも同じ</li>
+      <li>速度は週ごとに少しずつ上げる: 第1-2週 7.0 → 第3-4週 7.2 → 第5週〜 7.5 → 第8週〜 余裕があれば 8.0</li>
+      <li><b>傾斜10 / 5.0 km/h</b>（今できているやつ）は坂道ウォークとして筋トレ日に15分。ダイヤモンドヘッドの登りの練習になる</li>
+    </ul></div>
+    <div class="tip"><h4>🏃 走り方（ラン・ウォーク）</h4><ul>
+      <li>疲れてから歩くのではなく、元気なうちから決めた間隔で歩く</li>
+      <li>ペースは「会話できる速さ」。息が上がったら遅すぎるくらいでOK</li>
+      <li>ランの前に歩き5分（ウォームアップ）、後に歩き5分（クールダウン）</li>
+      <li>本番も同じ。走4:歩1 で最後まで、給水所は全部歩く</li>
+    </ul></div>
+    <div class="tip"><h4>👟 靴</h4><ul>
+      <li>本番用の靴は早めに決めて、平日ランで慣らし、ロング走は必ずその靴で</li>
+      <li>本番は同じ靴・同じ靴下・同じウェアで。新品は持ち込まない</li>
+      <li>股・脇・足指はワセリンで擦れ防止（ロング走で試す）</li>
+    </ul></div>
+    <div class="tip"><h4>🥤 補給（第7週から練習）</h4><ul>
+      <li>20〜30分ごとに一口ずつ水・スポドリ</li>
+      <li>45分ごとにジェル／一口サイズのおにぎり・羊羹など</li>
+      <li>本番で初めて食べるものはNG。ロング走で必ず試す</li>
+    </ul></div>
+    <div class="tip"><h4>☀️ 暑さ対策</h4><ul>
+      <li>スタートは暗くて23〜25℃、7時過ぎから日が出て暑くなる</li>
+      <li>11月のロング走は少し厚着して汗をかく練習</li>
+      <li>走った後にサウナ10〜15分も暑熱順化に効く</li>
+      <li>キャップ・サングラス・日焼け止めは必須</li>
+    </ul></div>
+    <div class="tip"><h4>🗺️ コースの特徴</h4><ul>
+      <li>10km前後と38km前後にダイヤモンドヘッドの登り</li>
+      <li>登りは全部歩いてOK。ペースが落ちても気にしない</li>
+      <li>ハワイカイ折り返しの往復（16〜35km）が長くて単調。音楽・景色・応援で気をそらす</li>
+      <li>完走目安 6〜7時間。ゴールはカピオラニ公園、最後の人まで待ってくれる</li>
+    </ul></div>
+    <div class="tip"><h4>✈️ 渡航と時差</h4><ul>
+      <li>スタート5時 = 日本時間の深夜0時。「夜更かしして朝まで」の感覚で走る</li>
+      <li>12/8〜10: 寝る・起きる時間を1〜2時間ずつ遅らせて夜型に</li>
+      <li>機内は後半で寝る</li>
+      <li>12/12 到着 → そのままエキスポでゼッケン受け取り（土曜で受付終了）→ 昼寝は2時間まで → 夕食17〜18時 → 20時就寝 → 2:30起床</li>
+    </ul></div>
+  </div>
+
+  <footer>Plan: 週3〜4回・時間ベース・ラン&ウォーク方式 ／ 名前と11月の平日の日付はクリックで書き換えられます<br>チェックや名前はこのブラウザ内だけに保存されます（他の人と共有されません）。このファイルはそのまま人に送ってOK</footer>
+</main>
+
+<script>
+const RACE = new Date('2026-12-13T00:00:00+09:00');
+const FLIGHT = new Date('2026-12-11T20:00:00+09:00');
+
+// type: run / str / long / race / info ; min = 本体時間（集計用）
+const WEEKS = [
+{
+"n": 1,
+"range": "9/28 – 10/4",
+"ratio": "走1分 : 歩1分",
+"theme": "はじめの一歩",
+"point": "とにかく「軽い」を守る。走1分は\"早歩きよりちょっと速い\"くらい。終わったあと「もっとできた」と思えたら正解。",
+"s": [ { "d": "9/28 (月)", "t": "run", "title": "ラン 20分", "x": "歩き5分 → (走1分・歩1分)×10 → 歩き5分。新しい靴デビュー👟 ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h", "min": 20 }, { "d": "9/29 (火)", "t": "str", "title": "坂道ウォーク15分 + 筋トレ", "x": "坂道ウォーク 傾斜10 / 5.0 km/h で15分（ダイヤモンドヘッド対策）→ スクワット・ランジ・カーフレイズ・ヒップリフト・プランク 各2セット", "min": 0 }, { "d": "10/2 (金)", "t": "run", "title": "ラン 20分 + 筋トレ", "x": "(走1・歩1)×10。終わったら筋トレ軽く1〜2セット ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h", "min": 20 }, { "d": "10/3 (土) 仮", "t": "long", "title": "外でロング 30分 🌳", "x": "(走1・歩1)×15。公園や川沿いへ。外はペースが分からないので「会話できる速さ」だけ守る。景色を楽しむのが目的", "min": 30, "edit": true }
+]
+},
+{
+"n": 2,
+"range": "10/5 – 10/11",
+"ratio": "走1分 : 歩1分",
+"theme": "習慣になる週",
+"point": "2週目は一番サボりやすい。ジムに行くだけで勝ち。",
+"s": [ { "d": "10/5 (月)", "t": "run", "title": "ラン 25分", "x": "(走1・歩1)×12〜13。前後に歩き5分 ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h", "min": 25 }, { "d": "10/8 (木)", "t": "run", "title": "ラン 25分 + 筋トレ", "x": "(走1・歩1)×12〜13 → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.0 km/h / 歩 5.0 km/h", "min": 25 }, { "d": "10/9 (金)", "t": "str", "title": "バイク or 歩き 20分 + ストレッチ", "x": "昨日走ったので今日は脚を休める日。バイク軽く20分（負荷は軽め・会話できる強度）、ふくらはぎ・前もも・お尻をしっかり伸ばす", "min": 0 }, { "d": "10/10 (土) 仮", "t": "long", "title": "外でロング 40分 🌳", "x": "(走1・歩1)×20。水を一口持って行く", "min": 40, "edit": true }
+]
+},
+{
+"n": 3,
+"range": "10/12 – 10/18",
+"ratio": "走2分 : 歩1分",
+"theme": "比率アップ",
+"point": "ジム2日＋外1日でちょうど3回。走る時間が倍になる週。キツければ走1:歩1のままでOK。",
+"s": [ { "d": "10/13 (火)", "t": "run", "title": "ラン 30分", "x": "(走2・歩1)×10。前後に歩き5分 ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h", "min": 30 }, { "d": "10/15 (木)", "t": "run", "title": "ラン 40分 + 筋トレ", "x": "(走2・歩1)×13 → 筋トレ 各2〜3セット ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h", "min": 40 }, { "d": "10/17 (土) 仮", "t": "long", "title": "外でロング 50分 🌳", "x": "(走2・歩1)×17。水を持って、20〜30分ごとに一口", "min": 50, "edit": true }
+]
+},
+{
+"n": 4,
+"range": "10/19 – 10/25",
+"ratio": "走2分 : 歩1分",
+"theme": "1時間の壁を越える",
+"point": "ジム4日行けるけど走るのは2日だけ。残り2日は坂道ウォークと筋トレで脚を作る。平日②が45分に伸びる。",
+"s": [ { "d": "10/19 (月)", "t": "run", "title": "ラン 30分", "x": "(走2・歩1)×10 ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h", "min": 30 }, { "d": "10/20 (火)", "t": "str", "title": "坂道ウォーク15分 + 筋トレ", "x": "坂道ウォーク 傾斜10 / 5.0 km/h 15分 → スクワット・ランジ・カーフレイズ・ヒップリフト・プランク 各3セット", "min": 0 }, { "d": "10/22 (木)", "t": "run", "title": "ラン 45分", "x": "(走2・歩1)×15。余裕なら最後の3本だけ走3・歩1を試す ｜ 🏋️ 傾斜1% / 走 7.2 km/h / 歩 5.0 km/h", "min": 45 }, { "d": "10/23 (金)", "t": "str", "title": "坂道ウォーク20分 + ストレッチ", "x": "傾斜10 / 5.0 km/h で20分歩く → ふくらはぎ・前もも・お尻をしっかり伸ばす。週末のロングに脚を残す日", "min": 0 }, { "d": "10/24 (土) 仮", "t": "long", "title": "外でロング 70分 🌳", "x": "(走2・歩1)×23。初めて1時間超え！水必須、ワセリン試す", "min": 70, "edit": true }
+]
+},
+{
+"n": 5,
+"range": "10/26 – 11/1",
+"ratio": "走3分 : 歩1分",
+"theme": "90分ランナー",
+"point": "ここまで来たらもう「走る人」。週末90分＝ハーフの半分くらいの距離になる。",
+"s": [ { "d": "10/26 (月)", "t": "run", "title": "ラン 35分", "x": "(走3・歩1)×9 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 35 }, { "d": "10/27 (火)", "t": "str", "title": "坂道ウォーク15分 + 筋トレ", "x": "坂道ウォーク 傾斜10 / 5.0 km/h 15分 → 筋トレ 各3セット。片足カーフレイズを追加", "min": 0 }, { "d": "10/29 (木)", "t": "run", "title": "ラン 50分", "x": "(走3・歩1)×12〜13 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 50 }, { "d": "10/30 (金)", "t": "str", "title": "坂道ウォーク20分 + ストレッチ", "x": "傾斜10 / 5.0 km/h で20分歩く → ストレッチ。土日のロングに向けて脚を休める", "min": 0 }, { "d": "10/31 (土) 仮", "t": "long", "title": "外でロング 90分 🌳", "x": "(走3・歩1)×22〜23。スポドリ持参。ハロウィン🎃", "min": 90, "edit": true }
+]
+},
+{
+"n": 6,
+"range": "11/2 – 11/8",
+"ratio": "走3分 : 歩1分",
+"theme": "回復週（わざと落とす）",
+"point": "あえて落とす週。体が追いつく時間。休むのも練習。11/3(火・祝)が空いてるなら平日①をそこに動かしてもOK。",
+"s": [ { "d": "11/2 (月) 仮", "t": "run", "title": "ラン 35分", "x": "(走3・歩1)×9 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 35, "edit": true }, { "d": "11/5 (木) 仮", "t": "run", "title": "ラン 45分 + 筋トレ", "x": "(走3・歩1)×11 → 筋トレ 各3セット ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 45, "edit": true }, { "d": "11/7 (土) 仮", "t": "long", "title": "外でロング 60分 🌳", "x": "(走3・歩1)×15。短いけど気持ちよく", "min": 60, "edit": true }
+]
+},
+{
+"n": 7,
+"range": "11/9 – 11/15",
+"ratio": "走3分 : 歩1分",
+"theme": "2時間 & 補給練習スタート",
+"point": "ここから本番のリハーサル。平日②が1時間の「中ロング」になる。週末は補給練習と、少し厚着して汗をかく練習。",
+"s": [ { "d": "11/9 (月) 仮", "t": "run", "title": "ラン 40分", "x": "(走3・歩1)×10 ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 40, "edit": true }, { "d": "11/12 (木) 仮", "t": "run", "title": "中ロング 60分 + 筋トレ", "x": "(走3・歩1)×15。平日でも1時間。水を一口ずつ → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 60, "edit": true }, { "d": "11/14 (土) 仮", "t": "long", "title": "外でロング 2時間 🌳", "x": "(走3・歩1)×30。45分ごとにジェル/羊羹、20〜30分ごとに一口。本番ウェアで", "min": 120, "edit": true }
+]
+},
+{
+"n": 8,
+"range": "11/16 – 11/22",
+"ratio": "走4分 : 歩1分",
+"theme": "2時間30分",
+"point": "一番タフな2週間の入り。ロングの後はサウナ→しっかり食べる→早く寝る。",
+"s": [ { "d": "11/16 (月) 仮", "t": "run", "title": "ラン 40分", "x": "(走4・歩1)×8 ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h", "min": 40, "edit": true }, { "d": "11/19 (木) 仮", "t": "run", "title": "中ロング 70分 + 筋トレ", "x": "(走4・歩1)×14。ジェルを1つ試す → 筋トレ 各2セット ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h", "min": 70, "edit": true }, { "d": "11/21 (土) 仮", "t": "long", "title": "外でロング 2時間30分 🌳", "x": "(走4・歩1)×30。補給フル装備。終わった後にサウナ10〜15分", "min": 150, "edit": true }
+]
+},
+{
+"n": 9,
+"range": "11/23 – 11/29",
+"ratio": "走4分 : 歩1分",
+"theme": "⛰️ ピーク: 3時間",
+"point": "これが練習の頂上。週合計5時間。3時間動き続けられたら、本番の6〜7時間は「同じことをもう1回」なだけ。",
+"s": [ { "d": "11/23 (月・祝) 仮", "t": "run", "title": "ラン 40分", "x": "(走4・歩1)×8 ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h", "min": 40, "edit": true }, { "d": "11/26 (木) 仮", "t": "run", "title": "中ロング 75分 + 筋トレ", "x": "(走4・歩1)×15 → 筋トレ 各2セット（最後の筋トレ） ｜ 🏋️ 傾斜1% / 走 7.5〜8.0 km/h / 歩 5.0 km/h", "min": 75, "edit": true }, { "d": "11/28 (土) 仮", "t": "long", "title": "外でロング 3時間 🌳🏆", "x": "(走4・歩1)×36。本番と同じ靴・服・補給・ワセリン。完全リハーサル", "min": 180, "edit": true }
+]
+},
+{
+"n": 10,
+"range": "11/30 – 12/6",
+"ratio": "走4分 : 歩1分",
+"theme": "テーパー（貯める週）",
+"point": "ここから練習量を落として体に力を貯める。「物足りない」と感じたら正解。筋トレはもうやらない。",
+"s": [ { "d": "11/30 (月) 仮", "t": "run", "title": "ラン 30分", "x": "(走4・歩1)×6。軽く気持ちよく ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 30, "edit": true }, { "d": "12/3 (木) 仮", "t": "run", "title": "ラン 40分", "x": "(走4・歩1)×8。筋トレなし ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 40, "edit": true }, { "d": "12/5 (土) 仮", "t": "long", "title": "外でロング 90分 🌳", "x": "(走4・歩1)×18。最後のロング。持ち物の最終チェック", "min": 90, "edit": true }
+]
+},
+{
+"n": 11,
+"range": "12/7 – 12/13",
+"ratio": "走4分 : 歩1分",
+"theme": "🌺 RACE WEEK",
+"point": "もう体は出来てる。この週にやることは「寝る・食べる・荷造り」。走るのは脚を忘れさせないためだけ。",
+"s": [ { "d": "12/8 (火)", "t": "run", "title": "ラン 30分", "x": "(走4・歩1)×6。今夜から寝る時間を1〜2時間遅らせる ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 30 }, { "d": "12/10 (木) 仮", "t": "run", "title": "ラン 20分", "x": "(走4・歩1)×4。これで練習は終わり。荷造り: 靴・ウェア・ゼッケン留め・ワセリン・補給・キャップ ｜ 🏋️ 傾斜1% / 走 7.5 km/h / 歩 5.0 km/h", "min": 20, "edit": true }, { "d": "12/11 (金)", "t": "race", "title": "✈️ 出発", "x": "機内は後半で寝る。水をこまめに。ふくらはぎを動かす", "min": 0 }, { "d": "12/12 (土)", "t": "race", "title": "🌴 ホノルル到着 → エキスポ", "x": "ゼッケン受け取り → 昼寝2時間まで → 夕食17〜18時（炭水化物）→ 20時就寝 → 2:30起床", "min": 0 }, { "d": "12/13 (日) 5:00", "t": "race", "title": "🏁 HONOLULU MARATHON 42.195km", "x": "走4・歩1を最初から最後まで。給水所は全部歩く。登りは歩く。笑って進む。ゴールはカピオラニ公園", "min": 0 }
+]
+}
+];
+
+const KEY='honolulu_plan_v1';
+let state={};
+try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} };
+
+function weekBounds(range){
+  const [a,b]=range.split('–').map(s=>s.trim());
+  const p=s=>{const [m,d]=s.split('/').map(Number);return new Date(2026,m-1,d);};
+  const start=p(a), end=p(b); end.setHours(23,59,59);
+  return [start,end];
+}
+
+function render(){
+  const now=new Date();
+  const root=document.getElementById('weeks'); root.innerHTML='';
+  let total=0,done=0,min=0,longest=0;
+  WEEKS.forEach((w,wi)=>{
+    const [ws,we]=weekBounds(w.range);
+    const isNow = now>=ws && now<=we;
+    const el=document.createElement('section');
+    const allDone = w.s.every((s,si)=> s.t==='race' || state[`${wi}-${si}`]?.done);
+    el.className='week'+(isNow?' current':'')+(allDone?' complete':'');
+    el.innerHTML=`<div class="wh"><h3>Week ${w.n} <span style="color:var(--muted);font-weight:400">/ ${w.theme}</span></h3>
+      <span class="range">${w.range}</span><span class="badge ${isNow?'now':''}">${isNow?'▶ 今週':w.ratio}</span>${isNow?`<span class="badge">${w.ratio}</span>`:''}</div>
+      <div class="point">💡 ${w.point}</div><div class="sessions"></div>`;
+    const grid=el.querySelector('.sessions');
+    w.s.forEach((s,si)=>{
+      const id=`${wi}-${si}`; const st=state[id]||{};
+      const card=document.createElement('div');
+      card.className=`s ${s.t}`+(st.done?' done':'');
+      const dateHtml = s.edit ? `<span class="edit" contenteditable="true" spellcheck="false">${st.date||s.d}</span>` : `<span>${s.d}</span>`;
+      card.innerHTML=`<div class="d">${dateHtml}</div><div class="t">${s.title}</div><div class="x">${s.x}</div><div class="chk">${st.done?'✓':''}</div>`;
+      if(s.t!=='info'){
+        total++; if(st.done){done++; min+=s.min; if(s.t==='long') longest=Math.max(longest,s.min);}
+        card.addEventListener('click',e=>{
+          if(e.target.classList.contains('edit')) return;
+          state[id]={...(state[id]||{}),done:!st.done}; save(); render();
+          if(!st.done) burst(e.clientX,e.clientY, s.t==='race');
+        });
+      }
+      const ed=card.querySelector('.edit');
+      if(ed){
+        ed.addEventListener('click',e=>e.stopPropagation());
+        ed.addEventListener('blur',()=>{state[id]={...(state[id]||{}),date:ed.textContent.trim()}; save();});
+        ed.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();ed.blur();}});
+      }
+      grid.appendChild(card);
+    });
+    root.appendChild(el);
+  });
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById('st-pct').textContent=pct+'%';
+  document.getElementById('st-bar').style.width=pct+'%';
+  document.getElementById('st-cnt').textContent=`${done} / ${total} セッション`;
+  document.getElementById('st-min').textContent=min>=60?`${Math.floor(min/60)}時間${min%60?min%60+'分':''}`:`${min} 分`;
+  document.getElementById('st-long').textContent=longest+' 分';
+  const cheers=[
+    [0,'🔥 今日から始まる。1kmしか走ったことない人が、11週間後にダイヤモンドヘッドを越える。'],
+    [10,'👟 靴が仕事を始めた。あとは足を動かすだけ。'],
+    [25,'🌱 もう「走る習慣がある人」。ここまで来たら辞めるほうが難しい。'],
+    [50,'⛰️ 折り返し。体はもう最初の自分と別人。'],
+    [75,'🌊 頂上が見えてきた。3時間ロングを終えたら、あとは貯めるだけ。'],
+    [90,'🌺 スタートラインまであと少し。よく寝て、よく食べて。'],
+    [100,'🏁 全部やった。ホノルルの朝5時、あなたは走り出す。'],
+  ];
+  document.getElementById('cheer').textContent=cheers.filter(c=>pct>=c[0]).pop()[1];
+}
+
+function tick(){
+  const now=new Date();
+  const d=Math.max(0,Math.ceil((RACE-now)/86400000));
+  document.getElementById('cd-days').textContent=d;
+  document.getElementById('cd-weeks').textContent=(d/7).toFixed(1);
+  document.getElementById('cd-flight').textContent=Math.max(0,Math.ceil((FLIGHT-now)/86400000));
+}
+
+// confetti
+const cv=document.getElementById('confetti'),cx=cv.getContext('2d');let parts=[];
+function resize(){cv.width=innerWidth;cv.height=innerHeight}addEventListener('resize',resize);resize();
+function burst(x,y,big){
+  const n=big?220:60, cols=['#ff7a59','#ffd166','#6ec6ff','#ff4d8d','#4ade80','#fff'];
+  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,v=(big?7:5)+Math.random()*5;
+    parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,g:.25,life:60+Math.random()*40,c:cols[i%cols.length],r:3+Math.random()*4});}
+  if(!anim) loop();
+}
+let anim=0;
+function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts=parts.filter(p=>p.life>0);
+  parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.vx*=.98;p.life--;cx.globalAlpha=Math.min(1,p.life/30);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,p.r,p.r);});
+  cx.globalAlpha=1;
+  anim = parts.length? requestAnimationFrame(loop):0;
+}
+
+const who=document.getElementById('who');
+if(state.who) who.textContent=state.who;
+who.addEventListener('blur',()=>{state.who=who.textContent.trim()||'あなた';who.textContent=state.who;save();});
+who.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();who.blur();}});
+render(); tick(); setInterval(tick,60000);
+</script>
+</body>
+</html>
