@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>『オデュッセイア』ネタバレなし予習ガイド</title>
+<style>
+:root{
+  --navy:#0f1b3d; --navy2:#1b2a5c; --gold:#f5c542; --gold2:#ffe08a; --cream:#fff8e7;
+  --pink:#ff7eb6; --cyan:#5de0ff; --green:#7dffb3; --red:#ff6b6b; --purple:#c38bff; --orange:#ffa94d;
+  --ink:#1a1a2e;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Hiragino Maru Gothic ProN","Yu Gothic UI","Meiryo","Segoe UI",sans-serif;
+  background:
+   radial-gradient(circle at 15% 10%, rgba(93,224,255,.18), transparent 35%),
+   radial-gradient(circle at 85% 90%, rgba(255,126,182,.16), transparent 40%),
+   linear-gradient(160deg,var(--navy) 0%,var(--navy2) 60%,#2a1b5c 100%);
+  color:var(--cream);line-height:1.7;min-height:100vh}
+.wrap{max-width:980px;margin:0 auto;padding:24px 18px 80px}
+
+/* header */
+.hero{text-align:center;padding:36px 16px 20px;position:relative}
+.hero .badge{display:inline-block;background:var(--pink);color:#fff;font-weight:900;padding:4px 14px;border-radius:999px;
+  transform:rotate(-3deg);box-shadow:0 4px 0 #b84a80;letter-spacing:.1em;font-size:14px}
+.hero h1{font-size:clamp(28px,6vw,52px);margin:14px 0 6px;line-height:1.15;
+  background:linear-gradient(180deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none;filter:drop-shadow(0 4px 0 #7a5a00)}
+.hero p.sub{margin:0;color:#dfe6ff;font-size:15px}
+.meander{height:10px;margin:18px auto 0;max-width:420px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 10px,transparent 10px 20px);opacity:.7;border-radius:2px}
+
+/* nav */
+nav.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0 10px;position:sticky;top:0;
+  background:rgba(15,27,61,.92);padding:10px;border-radius:14px;z-index:5;backdrop-filter:blur(6px)}
+nav.tabs button{border:0;background:#2b3a6e;color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;cursor:pointer;
+  font-size:14px;transition:.15s;border-bottom:3px solid #182350}
+nav.tabs button:hover{transform:translateY(-2px)}
+nav.tabs button.active{background:var(--gold);color:var(--ink);border-bottom-color:#b88a00}
+
+section{display:none;animation:pop .25s ease}
+section.active{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+h2{font-size:26px;margin:28px 0 12px;color:var(--gold2);display:flex;align-items:center;gap:10px}
+h2 .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:18px;box-shadow:0 3px 0 #b88a00}
+h3{color:var(--cyan);margin:22px 0 8px;font-size:18px}
+
+/* speech bubble */
+.bubble{position:relative;background:var(--cream);color:var(--ink);border-radius:18px;padding:16px 20px;margin:14px 0;font-size:16px;
+  box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.bubble::after{content:"";position:absolute;left:34px;bottom:-14px;border:14px solid transparent;border-top-color:var(--cream);border-bottom:0}
+.bubble.right::after{left:auto;right:34px}
+.bubble b{color:#b5003c}
+.bubble.note{background:#fff3f8;border:3px dashed var(--pink)}
+
+/* chara cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:12px 0}
+.card{background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.14);border-radius:18px;padding:14px;position:relative;overflow:hidden;
+  transition:.15s}
+.card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.card .ava{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;font-size:36px;margin-bottom:8px;
+  border:4px solid #fff;box-shadow:0 4px 0 rgba(0,0,0,.3)}
+.card .name{font-weight:900;font-size:18px;color:#fff}
+.card .en{font-size:12px;color:#aab6e8;letter-spacing:.04em}
+.card .actor{display:inline-block;margin:6px 0;background:var(--ink);color:var(--gold2);font-size:12px;padding:2px 10px;border-radius:999px}
+.card p{margin:6px 0 0;font-size:14px;color:#e8ecff}
+.card .tag{position:absolute;top:12px;right:12px;font-size:11px;font-weight:900;padding:3px 9px;border-radius:999px;color:var(--ink)}
+.t-home{background:var(--green)} .t-god{background:var(--cyan)} .t-enemy{background:var(--red);color:#fff} .t-ally{background:var(--orange)} .t-isle{background:var(--purple)} .t-troy{background:var(--pink);color:#fff}
+
+/* timeline */
+.tl{position:relative;margin:16px 0;padding-left:34px}
+.tl::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:4px;background:linear-gradient(var(--gold),var(--pink))}
+.tl .ev{position:relative;margin:0 0 18px;background:rgba(255,255,255,.07);border-radius:14px;padding:12px 16px}
+.tl .ev::before{content:"";position:absolute;left:-30px;top:16px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:3px solid var(--navy)}
+.tl .ev .when{font-size:12px;font-weight:900;color:var(--gold2);letter-spacing:.08em}
+.tl .ev .what{font-size:16px;font-weight:700;color:#fff}
+.tl .ev p{margin:4px 0 0;font-size:14px;color:#dde3ff}
+
+/* keyword */
+.kw{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.07);border-radius:16px;padding:14px;margin:10px 0}
+.kw .ico{font-size:34px;flex:0 0 46px;text-align:center}
+.kw .ttl{font-weight:900;color:var(--gold2);font-size:17px}
+.kw p{margin:4px 0 0;font-size:14px}
+
+/* map chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{background:#2b3a6e;border:2px solid #4559a3;border-radius:999px;padding:6px 14px;font-size:14px}
+.chip b{color:var(--gold2)}
+
+.spoiler-wall{background:linear-gradient(135deg,#2a0f3d,#4b1a4f);border:3px solid var(--pink);border-radius:18px;padding:16px 20px;margin:18px 0;text-align:center}
+.spoiler-wall .big{font-size:22px;font-weight:900;color:var(--pink)}
+
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.box{background:rgba(255,255,255,.07);border-radius:16px;padding:14px;border-top:6px solid var(--gold)}
+.box.c2{border-top-color:var(--cyan)} .box.c3{border-top-color:var(--pink)}
+.box .h{font-weight:900;font-size:17px;color:#fff}
+
+table{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+td,th{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.15);text-align:left}
+th{color:var(--gold2)}
+footer{margin-top:40px;text-align:center;color:#9aa6d6;font-size:12px}
+.small{font-size:12px;color:#aab6e8}
+.quiz{background:rgba(255,255,255,.07);border-radius:16px;padding:14px 16px;margin:10px 0}
+.quiz .q{font-weight:900;color:#fff}
+.quiz button{margin:6px 6px 0 0;border:0;background:#2b3a6e;color:#fff;padding:8px 14px;border-radius:10px;cursor:pointer;font-size:14px}
+.quiz button.ok{background:var(--green);color:var(--ink)} .quiz button.ng{background:var(--red)}
+.quiz .ans{margin-top:8px;font-size:14px;color:var(--gold2);min-height:1.5em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="badge">ネタバレなし</span>
+  <h1>『オデュッセイア』<br>見る前の予習ガイド</h1>
+  <p class="sub">クリストファー・ノーラン監督／2026年9月11日 日本公開／173分</p>
+  <div class="meander"></div>
+</header>
+
+<nav class="tabs">
+  <button class="active" data-t="t0">① 3行でわかる</button>
+  <button data-t="t1">② 前日譚：トロイア戦争</button>
+  <button data-t="t2">③ 人物図鑑</button>
+  <button data-t="t3">④ 神様と怪物</button>
+  <button data-t="t4">⑤ 覚えるキーワード</button>
+  <button data-t="t5">⑥ 見方のコツ</button>
+  <button data-t="t6">⑦ 確認クイズ</button>
+</nav>
+
+<!-- ===== ① ===== -->
+<section id="t0" class="active">
+  <h2><span class="n">1</span>まず3行で</h2>
+  <div class="bubble">
+    <b>①</b> 10年続いた「トロイア戦争」が、知恵者<b>オデュッセウス</b>の計略（木馬）で終わる。<br>
+    <b>②</b> ところが彼は故郷の島<b>イタケ</b>になかなか帰れず、海の上で<b>さらに10年</b>さまよう。<br>
+    <b>③</b> その間、留守の家では妻<b>ペネロペ</b>に<b>求婚者</b>がたかり、赤ん坊だった息子<b>テレマコス</b>は20歳の青年になっている。
+  </div>
+  <div class="bubble right">
+    つまりこれは<b>「20年ぶりに帰ってくる父親」の物語</b>。<br>
+    海側（父の冒険）と、家側（待つ母と、父を探す息子）の<b>2つの舞台</b>を行き来します。ここさえ押さえれば迷いません。
+  </div>
+
+  <h3>映画の舞台：3つの場所</h3>
+  <div class="three">
+    <div class="box"><div class="h">🏛️ トロイア（過去）</div><p>戦争の舞台。小アジア（今のトルコ側）の城塞都市。映画の冒頭はここ。</p></div>
+    <div class="box c2"><div class="h">🌊 海と島々（父の旅）</div><p>オデュッセウスが船で帰ろうとして、次々と不思議な島に流れ着く。</p></div>
+    <div class="box c3"><div class="h">🏠 イタケ（家）</div><p>ギリシャ西の小さな島。王が不在の王宮に、求婚者たちが居座っている。</p></div>
+  </div>
+
+  <div class="spoiler-wall">
+    <div class="big">🚫 このガイドで書かないこと</div>
+    <p style="margin:6px 0 0">各エピソードの<b>結末</b>、誰が生き残るか、ラストの展開。原作が2700年前の作品でも、映画は独自の改変があるので「原作知ってるから」と思わず楽しんでください。</p>
+  </div>
+</section>
+
+<!-- ===== ② ===== -->
+<section id="t1">
+  <h2><span class="n">2</span>前日譚：トロイア戦争ってなに？</h2>
+  <div class="bubble">映画は<b>戦争が終わる瞬間</b>から始まります。だから「なぜ戦っていたのか」だけ知っていればOK。</div>
+
+  <div class="tl">
+    <div class="ev"><div class="when">はじまり</div><div class="what">世界一の美女ヘレネが、トロイアの王子に連れ去られる</div>
+      <p>ヘレネはスパルタ王<b>メネラオス</b>の妻。彼女を奪い返すため、ギリシャ各地の王たちが連合軍を作る。</p></div>
+    <div class="ev"><div class="when">総大将</div><div class="what">メネラオスの兄・アガメムノンが連合軍を率いる</div>
+      <p>出航前、風が吹かずに船が出せない。アガメムノンは<b>実の娘イピゲネイアを神への生け贄に</b>して風を得た、という伝説がある（彼の家庭が「ワケあり」なのはこのため）。</p></div>
+    <div class="ev"><div class="when">10年間</div><div class="what">トロイアの城壁は堅く、戦争は10年に及ぶ</div>
+      <p>英雄アキレウスやヘクトルが活躍するのが有名な『イリアス』の時代。映画ではほぼ出てこないので覚えなくて大丈夫。</p></div>
+    <div class="ev"><div class="when">決着</div><div class="what">オデュッセウスの「トロイアの木馬」作戦</div>
+      <p>巨大な木馬の中に兵を隠し、贈り物と偽って城内に運び込ませる。<b>シノン</b>という兵士が「脱走兵」のフリをして敵を信じ込ませる囮役（ギリシャ側の伝承）。映画の冒頭6分はこの場面です。</p></div>
+    <div class="ev"><div class="when">そして…</div><div class="what">ここから『オデュッセイア』が始まる</div>
+      <p>メネラオスやアガメムノンは比較的すぐに帰国。でもオデュッセウスだけは帰れない。それはなぜか、は映画で。</p></div>
+  </div>
+
+  <h3>ギリシャ側の主な国</h3>
+  <div class="chips">
+    <span class="chip"><b>イタケ</b>：オデュッセウスの国（小さな島）</span>
+    <span class="chip"><b>スパルタ</b>：メネラオス＆ヘレネの国</span>
+    <span class="chip"><b>ミュケナイ</b>：アガメムノンの国（最強国）</span>
+    <span class="chip"><b>トロイア</b>：敵の都（海の向こう）</span>
+  </div>
+</section>
+
+<!-- ===== ③ ===== -->
+<section id="t2">
+  <h2><span class="n">3</span>人物図鑑（人間編）</h2>
+  <div class="bubble">名前がカタカナで似ているので、<b>「どの陣営か」</b>でまとめて覚えるのがコツ。俳優の顔で追えるようにキャストも併記。</div>
+
+  <h3>🏠 イタケの王家と味方</h3>
+  <div class="grid">
+    <div class="card"><span class="tag t-home">主人公</span><div class="ava" style="background:#f5c542">🧔</div>
+      <div class="name">オデュッセウス</div><div class="en">Odysseus（ラテン名：ユリシーズ）</div><span class="actor">マット・デイモン</span>
+      <p>イタケの王。腕力より<b>頭脳と口のうまさ</b>で勝つタイプ。変装・ウソ・策略が得意。アテナに愛され、海神ポセイドンには嫌われている。</p></div>
+    <div class="card"><span class="tag t-home">妻</span><div class="ava" style="background:#ff7eb6">👸</div>
+      <div class="name">ペネロペ</div><div class="en">Penelope</div><span class="actor">アン・ハサウェイ</span>
+      <p>イタケの王妃。夫の生死不明のまま20年、求婚者たちをあれこれ理由をつけて<b>かわし続けている</b>。夫に負けない知恵者。</p></div>
+    <div class="card"><span class="tag t-home">息子</span><div class="ava" style="background:#5de0ff">🧑</div>
+      <div class="name">テレマコス</div><div class="en">Telemachus</div><span class="actor">トム・ホランド</span>
+      <p>父が出征したとき赤ん坊だった王子、いま約20歳。父の顔を知らない。「父は生きているのか？」を確かめに旅に出る。</p></div>
+    <div class="card"><span class="tag t-home">忠臣</span><div class="ava" style="background:#7dffb3">👴</div>
+      <div class="name">エウマイオス</div><div class="en">Eumaeus</div><span class="actor">ジョン・レグイザモ</span>
+      <p>王家に仕える豚飼い。目が悪いが、主人の帰りを信じ続けている数少ない人。</p></div>
+    <div class="card"><span class="tag t-home">師</span><div class="ava" style="background:#c38bff">🧓</div>
+      <div class="name">メントル</div><div class="en">Mentor</div><span class="actor">ライアン・ハースト</span>
+      <p>テレマコスの教育係。「メンター」という英単語の語源になった人。</p></div>
+  </div>
+
+  <h3>😈 求婚者たち（イタケに居座る側）</h3>
+  <div class="grid">
+    <div class="card"><span class="tag t-enemy">筆頭</span><div class="ava" style="background:#ff6b6b">😏</div>
+      <div class="name">アンティノオス</div><div class="en">Antinous</div><span class="actor">ロバート・パティンソン</span>
+      <p>求婚者のリーダー格。ペネロペと結婚して<b>王位を手に入れたい</b>。王家の食料を食い散らかす一団の中心。</p></div>
+    <div class="card"><span class="tag t-enemy">裏切り者</span><div class="ava" style="background:#ffa94d">👩‍🦱</div>
+      <div class="name">メラントー ＆ メランティオス</div><div class="en">Melantho / Melanthius</div><span class="actor">ミア・ゴス／ローガン・マーシャル＝グリーン</span>
+      <p>王家の侍女と牛飼いの双子。主人よりも求婚者側になびいている使用人。</p></div>
+    <div class="card"><span class="tag t-enemy">その他</span><div class="ava" style="background:#aaa">👥</div>
+      <div class="name">ポリュボスほか</div><div class="en">Polybus, Peisander…</div><span class="actor">コリー・ホーキンズ ほか</span>
+      <p>名前は覚えなくてOK。「アンティノオスの仲間たち」と思えば十分。</p></div>
+  </div>
+
+  <h3>⚔️ ギリシャ軍の仲間と王たち（トロイア側の思い出）</h3>
+  <div class="grid">
+    <div class="card"><span class="tag t-ally">副官</span><div class="ava" style="background:#ffa94d">🪖</div>
+      <div class="name">エウリュロコス</div><div class="en">Eurylochus</div><span class="actor">ヒメーシュ・パテル</span>
+      <p>オデュッセウスの船のナンバー2。隊長の判断に<b>異を唱える役</b>。部下たちの代表的な声。</p></div>
+    <div class="card"><span class="tag t-ally">囮役</span><div class="ava" style="background:#ffe08a">🗝️</div>
+      <div class="name">シノン</div><div class="en">Sinon</div><span class="actor">エリオット・ペイジ</span>
+      <p>木馬作戦で囮になった兵士。原作『オデュッセイア』には出てこず、ローマの叙事詩から持ってきたキャラ。映画独自の役割あり。</p></div>
+    <div class="card"><span class="tag t-troy">総大将</span><div class="ava" style="background:#ff7eb6">👑</div>
+      <div class="name">アガメムノン</div><div class="en">Agamemnon</div><span class="actor">ベニー・サフディ</span>
+      <p>ミュケナイ王、連合軍の総大将。メネラオスの兄。娘を生け贄にした過去を持つ。</p></div>
+    <div class="card"><span class="tag t-troy">スパルタ王</span><div class="ava" style="background:#ff7eb6">🛡️</div>
+      <div class="name">メネラオス</div><div class="en">Menelaus</div><span class="actor">ジョン・バーンサル</span>
+      <p>ヘレネの夫。戦争の「当事者」。テレマコスが父の消息を尋ねに訪ねる相手。</p></div>
+    <div class="card"><span class="tag t-troy">双子の姉妹</span><div class="ava" style="background:#c38bff">👯‍♀️</div>
+      <div class="name">ヘレネ ＆ クリュタイムネストラ</div><div class="en">Helen / Clytemnestra</div><span class="actor">ルピタ・ニョンゴ（二役）</span>
+      <p><b>ヘレネ</b>＝戦争の原因になった絶世の美女、メネラオスの妻。<b>クリュタイムネストラ</b>＝その双子の姉で、アガメムノンの妻。一人二役なので「同じ顔が2人いる」と混乱しないように。</p></div>
+  </div>
+</section>
+
+<!-- ===== ④ ===== -->
+<section id="t3">
+  <h2><span class="n">4</span>神様と怪物（旅先で出会う存在）</h2>
+  <div class="bubble">ギリシャ神話の神様は<b>人間くさい</b>。えこひいきするし、怒ると10年くらい根に持つ。「誰がオデュッセウスの味方で、誰が敵か」だけ押さえましょう。</div>
+
+  <h3>⚡ 神々</h3>
+  <div class="grid">
+    <div class="card"><span class="tag t-god">味方</span><div class="ava" style="background:#5de0ff">🦉</div>
+      <div class="name">アテナ</div><div class="en">Athena</div><span class="actor">ゼンデイヤ</span>
+      <p>知恵と戦略の女神。頭の切れるオデュッセウスがお気に入りで、彼の<b>守護神</b>。象徴はフクロウ。人間の姿を借りて現れることが多い。</p></div>
+    <div class="card"><span class="tag t-god">敵</span><div class="ava" style="background:#1b6fa8">🔱</div>
+      <div class="name">ポセイドン</div><div class="en">Poseidon</div><span class="actor">（姿より「海の怒り」として）</span>
+      <p>海の神。オデュッセウスは旅の途中でこの神を<b>本気で怒らせる</b>。帰れない理由の大半はこの人（神）。</p></div>
+    <div class="card"><span class="tag t-god">ルール</span><div class="ava" style="background:#f5c542">⚡</div>
+      <div class="name">ゼウス</div><div class="en">Zeus</div><span class="actor">（名前で語られる）</span>
+      <p>神々の王。<b>「客と主人の掟」（次のタブ参照）</b>を守らせる神。この掟を破る者には罰が下る。映画の重要なモチーフ。</p></div>
+  </div>
+
+  <h3>🏝️ 島で出会う者たち（名前だけ・結末なし）</h3>
+  <div class="grid">
+    <div class="card"><span class="tag t-isle">巨人</span><div class="ava" style="background:#8b5e3c">👁️</div>
+      <div class="name">ポリュペモス</div><div class="en">Polyphemus（キュクロプス）</div><span class="actor">ビル・アーウィン（演技担当）</span>
+      <p>一つ目の巨人。羊を飼って洞窟に住む。ポセイドンの<b>息子</b>（ここ、あとで効いてきます）。</p></div>
+    <div class="card"><span class="tag t-isle">魔女</span><div class="ava" style="background:#c38bff">🧙‍♀️</div>
+      <div class="name">キルケ</div><div class="en">Circe</div><span class="actor">サマンサ・モートン</span>
+      <p>アイアイエ島に住む魔女で女神。薬と魔法で人を変身させる。オデュッセウス一行が長く滞在する島のひとつ。</p></div>
+    <div class="card"><span class="tag t-isle">ニンフ</span><div class="ava" style="background:#ffe08a">🌺</div>
+      <div class="name">カリュプソ</div><div class="en">Calypso</div><span class="actor">シャーリーズ・セロン</span>
+      <p>オギュギア島のニンフ（妖精）。オデュッセウスに恋をして「ずっとここにいれば<b>不死</b>にしてあげる」と誘う。原作では彼はここに7年いる。</p></div>
+    <div class="card"><span class="tag t-isle">預言者</span><div class="ava" style="background:#555">👻</div>
+      <div class="name">テイレシアス</div><div class="en">Tiresias</div><span class="actor">ジェームズ・レマー</span>
+      <p>盲目の預言者。すでに死んでいる。つまり会うには<b>冥界（死者の国）</b>へ行く必要がある、ということ。</p></div>
+    <div class="card"><span class="tag t-isle">怪物</span><div class="ava" style="background:#1b6fa8">🐙</div>
+      <div class="name">スキュラ</div><div class="en">Scylla</div><span class="actor">（VFX）</span>
+      <p>海峡に潜む多頭の海の怪物。船乗りの悪夢。</p></div>
+    <div class="card"><span class="tag t-isle">風</span><div class="ava" style="background:#5de0ff">🌬️</div>
+      <div class="name">アイオロス（風の島）</div><div class="en">Aeolia</div><span class="actor">—</span>
+      <p>風を操る王の島。原作では「風を袋に詰めて渡す」有名なエピソードの舞台。</p></div>
+    <div class="card"><span class="tag t-isle">人食い</span><div class="ava" style="background:#ff6b6b">🪓</div>
+      <div class="name">ライストリュゴネス人</div><div class="en">Laestrygonians</div><span class="actor">—</span>
+      <p>巨人族。名前は覚えなくていいです。「あの巨人の集落」で通じます。</p></div>
+  </div>
+  <p class="small">※ 原作にはこのほかセイレーン（歌で船乗りを誘う）、ロートスの実、太陽神の牛などが登場します。映画にどれが出るかは本編で。</p>
+</section>
+
+<!-- ===== ⑤ ===== -->
+<section id="t4">
+  <h2><span class="n">5</span>これだけ覚えればセリフが刺さるキーワード</h2>
+
+  <div class="kw"><div class="ico">🤝</div><div><div class="ttl">クセニア（客と主人の掟）＝「ゼウスの法」</div>
+    <p>古代ギリシャ最重要ルール。<b>旅人を迎えたら食事と寝床を与えよ。客は主人の家を荒らすな。</b>これを破るとゼウスの罰が下る。映画で「ゼウスの法」「客の掟」と出たらこれ。<br>→ 求婚者たちが王宮で飲み食いし放題なのは、この掟の<b>最悪の違反</b>。だから観客は「こいつらは罰されるべき」と感じる設計です。</p></div></div>
+
+  <div class="kw"><div class="ico">🏠</div><div><div class="ttl">ノストス（帰郷）</div>
+    <p>「家に帰る」こと自体が英雄の目的、という価値観。ノスタルジアの語源。この物語は「勝つ」話ではなく<b>「帰る」話</b>。</p></div></div>
+
+  <div class="kw"><div class="ico">🎭</div><div><div class="ttl">変装と偽名</div>
+    <p>オデュッセウスは<b>本名を隠す</b>のが癖。神様（特にアテナ）も人間に化けて現れる。「この人、実は誰？」と疑いながら見ると二度おいしい。</p></div></div>
+
+  <div class="kw"><div class="ico">🧠</div><div><div class="ttl">「知恵の英雄」vs 「力の英雄」</div>
+    <p>アキレウスが力なら、オデュッセウスは知恵。ホメロスは彼を「<b>ポリュトロポス</b>（多くの顔を持つ・変転の人）」と呼ぶ。ズルくて、口がうまくて、でも部下を守りたい複雑な男。</p></div></div>
+
+  <div class="kw"><div class="ico">🏺</div><div><div class="ttl">時代背景：青銅器時代の終わり</div>
+    <p>舞台は紀元前1200年ごろ。鉄はまだなく、武器は<b>青銅</b>。この時代、地中海の文明が次々に崩壊した「<b>後期青銅器時代の崩壊</b>」が起き、「<b>海の民</b>」と呼ばれる謎の集団が沿岸を襲ったと記録に残る。ノーランはこの史実を物語に織り込んでいるので、「海の民」という言葉が出たら覚えておいて。</p></div></div>
+
+  <div class="kw"><div class="ico">✨</div><div><div class="ttl">「魔法のように見える時代」</div>
+    <p>ノーランは神話を<b>リアル寄り</b>に描くと公言。神や怪物は「本当に超常なのか、人間がそう解釈しているのか」が曖昧に見えるように作ってあります。どっちと決めつけず、両方の目で見るのがおすすめ。</p></div></div>
+</section>
+
+<!-- ===== ⑥ ===== -->
+<section id="t5">
+  <h2><span class="n">6</span>見方のコツ（ノーラン対策）</h2>
+  <div class="bubble note"><b>「何も知らずに行くとわからない」と言われる最大の理由は、時間が前後するから。</b><br>
+  原作ホメロス自体が「物語の途中から始めて、過去を回想で語る」構造。ノーランもそれを踏襲して<b>非線形</b>に組んでいます。</div>
+
+  <h3>⏱️ 3本の時間軸を見分ける</h3>
+  <table>
+    <tr><th>軸</th><th>いつ</th><th>目印</th></tr>
+    <tr><td>🏛️ 遠い過去</td><td>トロイア戦争の終わり（約10年前）</td><td>木馬・燃える都・鎧の兵士たち。オデュッセウスが若く見える</td></tr>
+    <tr><td>🌊 旅の記憶</td><td>戦争後〜現在までの海の10年</td><td>船・島・怪物。部下が一緒にいる</td></tr>
+    <tr><td>🏠 現在</td><td>いま、20年目のイタケ</td><td>ペネロペ・テレマコス・求婚者。オデュッセウスは一人</td></tr>
+  </table>
+  <p>迷ったら「<b>部下が何人いるか</b>」「<b>テレマコスが映っているか</b>」で判定すると大体わかります。</p>
+
+  <h3>👀 注目ポイント（ネタバレなし）</h3>
+  <div class="three">
+    <div class="box"><div class="h">同じ顔・同じ名前</div><p>ルピタ・ニョンゴは一人二役。ゼンデイヤも「アテナ」と「ある人間」を演じます。似た顔が出たら「わざと」です。</p></div>
+    <div class="box c2"><div class="h">弓</div><p>オデュッセウスの弓は特別な意味を持つ小道具。映ったら注目。</p></div>
+    <div class="box c3"><div class="h">「客」としての振る舞い</div><p>誰かが家に招かれる場面では、主人と客がどう振る舞うかを見ると、クセニアのテーマが見えてきます。</p></div>
+  </div>
+
+  <h3>🎬 鑑賞メモ</h3>
+  <table>
+    <tr><th>上映時間</th><td>173分（約2時間53分）。トイレは先に。</td></tr>
+    <tr><th>フォーマット</th><td>長編史上初の全編IMAXフィルム撮影。IMAXで見ると画角が縦に広がる（通常スクリーンより上下の情報が多い）。</td></tr>
+    <tr><th>音</th><td>ノーラン作品は音楽・効果音が大きくセリフが聞き取りにくいという声が毎回あります。<b>字幕版なら安心</b>。吹替版（平田広明、榎木淳弥、坂本真綾ほか）もあります。</td></tr>
+    <tr><th>描写</th><td>米国R指定。戦闘・怪物の残酷描写あり。</td></tr>
+    <tr><th>原作との違い</th><td>かなり改変されています。原作ファンの間でも賛否があるので、「原作と違う＝ミス」ではなく「ノーランの解釈」として見るのがコツ。</td></tr>
+  </table>
+</section>
+
+<!-- ===== ⑦ ===== -->
+<section id="t6">
+  <h2><span class="n">7</span>30秒クイズで最終確認</h2>
+  <div class="bubble">全部答えられたら準備完了。答えはクリックで。</div>
+
+  <div class="quiz"><div class="q">Q1. オデュッセウスは何年、家を空けている？</div>
+    <button data-a="0">10年</button><button data-a="1">20年</button><button data-a="0">30年</button>
+    <div class="ans"></div><div class="exp small" hidden>戦争10年＋帰り道10年＝20年。息子は赤ん坊→20歳。</div></div>
+
+  <div class="quiz"><div class="q">Q2. オデュッセウスの守護神は？</div>
+    <button data-a="0">ポセイドン</button><button data-a="1">アテナ</button><button data-a="0">ゼウス</button>
+    <div class="ans"></div><div class="exp small" hidden>知恵の女神アテナ（ゼンデイヤ）。ポセイドンは敵。</div></div>
+
+  <div class="quiz"><div class="q">Q3. 王宮に居座って飲み食いしている人たちは？</div>
+    <button data-a="0">トロイア兵</button><button data-a="0">海の民</button><button data-a="1">ペネロペの求婚者</button>
+    <div class="ans"></div><div class="exp small" hidden>筆頭はアンティノオス（ロバート・パティンソン）。</div></div>
+
+  <div class="quiz"><div class="q">Q4. 「ゼウスの法」とは何のルール？</div>
+    <button data-a="1">客と主人は互いに礼を尽くす</button><button data-a="0">王は神に生け贄を捧げる</button><button data-a="0">海を渡る者は税を払う</button>
+    <div class="ans"></div><div class="exp small" hidden>クセニア（客人歓待の掟）。これを破る者に罰が下る。</div></div>
+
+  <div class="quiz"><div class="q">Q5. ルピタ・ニョンゴが演じる二役は？</div>
+    <button data-a="0">アテナとキルケ</button><button data-a="1">ヘレネとクリュタイムネストラ</button><button data-a="0">ペネロペとカリュプソ</button>
+    <div class="ans"></div><div class="exp small" hidden>双子の姉妹。ヘレネはメネラオスの妻、クリュタイムネストラはアガメムノンの妻。</div></div>
+
+  <div class="bubble right" style="margin-top:24px">これで予習は終わり。あとは映画館で、<b>「この人は帰れるのか」</b>を一緒に祈ってください。いってらっしゃい！</div>
+</section>
+
+<footer>キャスト情報：Universal Pictures 公式発表・各種キャストガイド（2026年7月）に基づく。物語の結末・各エピソードの結果は意図的に記載していません。</footer>
+</div>
+
+<script>
+document.querySelectorAll('nav.tabs button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('nav.tabs button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.t).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+document.querySelectorAll('.quiz').forEach(q=>{
+  const ans=q.querySelector('.ans'), exp=q.querySelector('.exp');
+  q.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      q.querySelectorAll('button').forEach(x=>x.classList.remove('ok','ng'));
+      if(btn.dataset.a==='1'){btn.classList.add('ok');ans.textContent='⭕ 正解！ '+exp.textContent;}
+      else{btn.classList.add('ng');ans.textContent='❌ もう一回！';}
+    });
+  });
+});
+</script>
+</body>
+</html>
