@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Honolulu Marathon 12/13 ｜ 事前Tips・スタート&ラン中・ホテル地図 🌺</title>
+<style>
+  :root{--bg:#0f1220;--card:#1a1f35;--card2:#222847;--text:#f4f1ea;--muted:#a3a8c3;--run:#ff7a59;--str:#6ec6ff;--long:#ffd166;--race:#ff4d8d;--ok:#4ade80;--warn:#ffd166;--ng:#ff6b6b;--na:#6c739a}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+  header{background:linear-gradient(135deg,#ff9a56 0%,#ff5e7d 35%,#7b4dff 75%,#1a2a6c 100%);padding:28px 20px 18px;text-align:center}
+  header h1{margin:0;font-size:26px;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+  header p{margin:6px 0 0;opacity:.95;font-size:14px}
+  header a{color:#fff}
+  nav.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:6px;justify-content:center;padding:10px 8px;border-bottom:1px solid #2a3054;flex-wrap:wrap}
+  nav.tabs button{background:var(--card);color:var(--text);border:1px solid #2a3054;border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer}
+  nav.tabs button.on{background:var(--long);color:#1a1a1a;font-weight:700;border-color:var(--long)}
+  main{max-width:980px;margin:0 auto;padding:18px 14px 60px}
+  .tab{display:none}.tab.on{display:block}
+  h2{font-size:20px;margin:26px 0 10px}
+  h3{font-size:16px;margin:18px 0 6px;color:var(--long)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+  .tip{background:var(--card);border-radius:14px;padding:14px 16px;font-size:14px;border:1px solid #2a3054}
+  .tip.wide{grid-column:1/-1}
+  .tip.hot{border-color:#ff4d8d77;background:#2a1630}
+  .tip h4{margin:0 0 6px;font-size:16px}
+  .tip ul,.tip ol{margin:0;padding-left:18px}
+  .tip li{margin:4px 0}
+  .tip b{color:#ffd9a3}
+  .src{color:var(--muted);font-size:12px}
+  .src a{color:#9bb5ff}
+  .timeline{list-style:none;padding:0;margin:0}
+  .timeline li{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed #2a3054}
+  .timeline li b{color:var(--long)}
+  .mapwrap{overflow-x:auto;background:#0b0e1a;border:1px solid #2a3054;border-radius:14px;padding:10px}
+  .map{position:relative;display:flex;min-width:1400px;width:1400px}
+  .map img{width:1000px;height:auto;display:block;border-radius:8px}
+  .map .imgbox{position:relative;width:1000px;flex:none}
+  .map svg{width:400px;flex:none;display:block}
+  .pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
+  .pin .dot{width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+  .pin .lbl{margin-top:4px;background:rgba(15,18,32,.92);border:1px solid #fff3;border-radius:8px;padding:3px 7px;font-size:12px;line-height:1.3;white-space:nowrap;text-align:center}
+  .pin .lbl b{display:block;font-size:12.5px}
+  .c-ok{background:var(--ok)}.c-warn{background:var(--warn)}.c-ng{background:var(--ng)}.c-na{background:var(--na)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:8px 0 14px}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);border-radius:12px;overflow:hidden}
+  th,td{padding:8px 10px;border-bottom:1px solid #2a3054;text-align:left;vertical-align:top}
+  th{background:var(--card2);font-size:12.5px;color:var(--muted)}
+  tr.rec td{background:#1f2a1f}
+  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;background:var(--card2);margin-left:4px}
+  .tag.hil{background:#2a2f55;color:#cfd6ff}.tag.ihg{background:#1f3a2a;color:#9be7a5}.tag.mar{background:#4a2a2a;color:#ffc6c6}
+  footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}
+  footer a{color:#9bb5ff}
+  @media (max-width:600px){header h1{font-size:21px} nav.tabs button{font-size:13.5px;padding:8px 11px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌺 Honolulu Marathon 12/13 ｜ 本番の知識ページ</h1>
+  <p>練習プランは → <a href="honolulu_plan_shunka.html">shunka のプラン</a> ／ <a href="honolulu_plan.html">共有用プラン</a></p>
+</header>
+<nav class="tabs">
+  <button data-tab="pre" class="on">📋 事前に知っておくこと</button>
+  <button data-tab="race">🏁 スタート & ラン中</button>
+  <button data-tab="hotel">🏨 ホテル地図（スタート側）</button>
+</nav>
+<main>
+
+<!-- ================= TAB 1 ================= -->
+<section class="tab on" id="tab-pre">
+  <h2>📋 事前に知っておくこと</h2>
+  <div class="grid">
+    <div class="tip wide hot"><h4>🎫 エントリーと「色」の決まり方</h4><ul>
+      <li><b>第1期エントリー締切: 10/19（月）23:59</b>。第2期は 10/23〜11/18 で値上がり。まだなら今週〜来週に</li>
+      <li>スタートの並び順（色）は<b>エントリー時に申告した完走予想タイム</b>で決まる。6時間以上 → <b>PURPLE</b>（紫）</li>
+      <li>2人で一緒にスタートしたいなら、<b>遅い方のタイムで2人とも申告</b>する（速い色の人は遅い色のゾーンに下がれるが、逆は不可）</li>
+      <li>記録は<b>ネットタイム</b>（スタートのマット通過→ゴール）。後ろから出ても損しない。完走証にもネットタイムが載る</li>
+      <li>完走証は WEB ダウンロード。紙が欲しければ翌日 12/14 のフィニッシャーマンデー（カピオラニ公園）へ</li>
+      <li class="src">出典: <a href="https://www.honolulumarathon.jp/2025/race/race-marathon/" target="_blank">JALホノルルマラソン 大会要項</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🏨 ホテルの考え方（スタートとゴールは別の場所）</h4><ul>
+      <li>スタート = アラモアナ公園前、ゴール = カピオラニ公園。<b>約4 km 離れている</b>（新宿〜渋谷くらい）</li>
+      <li><b>スタート側に泊まる最大の利点は「トイレ」</b>。会場の仮設トイレは長蛇の列。部屋で済ませてギリギリに出られる</li>
+      <li>2025年はスタート前に<b>土砂降り</b>。近いホテルならギリギリまで部屋で雨宿りできる</li>
+      <li>弱点はゴール後にホテルまで約4 km。<b>大会トロリーは当日運行なし</b>。TheBus・タクシー・Uber・biki で帰る（2泊目をゴール側にしてあるなら解決）</li>
+      <li>2026年1月からハワイの宿泊税が値上げ。待っても安くならないので<b>無料キャンセル可で早めに押さえる</b></li>
+      <li class="src">出典: <a href="https://chot-hawaii.com/hm_hotel_area/" target="_blank">chot-hawaii ホテルの場所の選び方</a> ／ <a href="https://ameblo.jp/mezasehonolulu/entry-12900598089.html" target="_blank">やさぐれすね子さんブログ</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>📆 前日 12/12（土）のやること</h4><ul>
+      <li><b>EXPO</b>（ハワイ・コンベンションセンター、木〜土）でゼッケン・計測タグ・参加Tシャツ・<b>公式クリアバッグ</b>を受け取る。土曜が最終日</li>
+      <li><b>Clothing Check-In</b>: カピオラニ公園（ゴール）で<b>土曜 10:00〜17:00</b>のみ。ゼッケン番号を書いた公式クリアバッグに、ゴール後の着替え・サンダル・タオルを入れて預ける。<b>当日スタート地点では預けられない</b>。回収は日曜 15:00 まで</li>
+      <li>ABCストアで<b>朝食を買っておく</b>（おにぎり・バナナ・カップ味噌汁・カステラ）。3時に開いている店は少ない</li>
+      <li>7:00 のカラカウア・メリーマイル（1.6 km ファンラン）は<b>走らない</b>。脚を温存</li>
+      <li>夕食 17〜18時に炭水化物、20時就寝。<b>緊張で眠れなくても完走できる</b>（6時間半完走者も前夜は眠れなかった）</li>
+      <li class="src">出典: <a href="https://www.honolulumarathon.org/key-information/getting-to-the-start" target="_blank">公式 Getting to the Start</a> ／ <a href="https://note.com/manmaru_life2/n/ndc6dc6f406e9" target="_blank">note: 練習ほぼゼロで6時間半完走</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🎒 持ち物（身につける／ポーチ）</h4><ul>
+      <li>ゼッケン＋留め具（安全ピン or ゼッケン留め）。計測タグはゼッケン裏</li>
+      <li><b>捨てていい上着 or ゴミ袋ポンチョ</b>（待機中の冷え・雨対策。直前に脱いでコース脇へ → 寄付される）</li>
+      <li>キャップ・サングラス・日焼け止め（SPF30+）</li>
+      <li>ワセリン（股・脇・足指・乳首）。出発前に塗る</li>
+      <li>補給: 食べ慣れたジェル／羊羹を<b>6〜8個</b>、塩タブレット</li>
+      <li>スマホ（ジップ袋）・カード・現金少し・ホテルのカードキー・ID（パスポートコピー）</li>
+      <li>携帯トイレ or ティッシュ、絆創膏、常備薬</li>
+      <li>靴・靴下・ウェアは<b>練習で使ったもの</b>。新品は持ち込まない</li>
+      <li class="src">出典: <a href="https://crexgroup.com/ja/travel/niche/honolulu-marathon-entry-guide/" target="_blank">CREX 参加完全ガイド</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🌤️ 天気・気温の現実</h4><ul>
+      <li>5時: <b>20℃前後</b>。海風で体感はもっと低く、半袖だと肌寒い</li>
+      <li>7時過ぎに日が出てから一気に <b>25℃以上</b>。日差しが強烈</li>
+      <li>乾季でも「シャワー」（にわか雨）あり。2025年は土砂降りスタート</li>
+      <li>対策: 待機は捨て上着、走り出したら半袖、日が出たらキャップ＋水を頭からかぶる</li>
+    </ul></div>
+
+    <div class="tip"><h4>🏁 ゴール後の流れ</h4><ul>
+      <li>ゴール → 完走メダル・完走Tシャツ受け取り → 写真 → 水・フルーツ</li>
+      <li>Clothing Check-In で荷物回収（<b>15:00 まで</b>。過ぎると寄付）。サンダルに履き替えが至福</li>
+      <li>紙の完走証は翌日フィニッシャーマンデーで。WEB は当日〜数日で公開</li>
+      <li>ゴール側ホテルなら徒歩。スタート側に戻るなら TheBus/Uber（規制で遠回りあり）</li>
+      <li>当日夜は塩分・たんぱく質・水。翌日は海を歩くと脚の回復が早い</li>
+    </ul></div>
+
+    <div class="tip wide"><h4>📚 続けて読むとよい情報源</h4><ul>
+      <li><a href="https://ameblo.jp/mezasehonolulu/" target="_blank">やさぐれすね子さん（アメブロ）</a>: 2013年から毎日ホノルルマラソン情報を発信。ツアー・エントリー・現地事情が最速</li>
+      <li><a href="https://hono-mara.com/course02/" target="_blank">hono-mara.com コース攻略</a>: リピーターによる区間ごとの注意点。給水所の取り方はここから</li>
+      <li><a href="https://note.com/honomara2026/n/ne5d268a61cff" target="_blank">note: 運動経験ゼロからホノマラ2026完走を目指す人</a>: 同じ年の同じ目標の人。心拍120・LSD・「速くなるのはその先」</li>
+      <li><a href="https://note.com/positaku/n/nadcd4071d0a3" target="_blank">note: 初心者が3ヶ月で笑顔で走りきる方法</a>: 「遅いかな？でちょうどいい」「時計より呼吸」</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ================= TAB 2 ================= -->
+<section class="tab" id="tab-race">
+  <h2>🏁 スタート & ラン中</h2>
+  <div class="grid">
+    <div class="tip wide hot"><h4>🟣 立ち位置: PURPLE は最後尾、Atkinson Dr 側に並ぶ</h4><ul>
+      <li>スタートラインは <b>Ala Moana Blvd × Piikoi St</b>。そこから東（ワイキキ方向）へ WHITE → GREEN → BLUE → ORANGE → <b>PURPLE</b> の順に並ぶ。PURPLE ゾーンの東端が <b>Atkinson Dr</b>（アラモアナセンターの東の端）</li>
+      <li>PURPLE からスタートラインまでは<b>約 700 m〜1 km</b>。号砲（5:00・花火）のあと人波と一緒にゾロゾロ前進し、<b>マット通過は 5:20〜5:30 ごろ</b>。この移動がそのままウォームアップ。距離にもタイムにも入らない</li>
+      <li>スタートエリアへは<b>正面（スタートラインの西側）からは入れない</b>。入口は <b>Piikoi St</b>・<b>Atkinson Dr</b>・<b>ワイキキ側から Ala Moana Blvd を歩いてくる</b>の3つ。ワイキキ西端のホテルなら Ala Moana Blvd をまっすぐ歩けば PURPLE の列の後ろに着く</li>
+      <li>仮設トイレはアラモアナ公園側（コラールの海側）に数か所。<b>部屋で済ませてから出るのが鉄則</b></li>
+      <li>自分の色より前のゾーンには入れない（後ろには下がれる）。10K ラン&ウォークの人も同じ列</li>
+      <li class="src">出典: <a href="https://www.honolulumarathon.org/key-information/getting-to-the-start" target="_blank">公式 Start Line & Runners Entrance Map</a>（ホテル地図タブに掲載）</li>
+    </ul></div>
+
+    <div class="tip"><h4>⏰ 当日朝のタイムライン（スタート側ホテルの場合）</h4>
+      <ul class="timeline">
+        <li><b>2:45</b><span>起床。カーテン開けて雨チェック。朝食（おにぎり＋バナナ＋味噌汁）</span></li>
+        <li><b>3:20</b><span>着替え → ワセリン → 日焼け止め → ゼッケン確認 → トイレ①</span></li>
+        <li><b>3:45</b><span>トイレ②、捨て上着を着て出発。スマホ・補給・カードキー確認</span></li>
+        <li><b>4:05</b><span>Ala Moana Blvd を西へ。Atkinson Dr の手前で PURPLE ゾーンへ</span></li>
+        <li><b>4:30</b><span>紫の旗の下に整列。ストレッチ・写真・補給ひとつ</span></li>
+        <li><b>5:00</b><span>花火 → 号砲。動き出すまで数分、歩いて前進</span></li>
+        <li><b>5:25</b><span>マット通過。捨て上着はここまでに脱いで脇へ。<b>最初の 2 km は人波で走れない</b>→焦らない</span></li>
+      </ul>
+      <p class="src">シャトル（動物園→スタート 2:00〜4:00）を使う場合は 3:00〜3:30 が大行列。スタート側泊なら不要</p>
+    </div>
+
+    <div class="tip"><h4>💧 給水所の取り方 3か条（初心者が一番失敗するところ）</h4><ol>
+      <li><b>必ず歩いて取りに行く</b>。入口は人が殺到してぶつかる</li>
+      <li><b>奥のテーブルで取る</b>。手前は激混み、少し先は空いている。ボランティアの手から受け取る</li>
+      <li><b>紙コップの口を潰して鳥のくちばし状にして、歩きながら飲む</b>。走りながら飲むとむせる</li>
+    </ol><ul>
+      <li>最初の給水は<b>約 4 km</b>。<b>最初の2か所は水だけ</b>、ゲータレードはその後から</li>
+      <li>エイドは全 <b>17か所</b>、約 3〜4 km ごと。後半はバナナも出る</li>
+      <li>私設エイド（地元の人）: ホースの水シャワー・カットフルーツ・プレッツェル・氷。遠慮せずもらう</li>
+      <li class="src">出典: <a href="https://hono-mara.com/course02/" target="_blank">hono-mara.com</a> ／ <a href="https://crexgroup.com/ja/travel/niche/honolulu-marathon-entry-guide/" target="_blank">CREX</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🍌 補給スケジュール（6〜7時間用）</h4><ul>
+      <li>エイドごとに<b>必ず一口</b>は飲む（喉が渇く前に）。基本はスポドリ、水は頭からかぶる用</li>
+      <li><b>45分ごとに1個</b>食べる（ジェル／羊羹）。30 km 以降は食べたくなくても口に入れる</li>
+      <li><b>10 km ごとに塩タブレット</b>。足つり予防</li>
+      <li><b>カフェイン入りジェルは残り 10〜7 km</b> で投入（利尿作用があるので序盤は避ける）</li>
+      <li>胃が疲れたら固形物をやめてスポドリ＋バナナに切り替え</li>
+      <li class="src">出典: <a href="https://www.koto-seaside.jp/archives/1218" target="_blank">エイド補給の基礎知識</a></li>
+    </ul></div>
+
+    <div class="tip wide"><h4>🗺️ コース区間ごとの注意点</h4><ul>
+      <li><b>0〜3 km ダウンタウン往路</b>: 暗い・混雑・花火とイルミ。歩く流れに乗る。<b>ここで速くしても得なし</b></li>
+      <li><b>3〜6 km 復路</b>: ホノルル・シティライツの巨大サンタ（みんな写真を撮る）。4 km 手前で最初の給水（水のみ）</li>
+      <li><b>6〜8 km アラモアナ→カラカウア通り</b>: スタート地点の横を通り、<b>コースが狭くなって混む</b>（7 km の給水所あたりから）</li>
+      <li><b>8〜10 km ワイキキ中心</b>: カラカウア通りのど真ん中。応援が一番多い。<b>10 km でゴール（カピオラニ公園）の横を通る</b>→「まだ3倍ある」ではなく「<b>もう1/3終わった</b>」と言い換える</li>
+      <li><b>11〜14 km ダイヤモンドヘッド往路</b>: 高低差約 35 m。<b>登りは全部歩く</b>、進行方向<b>右側</b>を使う（復路と共用の道）。ここで日の出（7時前）</li>
+      <li><b>14〜18 km カハラ → ハイウェイ</b>: 高級住宅街、応援が減って静か。ペースを刻む</li>
+      <li><b>18〜35 km ハワイカイ往復</b>: 長くて単調、日が高くなって暑い。<b>一番つらい区間</b>。音楽・景色・「次の給水所まで」で刻む。私設エイドが多いのもここ</li>
+      <li><b>35〜38 km ダイヤモンドヘッド復路の登り</b>: 疲労ピークでの登り。全部歩いていい。登りきると海とワイキキの景色</li>
+      <li><b>38〜42 km 下り → カピオラニ公園</b>: 下りで脚にブレーキがかかるので歩幅小さく。最後の直線は応援の壁。笑って入る</li>
+      <li>距離表示は km とマイル両方。<b>マイル × 1.6 = km</b>（5マイル ≒ 8 km）</li>
+      <li class="src">出典: <a href="https://hono-mara.com/course02/" target="_blank">hono-mara.com コース攻略</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🩹 痛みが出たときの手順（本番用）</h4><ul>
+      <li>まず<b>歩く比率を上げる</b>（走4:歩1 → 走2:歩1 → 走1:歩1 → 全部歩く）。歩いても7時間半でゴールできる</li>
+      <li>「次の標識まで」「10 m だけ走って次は歩く」と<b>小さく刻む</b>（7 km で相方の足が痛んだ2人組が、これで6時間半完走）</li>
+      <li>靴紐をゆるめる／靴下を直す／ワセリンを塗り直す、で治る痛みも多い</li>
+      <li>医療テントはエイド付近。足を引きずる・吐き気・寒気は迷わず相談</li>
+      <li class="src">出典: <a href="https://note.com/manmaru_life2/n/ndc6dc6f406e9" target="_blank">note: 練習ほぼゼロで6時間半完走</a></li>
+    </ul></div>
+
+    <div class="tip"><h4>🧠 メンタルのコツ</h4><ul>
+      <li>「遅いかな？」でちょうどいい。前半の貯金はぜんぶ後半の借金になる</li>
+      <li>時計より呼吸。「会話できる速さ」なら最後まで持つ</li>
+      <li>30 km 以降はキロ表示を見ない。給水所から給水所へ</li>
+      <li>イヤホンより沿道の声を聞く。「アロハ！」「がんばれ！」が本当に脚を動かす</li>
+      <li>制限時間なし。完走率は例年 98% 以上。最後の1人までゴールで待っている</li>
+      <li class="src">出典: <a href="https://note.com/positaku/n/nadcd4071d0a3" target="_blank">note: 初心者が3ヶ月で笑顔で走りきる方法</a></li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ================= TAB 3 ================= -->
+<section class="tab" id="tab-hotel">
+  <h2>🏨 スタート側ホテル地図（12/12→13・1泊・2名・税込目安）</h2>
+  <p class="src">左: 公式「Start Line & Runners Entrance Map」。右: その東側（Ala Wai 運河を渡ったワイキキ西端）を同じ縮尺感で足したもの。位置は概略。価格は Booking.com 10/2 時点の税・手数料込み、$1≒¥150。横にスクロールできます。</p>
+  <div class="legend"><span><i class="c-ok"></i>$330以下</span><span><i class="c-warn"></i>$330〜400</span><span><i class="c-ng"></i>$400超</span><span><i class="c-na"></i>1泊売りなし／空きなし</span></div>
+  <div class="mapwrap">
+    <div class="map">
+      <div class="imgbox">
+        <img src="start_map.png" alt="Honolulu Marathon start line map">
+        <!-- PURPLE marker -->
+        <div class="pin" style="left:81%;top:63%"><div class="dot" style="background:#a855f7"></div><div class="lbl"><b>🟣 PURPLE はここに並ぶ</b>ラインまで約0.7〜1 km</div></div>
+        <div class="pin" style="left:89.5%;top:58%"><div class="dot" style="background:#60a5fa"></div><div class="lbl"><b>⬅ 入口: Atkinson Dr</b>ワイキキ側から歩いて入る</div></div>
+        <div class="pin" style="left:90%;top:50%"><div class="dot c-na"></div><div class="lbl"><b>Ala Moana Hotel</b>1泊売りなし（Trip.com ¥130k）</div></div>
+        <div class="pin" style="left:92%;top:31%"><div class="dot c-warn"></div><div class="lbl"><b>↑ Pagoda（北へ約600 m）</b>¥48,000 / $320 ・ 7.9</div></div>
+        <div class="pin" style="left:62%;top:31%"><div class="dot c-na"></div><div class="lbl"><b>↑ Renaissance Honolulu</b>Kapiolani Blvd 山側 ・ Booking 空きなし</div></div>
+      </div>
+      <svg viewBox="0 0 400 983" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Hiragino Sans, Meiryo, sans-serif">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#60a5fa"/></marker>
+        </defs>
+        <!-- land / sea -->
+        <rect x="0" y="0" width="400" height="983" fill="#d9dee3"/>
+        <rect x="0" y="720" width="400" height="263" fill="#bcd7ef"/>
+        <!-- Ala Wai canal + harbor -->
+        <path d="M40,0 L70,0 L70,560 Q75,700 0,720 L0,983 L130,983 L130,760 Q120,690 80,640 L80,0 Z" fill="#9cc3e6"/>
+        <text x="48" y="330" font-size="12" fill="#2b4c6f" transform="rotate(90 48,330)">Ala Wai Canal</text>
+        <text x="20" y="860" font-size="12" fill="#2b4c6f">Ala Wai Harbor</text>
+        <!-- Ala Moana Blvd continuing -->
+        <path d="M0,622 L400,640" stroke="#6b7280" stroke-width="16" fill="none"/>
+        <path d="M0,622 L400,640" stroke="#f3f4f6" stroke-width="2" stroke-dasharray="10 8" fill="none"/>
+        <text x="130" y="612" font-size="13" fill="#374151" font-weight="700">ALA MOANA BLVD →</text>
+        <!-- Kalia Rd / Kuhio Ave -->
+        <path d="M255,640 Q300,740 400,790" stroke="#9ca3af" stroke-width="9" fill="none"/>
+        <text x="300" y="770" font-size="11" fill="#374151" transform="rotate(26 300,770)">KALIA RD</text>
+        <path d="M320,640 Q340,560 400,520" stroke="#9ca3af" stroke-width="9" fill="none"/>
+        <text x="338" y="585" font-size="11" fill="#374151" transform="rotate(-40 338,585)">KUHIO AVE</text>
+        <path d="M225,640 L225,430" stroke="#9ca3af" stroke-width="7" fill="none"/>
+        <text x="212" y="470" font-size="11" fill="#374151" transform="rotate(-90 212,470)">NIU ST</text>
+        <path d="M150,640 L165,430" stroke="#9ca3af" stroke-width="7" fill="none"/>
+        <text x="146" y="500" font-size="11" fill="#374151" transform="rotate(-86 146,500)">HOBRON LN</text>
+        <!-- walking route arrow to entrance -->
+        <path d="M330,660 L20,648" stroke="#60a5fa" stroke-width="3" stroke-dasharray="8 6" fill="none" marker-end="url(#arr)"/>
+        <text x="90" y="680" font-size="12" fill="#1d4ed8" font-weight="700">歩いて Atkinson 入口へ（規制の影響なし）</text>
+        <!-- to Waikiki / finish -->
+        <text x="285" y="925" font-size="12" fill="#374151">→ ワイキキ中心 1.5 km ／ ゴール 4 km</text>
+
+        <!-- Hotel pins: g with circle + label -->
+        <!-- Prince Waikiki -->
+        <g><circle cx="100" cy="700" r="9" fill="#ff6b6b" stroke="#fff" stroke-width="2"/>
+          <rect x="60" y="712" width="118" height="34" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="119" y="726" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Prince Waikiki</text>
+          <text x="119" y="740" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥89,300 / $595 ・ 8.9</text></g>
+        <!-- Ilikai -->
+        <g><circle cx="190" cy="690" r="9" fill="#ff6b6b" stroke="#fff" stroke-width="2"/>
+          <rect x="185" y="700" width="130" height="34" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="250" y="714" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Ilikai Hotel（最寄 0.4 km）</text>
+          <text x="250" y="728" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥60,700 / $405 ・ 8.4</text></g>
+        <!-- Modern -->
+        <g><circle cx="150" cy="690" r="8" fill="#6c739a" stroke="#fff" stroke-width="2"/>
+          <text x="132" y="676" font-size="10" fill="#374151" text-anchor="middle">Modern: 空きなし</text></g>
+        <!-- Ramada -->
+        <g><circle cx="190" cy="585" r="9" fill="#4ade80" stroke="#fff" stroke-width="2"/>
+          <rect x="100" y="536" width="160" height="46" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="180" y="551" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">★ Ramada Plaza Waikiki</text>
+          <text x="180" y="565" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥49,400 / $330 ・ 8.0</text>
+          <text x="180" y="578" font-size="10.5" fill="#9be7a5" text-anchor="middle">PURPLE集合まで約0.5 km</text></g>
+        <!-- Hawaiian Monarch -->
+        <g><circle cx="240" cy="440" r="9" fill="#4ade80" stroke="#fff" stroke-width="2"/>
+          <rect x="175" y="392" width="150" height="46" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="250" y="407" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Hawaiian Monarch</text>
+          <text x="250" y="421" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥37,300 / $250 ・ 6.3（古い）</text>
+          <text x="250" y="434" font-size="10.5" fill="#9be7a5" text-anchor="middle">約0.7 km ・ 唯一の予算内</text></g>
+        <!-- DoubleTree -->
+        <g><circle cx="290" cy="590" r="9" fill="#ff6b6b" stroke="#fff" stroke-width="2"/>
+          <rect x="100" y="470" width="170" height="46" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="185" y="485" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">DoubleTree Alana（Hilton）</text>
+          <text x="185" y="499" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥67,200 / $450 ・ 7.8</text>
+          <text x="185" y="512" font-size="10.5" fill="#ffb3b3" text-anchor="middle">法人レート fee込 $459 → 超過</text>
+          <line x1="290" y1="590" x2="268" y2="518" stroke="#fff" stroke-width="1.5"/></g>
+        <!-- Hilton Hawaiian Village -->
+        <g><circle cx="320" cy="790" r="9" fill="#ff6b6b" stroke="#fff" stroke-width="2"/>
+          <rect x="195" y="800" width="190" height="34" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="290" y="814" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Hilton Hawaiian Village</text>
+          <text x="290" y="828" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥62,700 / $415 ・ 8.0 ・ 約1.0 km</text></g>
+        <!-- Holiday Inn Express -->
+        <g><circle cx="372" cy="535" r="9" fill="#ffd166" stroke="#fff" stroke-width="2"/>
+          <rect x="230" y="284" width="165" height="46" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="312" y="299" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Holiday Inn Express（IHG）</text>
+          <text x="312" y="313" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥58,800 / $390 朝食込 ・ 8.0</text>
+          <text x="312" y="326" font-size="10.5" fill="#ffe29a" text-anchor="middle">IHG 20%レートなら ≈¥47k ・ 約1.0 km</text>
+          <line x1="372" y1="535" x2="340" y2="332" stroke="#fff" stroke-width="1.5"/></g>
+        <!-- Ambassador -->
+        <g><circle cx="390" cy="560" r="9" fill="#ffd166" stroke="#fff" stroke-width="2"/>
+          <rect x="235" y="344" width="160" height="34" rx="6" fill="#0f1220" opacity=".92"/>
+          <text x="315" y="359" font-size="11.5" fill="#fff" text-anchor="middle" font-weight="700">Ambassador Waikiki（Hilton）</text>
+          <text x="315" y="373" font-size="10.5" fill="#f4f1ea" text-anchor="middle">¥58,700 / $390 ・ 8.2 ・ 約1.0 km</text>
+          <line x1="390" y1="560" x2="350" y2="380" stroke="#fff" stroke-width="1.5"/></g>
+        <!-- compass -->
+        <text x="360" y="30" font-size="14" fill="#374151" font-weight="700">N ↑</text>
+        <text x="8" y="30" font-size="12" fill="#374151">← 公式マップの続き（東側）</text>
+      </svg>
+    </div>
+  </div>
+
+  <h3>一覧（PURPLE 集合地点＝Atkinson Dr × Ala Moana Blvd までの距離順）</h3>
+  <table>
+    <thead><tr><th>ホテル</th><th>集合地点まで</th><th>税込目安</th><th>評価</th><th>法人レート</th><th>メモ</th></tr></thead>
+    <tbody>
+      <tr><td>Ilikai Hotel & Luxury Suites</td><td>約0.4 km</td><td>¥60,700 / $405</td><td>8.4</td><td>—</td><td>最寄り。フルキッチン。$400ぎりぎり超え</td></tr>
+      <tr class="rec"><td>★ Ramada Plaza by Wyndham Waikiki</td><td>約0.5 km</td><td>¥49,400 / $330</td><td>8.0</td><td>Wyndham: 未確認</td><td><b>コスパ本命</b>。Ala Moana Blvd 沿い、まっすぐ歩くだけ</td></tr>
+      <tr><td>DoubleTree by Hilton Alana <span class="tag hil">Hilton</span></td><td>約0.5 km</td><td>¥67,200 / $450</td><td>7.8</td><td>fee込 $459（確認済）</td><td>立地は◎だが予算超え</td></tr>
+      <tr><td>Hawaiian Monarch</td><td>約0.7 km</td><td>¥37,300 / $250</td><td>6.3</td><td>—</td><td>唯一の予算内。寝るだけなら可。古い・狭い</td></tr>
+      <tr><td>Hilton Hawaiian Village <span class="tag hil">Hilton</span></td><td>約1.0 km</td><td>¥62,700 / $415</td><td>8.0</td><td>要確認</td><td>巨大リゾートで部屋→出口が遠い</td></tr>
+      <tr><td>Holiday Inn Express Waikiki <span class="tag ihg">IHG</span></td><td>約1.0 km</td><td>¥58,800 / $390（朝食込）</td><td>8.0</td><td>20%レートなら ≈¥47k</td><td>朝食は4時には開いていないので実質なし</td></tr>
+      <tr><td>Ambassador Hotel of Waikiki <span class="tag hil">Hilton</span></td><td>約1.0 km</td><td>¥58,700 / $390</td><td>8.2</td><td>要確認</td><td>Kuhio Ave 西端</td></tr>
+      <tr><td>Pagoda Hotel</td><td>約1.0 km（Piikoi 入口）</td><td>¥48,000 / $320</td><td>7.9</td><td>—</td><td>アラモアナ山側。Ramada より遠くて同価格帯</td></tr>
+      <tr><td>Prince Waikiki</td><td>約0.4 km</td><td>¥89,300 / $595</td><td>8.9</td><td>—</td><td>上層階のみ空き。予算外</td></tr>
+      <tr><td>Ala Moana Hotel</td><td>入口そのもの</td><td>1泊売りなし</td><td>—</td><td>—</td><td>Trip.com は ¥130k。2泊条件の可能性</td></tr>
+      <tr><td>Renaissance Honolulu <span class="tag mar">Marriott</span> ／ Modern Honolulu</td><td>0.6 / 0.5 km</td><td>Booking 空きなし</td><td>8.7 / 8.3</td><td>直販のみ</td><td>直販で1泊が出れば候補</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid" style="margin-top:14px">
+    <div class="tip hot"><h4>🎯 結論</h4><ul>
+      <li><b>第1候補: Ramada Plaza Waikiki（$330）</b>。PURPLE 集合まで 0.5 km、Ala Moana Blvd 沿い、評価 8.0。無料キャンセル可プランで押さえる</li>
+      <li>財布優先なら <b>Hawaiian Monarch（$250）</b>。設備は古いが「3時起きで出るだけ」の用途なら十分</li>
+      <li>Hilton 法人レートは fee 込 $459 で予算超え。Holiday Inn Express を IHG 法人レートで引けると $310 前後になる可能性があるので、Ramada と比べる価値あり</li>
+    </ul></div>
+    <div class="tip"><h4>🚶 どのホテルからの歩き方（PURPLE）</h4><ul>
+      <li>ワイキキ西端のホテルからは <b>Ala Moana Blvd を西へ</b>。Ala Wai 運河の橋を渡ると右手がアラモアナセンター、その手前の <b>Atkinson Dr との交差点が PURPLE ゾーンの東端</b>。警備員の指示で歩道からコースに入る</li>
+      <li>Pagoda からは Kaheka/Keeaumoku を南下 → Kapiolani Blvd → Piikoi St の入口へ（約15分）。ただし Piikoi 入口はスタートライン側なので、PURPLE ゾーンまで東へ戻る形になる</li>
+      <li>出発は <b>3:45〜4:00</b> で十分。4:30 までに紫の旗の下にいれば OK</li>
+    </ul></div>
+  </div>
+</section>
+
+<footer>練習プラン: <a href="honolulu_plan_shunka.html">shunka</a> ／ <a href="honolulu_plan.html">共有用</a>　|　価格は 2026/10/2 時点の目安。予約前に必ず各サイトで確認</footer>
+</main>
+<script>
+  const tabs=document.querySelectorAll('nav.tabs button');
+  function show(id){
+    tabs.forEach(b=>b.classList.toggle('on',b.dataset.tab===id));
+    document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.id==='tab-'+id));
+    history.replaceState(null,'','#'+id);
+    window.scrollTo({top:0});
+  }
+  tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));
+  const h=location.hash.replace('#','');
+  if(['pre','race','hotel'].includes(h)) show(h);
+</script>
+</body>
+</html>
