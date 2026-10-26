@@ -108,6 +108,14 @@
   .tag.hil{background:#2a2f55;color:#cfd6ff}.tag.ihg{background:#1f3a2a;color:#9be7a5}.tag.mar{background:#4a2a2a;color:#ffc6c6}
   .stats{margin-top:0}
   .tip.wide{grid-column:1/-1}
+
+  .fbintro{background:var(--card);border-left:5px solid var(--long);border-radius:12px;padding:14px 18px;font-size:15px;margin-bottom:18px}
+  .fbchart{width:100%;height:auto;background:#0f1220;border-radius:10px;margin:10px 0}
+  .fbchart .ct{fill:var(--text);font-size:14px;font-weight:700}.fbchart .grid{stroke:#2f365a;stroke-width:1}.fbchart .yl{fill:var(--muted);font-size:11px;text-anchor:end}.fbchart .xl{fill:var(--muted);font-size:11px;text-anchor:middle}
+  .fbchart .vl{fill:var(--text);font-size:11px;text-anchor:middle;font-weight:700}.fbchart .note{fill:var(--muted);font-size:11px}.fbchart .bl{fill:#4ade80;font-size:11px;text-anchor:end}
+  .kpi2{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:6px 0 10px}.kpi2 div{background:#0f1220;border-radius:10px;padding:8px 10px}.kpi2 b{display:block;font-size:20px}.kpi2 span{color:var(--muted);font-size:11.5px}
+  .fbtable{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:6px}.fbtable td,.fbtable th{padding:6px 8px;border-bottom:1px solid #2f365a;vertical-align:top;text-align:left}.fbtable th{color:var(--muted);font-weight:600}
+  .fbsum{font-size:16px;margin:12px 0 0}
 </style>
 </head>
 <body>
@@ -123,6 +131,7 @@
 </header>
 <nav class="tabs">
   <button data-tab="plan" class="on">🏃 練習プラン</button>
+  <button data-tab="fb">📝 初10 kmのFB</button>
   <button data-tab="pre">📋 事前に知っておくこと</button>
   <button data-tab="race">🏁 スタート & ラン中</button>
   <button data-tab="hotel">🏨 ホテル地図</button>
@@ -137,7 +146,7 @@
     <div class="stat"><small>週末ロングの最長記録</small><b id="st-long">0 分</b><span class="small">ピーク目標: 180 分（11/28-29）</span></div>
   </div>
 
-  <div class="cheer" style="border-left-color:#6ec6ff;font-size:15px">📖 上のタブで切り替え → <a href="#pre" style="color:#9bb5ff">📋 事前に知っておくこと</a> ／ <a href="#race" style="color:#9bb5ff">🏁 スタート&amp;ラン中（PURPLE の立ち位置・給水所の取り方・区間ごとの注意）</a> ／ <a href="#hotel" style="color:#9bb5ff">🏨 スタート側ホテル地図</a></div>
+  <div class="cheer" style="border-left-color:#6ec6ff;font-size:15px">📖 上のタブで切り替え → <a href="#fb" style="color:#9bb5ff">📝 初10 kmのFB（二人で読む走り方の理論）</a> ／ <a href="#pre" style="color:#9bb5ff">📋 事前に知っておくこと</a> ／ <a href="#race" style="color:#9bb5ff">🏁 スタート&amp;ラン中（PURPLE の立ち位置・給水所の取り方・区間ごとの注意）</a> ／ <a href="#hotel" style="color:#9bb5ff">🏨 スタート側ホテル地図</a></div>
   <div class="cheer" style="border-left-color:#4ade80;font-size:15px">📊 <a href="honolulu_status_1026.html" style="color:#9bb5ff">現状分析 10/26（ペース・心拍・コース・感じ方のグラフ → 評価・次の目標・目指す姿）</a></div>
   <div class="cheer" id="cheer">🔥 今日から始まる。1kmしか走ったことない人が、11週間後にダイヤモンドヘッドを越える。</div>
 
@@ -346,6 +355,102 @@
 </section>
 
 <!-- ================= TAB 1 ================= -->
+<section class="tab" id="tab-fb">
+  <h2>📝 初10 kmランのFB — 二人のための「走り方」の話</h2>
+  <p class="fbintro">10/25 に shunka が多摩川で初めて 10 km を走った。結果は <b>11.13 km・1時間46分</b>、でも本人の感想は「きつすぎて、これ以上走る未来が見えない」。このページは、その1本のデータを材料に、<b>なぜきつかったのか</b>と<b>本番でどう走るべきか</b>を、二人（shunka と一緒に出る相方）が同じ理解で走れるようにまとめたもの。根拠は全部リンク先にある。</p>
+
+  <div class="grid">
+    <div class="tip wide"><h4>1. 何が起きたか（事実）</h4>
+      <div class="kpi2">
+        <div><b>11.13 km</b><span>距離（計画 10.1）</span></div>
+        <div><b>1:46:22</b><span>ワークアウト時間（経過 1:51:30）</span></div>
+        <div><b>9:33 /km</b><span>平均ペース（歩き込み）</span></div>
+        <div><b>152</b><span>平均心拍。走り中は 164〜170</span></div>
+        <div><b>512 kcal</b><span>アクティブ消費</span></div>
+        <div><b>7 / 10</b><span>難易度（自己評価）「きつい」</span></div>
+      </div>
+      <ul>
+        <li>最初の 5 km は<b>歩きなしで走った</b>（7:24〜8:10/km）。折り返し後に 800 m 歩き、その後はほぼ走り</li>
+        <li>走・歩のタイマーは使わず、時計には「ワーク 10 km」の距離ゴール 1 本で入れた</li>
+        <li>コースは多摩川駅 → 河川敷を二子橋まで → 折り返し → 丸子橋。平坦（高低差 20 m）、信号なし。コースに問題はない</li>
+      </ul>
+      <svg viewBox="0 0 760 260" class="fbchart"><text x="60" y="14" class="ct">10/25 1 kmごとのペース（分/km）</text><polyline points="116.7,180.0 230.0,52.2 343.3,55.8 456.7,85.8 570.0,77.0" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="100.4" width="680" height="21.9" fill="#4ade80" opacity="0.18"/><text x="736" y="96.4" class="bl">本番の走り区間 8:30〜9:00</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">6:40</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">7:32</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">8:24</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">9:16</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">10:08</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">11:00</text><text x="116.7" y="226" class="xl">1 km</text><circle cx="116.7" cy="180.0" r="6" fill="#ffd166"/><text x="116.7" y="170.0" class="vl">10:19</text><text x="230.0" y="226" class="xl">2 km</text><circle cx="230.0" cy="52.2" r="6" fill="#ff4d8d"/><text x="230.0" y="42.2" class="vl">7:24</text><text x="343.3" y="226" class="xl">3 km</text><circle cx="343.3" cy="55.8" r="6" fill="#ff4d8d"/><text x="343.3" y="45.8" class="vl">7:29</text><text x="456.7" y="226" class="xl">4 km</text><circle cx="456.7" cy="85.8" r="6" fill="#ff4d8d"/><text x="456.7" y="75.8" class="vl">8:10</text><text x="570.0" y="226" class="xl">5 km</text><circle cx="570.0" cy="77.0" r="6" fill="#ff4d8d"/><text x="570.0" y="67.0" class="vl">7:58</text><text x="683.3" y="226" class="xl">6〜11 km</text><text x="683.3" y="115.0" class="xl" opacity="0.6">区間データなし</text><text x="60" y="252" class="note">2〜5 km は 7:24〜8:10。本番で必要な速さより 30〜60秒/km 速い。平均（歩き込み）は 9:33 で、本番の目標 8:40〜9:10 とほぼ同じ。</text></svg><svg viewBox="0 0 760 260" class="fbchart"><text x="60" y="14" class="ct">10/25 1 kmごとの平均心拍（shunka）</text><polyline points="116.7,164.9 230.0,58.0 343.3,43.8 456.7,53.3 570.0,46.1" fill="none" stroke="#a3a8c3" stroke-width="2"/><line x1="60" y1="79.4" x2="740" y2="79.4" stroke="#4ade80" stroke-dasharray="6 4" stroke-width="2"/><text x="736" y="74.4" class="bl">6時間動くための上限 155</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">100</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">116</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">132</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">148</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">164</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">180</text><text x="116.7" y="226" class="xl">1 km</text><circle cx="116.7" cy="164.9" r="6" fill="#4ade80"/><text x="116.7" y="154.9" class="vl">119</text><text x="230.0" y="226" class="xl">2 km</text><circle cx="230.0" cy="58.0" r="6" fill="#ff4d8d"/><text x="230.0" y="48.0" class="vl">164</text><text x="343.3" y="226" class="xl">3 km</text><circle cx="343.3" cy="43.8" r="6" fill="#ff4d8d"/><text x="343.3" y="33.8" class="vl">170</text><text x="456.7" y="226" class="xl">4 km</text><circle cx="456.7" cy="53.3" r="6" fill="#ff4d8d"/><text x="456.7" y="43.3" class="vl">166</text><text x="570.0" y="226" class="xl">5 km</text><circle cx="570.0" cy="46.1" r="6" fill="#ff4d8d"/><text x="570.0" y="36.1" class="vl">169</text><text x="683.3" y="226" class="xl">6〜11 km</text><text x="683.3" y="115.0" class="xl" opacity="0.6">区間データなし</text><text x="60" y="252" class="note">1 km目はウォームアップの歩き。2〜5 km は歩きなしで走って 164〜170 のまま。折り返しで 800 m 歩いた直後だけ下がり、走ると即 165 に戻った。</text></svg>
+    </div>
+
+    <div class="tip wide hot"><h4>2. なぜきつかったか — 理論①: 心拍と燃料</h4>
+      <ul>
+        <li>体は 2 つの燃料で動く。<b>糖（グリコーゲン）</b>は少ししか貯められないが速く燃える。<b>脂肪</b>はほぼ無限にあるがゆっくり燃える。<b>どちらを主に使うかは「きつさ（心拍）」で決まる</b>。心拍が高いほど糖の割合が増える [[1]](#fb-src)</li>
+        <li>通常の状態で体に貯まっている糖は、肝臓 約 350 kcal ＋ 脚の筋肉 約 1,250 kcal（70 kg の男性の例）。<b>一方、42.2 km を走るのに必要なエネルギーは体重 1 kg・1 km あたり約 1 kcal</b>。50 kg なら約 2,100 kcal、70 kg なら約 2,950 kcal。<b>糖だけでは足りない</b>。だから「糖の割合を下げて、脂肪で走る」しかない [[1]](#fb-src)</li>
+        <li>10/25 の shunka は 11 km で 512 kcal（約 46 kcal/km）。心拍 165〜170 はほぼ糖で走る帯なので、同じ走り方で 42 km なら 1,950 kcal を糖で払うことになり、<b>貯蔵量（約 1,400 kcal）を 30 km 手前で使い切る</b>。これが「30 km の壁」で、マラソン完走者の 4 割以上が経験する [[1]](#fb-src)</li>
+        <li>壁に当たるリスクが高い人の条件は研究で分かっている: <b>①男性 ②練習での最長距離が 32 km 以下 ③「壁が来る」と思っている</b>。二人とも②に当たり、相方は①にも当たる。パワーがある側ほど前半で速く入って糖を使い切りやすい [[1]](#fb-src)</li>
+        <li>結論: <b>きつかったのは体力不足ではなく、心拍 170 で走り続けたから</b>。150 前後に抑えれば脂肪の割合が上がり、同じ距離が「きつい」から「長い」に変わる</li>
+      </ul>
+      <svg viewBox="0 0 760 260" class="fbchart"><text x="60" y="14" class="ct">42.2 km を走るのに要るエネルギー vs 体にある糖（kcal）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">700</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">1400</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">2100</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">2800</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">3500</text><rect x="111.0" y="96.0" width="107.1" height="114.0" rx="4" fill="#ffd166"/><text x="164.6" y="91.0" class="vl">約2,100</text><rect x="230.0" y="134.0" width="107.1" height="76.0" rx="4" fill="#6ec6ff"/><text x="283.6" y="129.0" class="vl">約1,400</text><text x="230.0" y="226" class="xl">shunka 50 kg</text><rect x="451.0" y="49.9" width="107.1" height="160.1" rx="4" fill="#ffd166"/><text x="504.6" y="44.9" class="vl">約2,950</text><rect x="570.0" y="123.1" width="107.1" height="86.9" rx="4" fill="#6ec6ff"/><text x="623.5" y="118.1" class="vl">約1,600</text><text x="570.0" y="226" class="xl">同伴 70 kg（推定）</text><text x="60" y="252" class="note">黄＝必要エネルギー（約 1 kcal/kg/km）、青＝通常時に体に貯まっている糖（肝臓＋脚の筋肉）。糖だけで走ると途中で尽きる＝「30 kmの壁」。</text></svg>
+    </div>
+
+    <div class="tip wide"><h4>3. 理論②: ラン・ウォーク（走・歩）はなぜ最初から入れるのか</h4>
+      <ul>
+        <li>50 年使われている Jeff Galloway のラン・ウォーク法の原則は 2 つ: <b>「筋肉を連続して使うほど早く疲れる」「走る区間が長いほど疲れが大きい」</b>。だから歩きは疲れてから入れるのではなく、<b>疲れる前、最初から</b>入れる [[2]](#fb-src)</li>
+        <li>効果はタイムにも出る。ノンストップで走っていた人が正しい比率のラン・ウォークに切り替えると、<b>マラソンで平均 13 分以上速くなる</b>（ハーフで 7 分） [[2]](#fb-src)</li>
+        <li>比率はゴールペースで決める。目安表では <b>6:13〜7:27/km の初マラソンで「走2分・歩1分」</b>、それより遅い（7:27/km 以上）新しいランナーは「走 15〜30 秒・歩 30〜60 秒」とさらに歩き多め。二人の本番ペース（約 9:00/km）だと、<b>走2・歩1 はむしろ走り多めの設定</b>で、「現実的じゃないほど歩きが多い」のではなく、理論上は少ない側 [[3]](#fb-src)</li>
+        <li>「4 km 走って 1 km 歩く」はどうか。歩く割合は同じ（約 20%）なので<b>タイムは変わらない</b>。違うのは「34 分連続で走る」こと。10/25 の 5 km 連続走で心拍 170 になったものを、本番で 8 回繰り返す設計になる。1 回目で難易度 7 なら、5 回目は 9〜10</li>
+        <li>さらに後半、1 km（11 分）歩くと脚が固まって走り出せなくなる。1 分の歩きなら固まらない。<b>短い歩きを頻繫に</b>、が理論の答え</li>
+      </ul>
+      <svg viewBox="0 0 760 260" class="fbchart"><text x="60" y="14" class="ct">走り方による 5 km あたりの時間（走り 8:30/km・歩き 11:30/km の場合）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">12</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">24</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">36</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">48</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">60</text><rect x="94.0" y="67.5" width="142.8" height="142.5" rx="4" fill="#4ade80"/><text x="165.4" y="62.5" class="vl">45.0分</text><text x="173.3" y="226" class="xl">走4分・歩1分</text><rect x="320.7" y="65.9" width="142.8" height="144.1" rx="4" fill="#ffd166"/><text x="392.1" y="60.9" class="vl">45.5分</text><text x="400.0" y="226" class="xl">走4 km・歩1 km</text><rect x="547.3" y="75.4" width="142.8" height="134.6" rx="4" fill="#ff4d8d"/><text x="618.7" y="70.4" class="vl">42.5分</text><text x="626.7" y="226" class="xl">全部走る 8:30</text><text x="60" y="252" class="note">歩く割合が同じなら、かたまりの長さを変えてもタイムは同じ。全部走っても 5 km あたり 2.5 分しか速くならず、後半は歩くしかなくなる。</text></svg>
+    </div>
+
+    <div class="tip wide"><h4>4. 本番のコースの事実（給水所は 4 km ごとではない）</h4>
+      <ul>
+        <li>給水所は <b>16 か所</b>（水とスポーツドリンク）、平均すると約 2.6 km ごと。ジェルは 4 か所（9・12・15・20 マイル ＝ 約 14・19・24・32 km） [[4]](#fb-src)</li>
+        <li><b>制限時間なし</b>。「間に合わない」は起きない。起きるのは「後半を全部歩くことになって 7 時間を超える」だけ [[4]](#fb-src)</li>
+        <li>コースはほぼ平坦、例外はダイヤモンドヘッド（最高地点 約 38 m、9 マイル付近と 24 マイル付近の 2 回）。登りは歩く [[4]](#fb-src)</li>
+        <li>スタート直後 2〜3 km は人混みで自然に歩き混じりになる。その流れでそのまま走・歩に入れば違和感はない</li>
+      </ul>
+    </div>
+
+    <div class="tip wide hot"><h4>5. 二人で走るときのルール</h4>
+      <ul>
+        <li><b>時計のタイマーに従う</b>: 走4分／歩1分（11月に向けて走3分→4分と上げる）。「ラクだから走り続ける」はしない。前半のラクさは後半の歩きで倍返しされる</li>
+        <li><b>遅い方の心拍に合わせる</b>。相方の方がパワーがあるので、前半は「遅すぎる」と感じるはず。それが正解。速く行った側の糖が先に切れる（男性がハイリスクなのはここ）</li>
+        <li><b>心拍 150 前後、上限 155</b>。時計の心拍通知を二人とも入れる。震えたらその場で歩く</li>
+        <li><b>給水所は全部歩く</b>。給水所で歩いたら、直後の 1 分歩きは飛ばしてよい（歩きの代わりになる）</li>
+        <li><b>登り（ダイヤモンドヘッド 2 回）は歩く</b>。タイマー無視</li>
+        <li><b>補給は 45 分ごと</b>（スタート 45 分後から）。給水所の歩き区間で食べる。10 km ごとに塩</li>
+        <li>会話できる速さが基準。<b>話せなくなったら速すぎ</b>。二人で走るメリットはここ: 相手が返事できないペースは、その日のレースを壊すペース</li>
+      </ul>
+    </div>
+
+    <div class="tip wide"><h4>6. 次の練習で検証すること</h4>
+      <ul>
+        <li>同じ多摩川 11 km コースを、<b>走3分／歩1分のタイマーで、最初の 1 本目から交互</b>。ペース通知 8:30〜9:00/km、心拍通知 上限 155</li>
+        <li>終わったら二人とも難易度を自分でつける。<b>10/25 の 7 が 4〜5 になれば方式は確定</b>。変わらなければ走り時間を減らす方向で見直す（増やす方向ではない）</li>
+        <li>予想: 時間は 10/25 とほぼ同じ 1 時間 45 分前後、心拍は 150 台、終わった後に「もう少し行けた」と感じる。それが本番で 6 時間動ける感覚</li>
+      </ul>
+    </div>
+
+    <div class="tip wide"><h4>7. 二人のゴールの姿</h4>
+      <table class="fbtable">
+        <tr><th>区間</th><th>やること</th><th>数字</th></tr>
+        <tr><td>0〜10 km</td><td>人混みのまま走4／歩1。「遅すぎる」と感じて正解。給水所は最初の 2 か所も歩く</td><td>心拍 ≤150、5 km 通過 45〜47 分</td></tr>
+        <tr><td>10〜21 km</td><td>ダイヤモンドヘッドは歩く。45 分ごとに補給。会話できるか確認し合う</td><td>ハーフ通過 3時間05分〜3時間15分</td></tr>
+        <tr><td>21〜32 km</td><td>一番長く感じる区間。タイマーだけ見る。ジェル（24・32 km の給水所）</td><td>心拍 ≤155、走り区間を落とさない</td></tr>
+        <tr><td>32〜42 km</td><td>壁が来ないことを確認する区間。ラスト 7 km でカフェイン入り。最後のダイヤモンドヘッドは歩く</td><td>ゴール 6時間05分〜6時間30分</td></tr>
+      </table>
+      <p class="fbsum">一言でいうと: <b>速さはもう二人とも足りている。足りていないのは「ゆっくり走る勇気」だけ。</b> 42 km は「10/25 のきつさ ×4」ではなく、「心拍 150 の楽な動きを 6 時間続ける」こと。</p>
+    </div>
+
+    <div class="tip wide" id="fb-src"><h4>出典</h4>
+      <ul class="src">
+        <li>[1] Rapoport BI. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2958805/" target="_blank">Metabolic Factors Limiting Performance in Marathon Runners</a>. PLoS Comput Biol 2010 — 4 割以上が「壁」を経験、リスク要因（男性・練習最長 32 km 以下・壁を予期）、糖の貯蔵量（肝臓 約 350 kcal・脚の筋肉 約 1,250 kcal）、エネルギー消費 約 1 kcal/kg/km、強度と糖・脂肪の使用比率</li>
+        <li>[2] Jeff Galloway. <a href="https://www.jeffgalloway.com/training/run-walk/" target="_blank">Run Walk Run® Method</a> — 連続使用で早く疲れる・走る区間が長いほど疲れる、マラソンで平均 13 分以上短縮</li>
+        <li>[3] RunnersConnect. <a href="https://runnersconnect.net/galloway-run-walk-run/" target="_blank">Galloway Run-Walk-Run Method: Ratios by Pace</a> — ペース別の走・歩比率（初マラソン 6:13〜7:27/km で 2:1、それより遅い場合は 15〜30 秒走・30〜60 秒歩）</li>
+        <li>[4] Honolulu Marathon 公式 <a href="https://www.honolulumarathon.org/key-information/faqs" target="_blank">FAQs</a> — 給水所 16 か所、ジェル 4 か所（9・12・15・20 マイル）、制限時間なし、コースはダイヤモンドヘッド以外ほぼ平坦（最高地点 124 ft）</li>
+        <li>実測データ: shunka 10/25 Apple Watch（ワークアウト 1:46:22・11.13 km・平均心拍 152・1 km スプリット）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="tab" id="tab-pre">
   <h2>📋 事前に知っておくこと</h2>
   <div class="grid">
@@ -428,7 +533,7 @@
     <div class="tip wide"><h4>🏃 本番の走り方 決定事項（練習で全部リハーサルする）</h4><ul>
       <li><b>最初の1 kmから 走4・歩1</b>。前半ラクでも全部走らない。前半に走り続けた分は 30 km 以降に倍の歩きで返ってくる。最初の 2〜3 km は人混みで自然に歩き混じりになるので、その流れで入る</li>
       <li><b>⌚ 時計のタイマーに従う</b>: Apple Watch のカスタム（走4分／歩1分 ×N、走りのペースアラート 8:00〜8:30/km）。気分で変えない。ただし <b>給水所と登り（ダイヤモンドヘッド 2回: 約 10 km と約 38 km）</b> はタイマー無視で歩く</li>
-      <li><b>水は持たない</b>。給水所は17か所（約 2.5 km ごと）、全部で止まって歩きながら1〜2杯。持つのは補給食（羊羹／ゼリー ×5）・塩タブレット・小さいワセリン・スマホ。ポーチは練習のロングで同じものを使う</li>
+      <li><b>水は持たない</b>。給水所は16か所（約 2.6 km ごと）、全部で止まって歩きながら1〜2杯。持つのは補給食（羊羹／ゼリー ×5）・塩タブレット・小さいワセリン・スマホ。ポーチは練習のロングで同じものを使う</li>
       <li><b>ペース目標</b>: 走り区間 8:00〜8:30/km、歩き 11〜12/km → 全体平均 8:40〜9:10/km ＝ <b>ゴール 6時間05分〜6時間30分</b>。前半10 kmで「速いかも」と思ったら正解、そのまま。5 kmごとの通過は 44〜46分が目安</li>
       <li><b>補給</b>: スタート45分後から45分ごとに一口（羊羹／ゼリー）、10 kmごとに塩タブレット、ラスト 10〜7 km でカフェイン入り。給水所の歩き区間で食べる</li>
       <li><b>練習での再現</b>: 外ロングは毎回「①最初から走・歩交互 ②歩き区間で紙コップ想定の飲み方（止まらず歩きながら）③45分で一口 ④ペースアラート遵守」。ジムのロングは③④だけ</li>
@@ -452,7 +557,7 @@
       <li><b>紙コップの口を潰して鳥のくちばし状にして、歩きながら飲む</b>。走りながら飲むとむせる</li>
     </ol><ul>
       <li>最初の給水は<b>約 4 km</b>。<b>最初の2か所は水だけ</b>、ゲータレードはその後から</li>
-      <li>エイドは全 <b>17か所</b>、約 3〜4 km ごと。後半はバナナも出る</li>
+      <li>エイドは全 <b>16か所</b>、平均 約 2.6 km ごと。ジェルは 9・12・15・20 マイルの4か所</li>
       <li>私設エイド（地元の人）: ホースの水シャワー・カットフルーツ・プレッツェル・氷。遠慮せずもらう</li>
       <li class="src">出典: <a href="https://hono-mara.com/course02/" target="_blank">hono-mara.com</a> ／ <a href="https://crexgroup.com/ja/travel/niche/honolulu-marathon-entry-guide/" target="_blank">CREX</a></li>
     </ul></div>
@@ -864,7 +969,7 @@ render(); tick(); setInterval(tick,60000);
   // ---- tabs ----
   (function(){
     const tabs=document.querySelectorAll('nav.tabs button');
-    const ids=['plan','pre','race','hotel'];
+    const ids=['plan','fb','pre','race','hotel'];
     function show(id,scroll){
       tabs.forEach(b=>b.classList.toggle('on',b.dataset.tab===id));
       document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.id==='tab-'+id));
