@@ -1,43 +1,88 @@
 <!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>📊 11/21 15 km 走 分析レポート — Road to Honolulu</title>
+<title>📊 11/21 15 km 走 レビュー — 本番 12/13 から逆算 — Road to Honolulu</title>
 <style>
 :root{--bg:#0f1220;--card:#1a1f35;--card2:#222847;--text:#f4f1ea;--muted:#a3a8c3;--run:#ff7a59;--str:#6ec6ff;--long:#ffd166;--race:#ff4d8d;--done:#4ade80}
 *{box-sizing:border-box}body{margin:0;font-family:"Segoe UI","Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
-.wrap{max-width:860px;margin:0 auto;padding:22px 16px 60px}h1{font-size:24px;margin:0 0 4px}h2{font-size:19px;margin:34px 0 10px;border-left:5px solid var(--long);padding-left:10px}
+.wrap{max-width:900px;margin:0 auto;padding:22px 16px 60px}h1{font-size:24px;margin:0 0 4px}h2{font-size:19px;margin:34px 0 10px;border-left:5px solid var(--long);padding-left:10px}h3{font-size:16px;margin:18px 0 6px;color:var(--long)}
 .sub{color:var(--muted);font-size:14px;margin-bottom:18px}a{color:#9bb5ff}
 .card{background:var(--card);border-radius:12px;padding:14px 16px;margin:12px 0}
 .chart{width:100%;height:auto;background:var(--card2);border-radius:10px;margin:8px 0}
 .ct{fill:var(--text);font-size:14px;font-weight:700}.grid{stroke:#2f365a;stroke-width:1}.yl{fill:var(--muted);font-size:11px;text-anchor:end}.xl{fill:var(--muted);font-size:11px;text-anchor:middle}
 .vl{fill:var(--text);font-size:11px;text-anchor:middle;font-weight:700}.note{fill:var(--muted);font-size:11px}.bl{fill:#4ade80;font-size:11px;text-anchor:end}
-table{width:100%;border-collapse:collapse;font-size:13.5px}td,th{padding:7px 8px;border-bottom:1px solid #2f365a;vertical-align:top;text-align:left}th{color:var(--muted);font-weight:600}
-tr.rec td{background:#1f2a1f}
+table{width:100%;border-collapse:collapse;font-size:13.5px}td,th{padding:7px 8px;border-bottom:1px solid #2f365a;vertical-align:top;text-align:left}th{color:var(--muted);font-weight:600;background:#161a2e}
+tr.rec td{background:#1f2a1f}tr.chg td{background:#2a2418}
 .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.kpi div{background:var(--card2);border-radius:10px;padding:10px 12px}.kpi b{display:block;font-size:22px}.kpi span{color:var(--muted);font-size:12px}
-.good{color:var(--done)}.bad{color:var(--race)}.warn{color:var(--long)}
+.good{color:var(--done)}.bad{color:var(--race)}.warn{color:var(--long)}.blue{color:var(--str)}
 ul,ol{padding-left:20px}li{margin:4px 0}.big{font-size:16px}
 .verdict{background:linear-gradient(90deg,#2b2f55,#1a1f35);border-left:5px solid var(--long);border-radius:12px;padding:14px 18px;font-size:16px;margin:14px 0}
+.verdict.red{border-left-color:var(--race)}.verdict.green{border-left-color:var(--done)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:640px){.two{grid-template-columns:1fr}}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;background:#2f365a;color:var(--text);margin-right:4px}
+.tag.g{background:#1f4d2e}.tag.r{background:#5a1f33}.tag.y{background:#5a4a1a}.tag.b{background:#1f3d5a}
+small.src{color:var(--muted)}
+.toc a{margin-right:10px;font-size:13px}
 </style></head><body><div class="wrap">
-<h1>📊 11/21 15 km 走 — 分析レポート</h1>
-<div class="sub">2026/11/21(土) 15:49〜18:03 ・ shunka ＋ パートナー ・ Apple Watch の記録から。<a href="honolulu_plan_shunka.html">← 練習プランに戻る</a></div>
+<h1>📊 11/21 15 km 走 レビュー — 本番 12/13 から逆算</h1>
+<div class="sub">2026/11/21(金) 15:49〜18:03 ・ shunka ＋ パートナー ・ Apple Watch の記録と翌日の体調から。本番まで <b>20 日</b>。<a href="honolulu_plan_shunka.html">← 練習プラン</a> ／ <a href="honolulu_plan_shunka.html#care">🩹 前後ケア</a></div>
+<div class="toc card" style="padding:10px 14px"><a href="#s0">結論</a><a href="#s1">1 本番の要求 vs 今回</a><a href="#s2">2 走りのレビュー（良い点・直す点と根拠）</a><a href="#s3">3 翌日の頭痛・だるさ・膝・股関節</a><a href="#s4">4 本番に向けた改善点</a><a href="#s5">5 残り 20 日の修正案</a><a href="#s6">6 本番予想の更新</a><a href="#s7">7 11/28 のルール・補給</a><a href="#s8">8 お願いと質問</a><a href="#s9">出典</a></div>
 
-<div class="verdict">結論: <b>4 週間で明らかに強くなった。</b>10/25 と同じ心拍 152 で 1 km あたり 43 秒速く、距離は 1.3 倍、坂と信号つき、しかも後半のほうが速い。直すところは 2 つだけ: <b>走り区間が速すぎる</b>（心拍が目標より上）と、<b>補給がほぼゼロ</b>だったこと。</div>
+<h2 id="s0">結論（3 行）</h2>
+<div class="verdict green">🟢 <b>走る力は本番の土台に乗った。</b>10/25 と同じ心拍 152 で 1 km あたり 43 秒速く、距離 1.3 倍、坂・信号つきで後半のほうが速い。これは本物の進歩。</div>
+<div class="verdict red">🔴 <b>体の反応は赤信号。</b>翌日に頭痛（目の奥）・だるさ・股関節と左膝の痛み。原因は「補給ほぼゼロ（水 250 ml・糖 50 kcal）」×「走り区間が 30〜60 秒速すぎ」×「距離を一気に +27%」の 3 つが重なったこと。どれも直せるが、<b>膝と股関節の痛みが引くまで走らない</b>のが最優先。</div>
+<div class="verdict">🟡 <b>42 km はまだ可能。ただし条件つき。</b>①痛みが 11/26 までに消える ②11/28 に「補給あり・走り 9:00・3 時間上限」でやり切れる ③目標を 6:25 ではなく <b>「完走・6 時間 45 分〜7 時間」</b>に置き直す。この 3 つが揃えば行ける。揃わなければ本番は歩き多めの作戦に切り替える（制限時間なし、完走はできる）。</div>
 
 <div class="kpi">
-<div><b>14.17 km</b><span>距離（自己最長）</span></div>
+<div><b>14.17 km</b><span>距離（自己最長。10/25 の 11.13 km から +27%）</span></div>
 <div><b>2:05:18</b><span>動いていた時間（経過 2:13:48、信号待ち 8.5 分）</span></div>
-<div><b>8'50" /km</b><span>平均ペース（歩き込み）。本番目標 8:40〜9:10 の中</span></div>
-<div><b class="warn">152</b><span>平均心拍（116〜171）。狙いは 150 前後・上限 155</span></div>
-<div><b>620 kcal</b><span>消費。1 km あたり 44 kcal</span></div>
+<div><b>8'50" /km</b><span>平均ペース（歩き込み）。走り区間は約 8:00、1 本目 6:30</span></div>
+<div><b class="warn">152</b><span>平均心拍（116〜171）。狙い 150・上限 155</span></div>
 <div><b class="bad">250 ml ／ 50 kcal</b><span>1 人あたりの補給（水 500 ml とジェル 1 個を二人で半分）</span></div>
+<div><b class="bad">翌日 ✗</b><span>頭痛（目の奥）・だるさ・股関節・左膝</span></div>
 </div>
 
-<h2>1. 1 km ごとに何が起きたか</h2>
-<div class="card"><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">1 km ごとのペース（分/km・歩き込み）</text><polyline points="84.3,155.7 132.9,144.9 181.4,161.1 230.0,77.0 278.6,117.7 327.1,102.8 375.7,101.4 424.3,124.5 472.9,136.7 521.4,74.3 570.0,63.4 618.6,109.6 667.1,115.0 715.7,117.7" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="101.4" width="680" height="40.7" fill="#4ade80" opacity="0.18"/><text x="736" y="97.4" class="bl">本番の全体目標 8:40〜9:10</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">7:40</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">8:08</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">8:36</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">9:04</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">9:32</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">10:00</text><text x="84.3" y="226" class="xl">1</text><circle cx="84.3" cy="155.7" r="6" fill="#ffd166"/><text x="84.3" y="145.7" class="vl">9:20</text><text x="132.9" y="226" class="xl">2</text><circle cx="132.9" cy="144.9" r="6" fill="#ffd166"/><text x="132.9" y="134.9" class="vl">9:12</text><text x="181.4" y="226" class="xl">3</text><text x="181.4" y="240" class="xl" fill="#ffd166">登り</text><circle cx="181.4" cy="161.1" r="6" fill="#ffd166"/><text x="181.4" y="151.1" class="vl">9:24</text><text x="230.0" y="226" class="xl">4</text><circle cx="230.0" cy="77.0" r="6" fill="#ff4d8d"/><text x="230.0" y="67.0" class="vl">8:22</text><text x="278.6" y="226" class="xl">5</text><text x="278.6" y="240" class="xl" fill="#ffd166">登り(31 m)</text><circle cx="278.6" cy="117.7" r="6" fill="#ffd166"/><text x="278.6" y="107.7" class="vl">8:52</text><text x="327.1" y="226" class="xl">6</text><circle cx="327.1" cy="102.8" r="6" fill="#ffd166"/><text x="327.1" y="92.8" class="vl">8:41</text><text x="375.7" y="226" class="xl">7</text><text x="375.7" y="240" class="xl" fill="#ffd166">★</text><circle cx="375.7" cy="101.4" r="6" fill="#ffd166"/><text x="375.7" y="91.4" class="vl">8:40</text><text x="424.3" y="226" class="xl">8</text><circle cx="424.3" cy="124.5" r="6" fill="#ffd166"/><text x="424.3" y="114.5" class="vl">8:57</text><text x="472.9" y="226" class="xl">9</text><circle cx="472.9" cy="136.7" r="6" fill="#ffd166"/><text x="472.9" y="126.7" class="vl">9:06</text><text x="521.4" y="226" class="xl">10</text><circle cx="521.4" cy="74.3" r="6" fill="#ff4d8d"/><text x="521.4" y="64.3" class="vl">8:20</text><text x="570.0" y="226" class="xl">11</text><circle cx="570.0" cy="63.4" r="6" fill="#ff4d8d"/><text x="570.0" y="53.4" class="vl">8:12</text><text x="618.6" y="226" class="xl">12</text><text x="618.6" y="240" class="xl" fill="#ffd166">★皇居の登り</text><circle cx="618.6" cy="109.6" r="6" fill="#ffd166"/><text x="618.6" y="99.6" class="vl">8:46</text><text x="667.1" y="226" class="xl">13</text><text x="667.1" y="240" class="xl" fill="#ffd166">★</text><circle cx="667.1" cy="115.0" r="6" fill="#ffd166"/><text x="667.1" y="105.0" class="vl">8:50</text><text x="715.7" y="226" class="xl">14</text><circle cx="715.7" cy="117.7" r="6" fill="#ffd166"/><text x="715.7" y="107.7" class="vl">8:52</text><text x="60" y="252" class="note">上に行くほど速い。赤＝8:30 より速い km。前半 7 km 平均 8:56 → 後半 7 km 平均 8:43 で、後半のほうが速い。</text></svg><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">1 km ごとの平均心拍（拍/分）</text><polyline points="84.3,160.6 132.9,111.2 181.4,84.6 230.0,92.2 278.6,77.0 327.1,80.8 375.7,65.6 424.3,99.8 472.9,122.6 521.4,92.2 570.0,84.6 618.6,65.6 667.1,65.6 715.7,103.6" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="96.0" width="680" height="38.0" fill="#4ade80" opacity="0.18"/><text x="736" y="92.0" class="bl">狙い 140〜150</text><line x1="60" y1="77.0" x2="740" y2="77.0" stroke="#4ade80" stroke-dasharray="6 4" stroke-width="2"/><text x="736" y="72.0" class="bl">上限 155</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">120</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">130</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">140</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">150</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">160</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">170</text><text x="84.3" y="226" class="xl">1</text><circle cx="84.3" cy="160.6" r="6" fill="#4ade80"/><text x="84.3" y="150.6" class="vl">133</text><text x="132.9" y="226" class="xl">2</text><circle cx="132.9" cy="111.2" r="6" fill="#4ade80"/><text x="132.9" y="101.2" class="vl">146</text><text x="181.4" y="226" class="xl">3</text><text x="181.4" y="240" class="xl" fill="#ffd166">登り</text><circle cx="181.4" cy="84.6" r="6" fill="#ffd166"/><text x="181.4" y="74.6" class="vl">153</text><text x="230.0" y="226" class="xl">4</text><circle cx="230.0" cy="92.2" r="6" fill="#ffd166"/><text x="230.0" y="82.2" class="vl">151</text><text x="278.6" y="226" class="xl">5</text><text x="278.6" y="240" class="xl" fill="#ffd166">登り(31 m)</text><circle cx="278.6" cy="77.0" r="6" fill="#ffd166"/><text x="278.6" y="67.0" class="vl">155</text><text x="327.1" y="226" class="xl">6</text><circle cx="327.1" cy="80.8" r="6" fill="#ffd166"/><text x="327.1" y="70.8" class="vl">154</text><text x="375.7" y="226" class="xl">7</text><text x="375.7" y="240" class="xl" fill="#ffd166">★</text><circle cx="375.7" cy="65.6" r="6" fill="#ff4d8d"/><text x="375.7" y="55.6" class="vl">158</text><text x="424.3" y="226" class="xl">8</text><circle cx="424.3" cy="99.8" r="6" fill="#4ade80"/><text x="424.3" y="89.8" class="vl">149</text><text x="472.9" y="226" class="xl">9</text><circle cx="472.9" cy="122.6" r="6" fill="#4ade80"/><text x="472.9" y="112.6" class="vl">143</text><text x="521.4" y="226" class="xl">10</text><circle cx="521.4" cy="92.2" r="6" fill="#ffd166"/><text x="521.4" y="82.2" class="vl">151</text><text x="570.0" y="226" class="xl">11</text><circle cx="570.0" cy="84.6" r="6" fill="#ffd166"/><text x="570.0" y="74.6" class="vl">153</text><text x="618.6" y="226" class="xl">12</text><text x="618.6" y="240" class="xl" fill="#ffd166">★皇居の登り</text><circle cx="618.6" cy="65.6" r="6" fill="#ff4d8d"/><text x="618.6" y="55.6" class="vl">158</text><text x="667.1" y="226" class="xl">13</text><text x="667.1" y="240" class="xl" fill="#ffd166">★</text><circle cx="667.1" cy="65.6" r="6" fill="#ff4d8d"/><text x="667.1" y="55.6" class="vl">158</text><text x="715.7" y="226" class="xl">14</text><circle cx="715.7" cy="103.6" r="6" fill="#4ade80"/><text x="715.7" y="93.6" class="vl">148</text><text x="60" y="252" class="note">緑＝150 以下、黄＝151〜155、赤＝156 以上。赤の 3 か所は全部「登り」か「速い km の直後」。前半 7 km 平均 150 → 後半 7 km 平均 151（横ばい）。</text></svg>
+<h2 id="s1">1. 本番の要求から逆算すると、11/21 はどこまで来たか</h2>
+<div class="card">
+<p>本番は <b>12/13(日) 5:00 スタート・42.195 km・制限時間なし・給水所 16 か所（約 2.6 km ごと）・ジェル 4 か所（9・12・15・20 マイル）・ダイヤモンドヘッド 2 回（約 10 km と 38 km）・気温 5 時 20℃ → 7 時過ぎ 25℃以上</b>。この条件に対して、二人の体に必要なものを並べ、11/21 で確認できたかを見る。</p>
+<svg viewBox="0 0 760 392" class="chart"><text x="60" y="14" class="ct">本番の要求に対して、11/21 はどこまで来たか</text><text x="242" y="46.6" class="yl" style="font-size:12px;fill:#f4f1ea">時間（本番 6h45 に対して）</text><rect x="250" y="34" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="34" width="138.6" height="18" rx="4" fill="#ffd166"/><text x="676" y="46.6" class="note" style="fill:#f4f1ea;font-weight:700">2:14 ／ 33%</text><text x="242" y="76.6" class="yl" style="font-size:12px;fill:#f4f1ea">距離（42.2 km に対して）</text><rect x="250" y="64" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="64" width="142.8" height="18" rx="4" fill="#ffd166"/><text x="676" y="76.6" class="note" style="fill:#f4f1ea;font-weight:700">14.2 km ／ 34%</text><text x="242" y="106.6" class="yl" style="font-size:12px;fill:#f4f1ea">心拍 平均 ≤155</text><rect x="250" y="94" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="94" width="420.0" height="18" rx="4" fill="#4ade80"/><text x="676" y="106.6" class="note" style="fill:#f4f1ea;font-weight:700">152 ／ ○</text><text x="242" y="136.6" class="yl" style="font-size:12px;fill:#f4f1ea">心拍 狙い 140〜151 にいた割合</text><rect x="250" y="124" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="124" width="130.2" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="136.6" class="note" style="fill:#f4f1ea;font-weight:700">31%（目標 70%）</text><text x="242" y="166.6" class="yl" style="font-size:12px;fill:#f4f1ea">走り区間ペース 8:30〜9:00</text><rect x="250" y="154" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="154" width="168.0" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="166.6" class="note" style="fill:#f4f1ea;font-weight:700">8:00 ＝ 30〜60 秒速い</text><text x="242" y="196.6" class="yl" style="font-size:12px;fill:#f4f1ea">ピッチ（走り）165〜170</text><rect x="250" y="184" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="184" width="390.6" height="18" rx="4" fill="#ffd166"/><text x="676" y="196.6" class="note" style="fill:#f4f1ea;font-weight:700">約 158 ／ 93%</text><text x="242" y="226.6" class="yl" style="font-size:12px;fill:#f4f1ea">糖 180〜240 kcal/時</text><rect x="250" y="214" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="214" width="50.4" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="226.6" class="note" style="fill:#f4f1ea;font-weight:700">24 kcal/時 ／ 12%</text><text x="242" y="256.6" class="yl" style="font-size:12px;fill:#f4f1ea">水 400〜800 ml/時</text><rect x="250" y="244" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="244" width="105.0" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="256.6" class="note" style="fill:#f4f1ea;font-weight:700">120 ml/時 ／ 25%</text><text x="242" y="286.6" class="yl" style="font-size:12px;fill:#f4f1ea">塩 10 km ごと 1 個</text><rect x="250" y="274" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="274" width="0.0" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="286.6" class="note" style="fill:#f4f1ea;font-weight:700">0</text><text x="242" y="316.6" class="yl" style="font-size:12px;fill:#f4f1ea">暑さ（20→28℃）の経験</text><rect x="250" y="304" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="304" width="0.0" height="18" rx="4" fill="#6ec6ff"/><text x="676" y="316.6" class="note" style="fill:#f4f1ea;font-weight:700">東京 10℃台 ／ 未経験</text><text x="242" y="346.6" class="yl" style="font-size:12px;fill:#f4f1ea">翌日の回復（軽い筋肉痛だけ）</text><rect x="250" y="334" width="420" height="18" rx="4" fill="#2f365a"/><rect x="250" y="334" width="42.0" height="18" rx="4" fill="#ff4d8d"/><text x="676" y="346.6" class="note" style="fill:#f4f1ea;font-weight:700">頭痛・だるさ・股関節・左膝</text><line x1="460.0" y1="24" x2="460.0" y2="358" stroke="#a3a8c3" stroke-dasharray="4 4"/><text x="460.0" y="372" class="xl">50%</text><line x1="670.0" y1="24" x2="670.0" y2="358" stroke="#a3a8c3" stroke-dasharray="4 4"/><text x="670.0" y="372" class="xl">100%</text><text x="60" y="386" class="note">緑＝合格、黄＝途中、赤＝直す、青＝まだ試していない。時間と距離は「まだ 3 分の 1」が正常（最長は 11/28 の予定）。赤が 5 本あるのが問題。</text></svg>
+<table><tr><th>本番に必要なこと</th><th>なぜ必要か</th><th>11/21 の実績</th><th>判定</th></tr>
+<tr><td>6 時間 45 分 動き続ける体</td><td>目標タイム＝走り区間 9:00 で 6:45。最長練習は本番の 45〜50%（3 時間）が目安。それ以上は怪我のリスクが上回る</td><td>2 時間 14 分（本番の 33%・最長練習の 70%）</td><td class="warn">途中（予定どおり）</td></tr>
+<tr><td>心拍 150 前後・上限 155</td><td>150 を超えると糖の消費が増え、30 km 過ぎで切れる（<a href="#s9">出典 ①</a>）。暑さで +5〜10 上がるので東京では 145〜150 が本番の 150〜155 に相当</td><td>平均 152。狙い 140〜151 にいたのは 31%、152 以上が 53%</td><td class="bad">高め</td></tr>
+<tr><td>走り区間 8:30〜9:00/km</td><td>歩きと走りの速さの差が小さい走法なので、走りを速くしてもゴールはほとんど変わらず心拍だけ上がる（§6）</td><td>約 8:00。1 本目 6:30</td><td class="bad">速すぎ</td></tr>
+<tr><td>糖 180〜240 kcal/時（45〜60 g）</td><td>2〜3 時間以上の運動は 30〜60 g/時、長いほど上限側（<a href="#s9">出典 ②</a>）。42 km で約 1,850 kcal 使うのに体の貯金は約 1,400 kcal</td><td>50 kcal を 2 時間で＝24 kcal/時</td><td class="bad">12%</td></tr>
+<tr><td>水 400〜800 ml/時</td><td>体重 2% 以上の脱水で心拍上昇・頭痛・パフォーマンス低下（<a href="#s9">出典 ③</a>）。喉の渇きが出たら飲む、飲みすぎも NG</td><td>250 ml を 2 時間で＝120 ml/時</td><td class="bad">25%</td></tr>
+<tr><td>塩 10 km ごと</td><td>汗で失う。4 時間超・小柄・初心者は低ナトリウムの高リスク群（🩹 前後ケア タブ）</td><td>0</td><td class="bad">未実施</td></tr>
+<tr><td>ピッチ 165〜170（走り区間）</td><td>ピッチを 5〜10% 上げると歩幅が縮み、膝・股関節の負荷とブレーキが減る（<a href="#s9">出典 ④</a>）</td><td>平均 148（歩き込み）→ 走り区間は約 158 と推定</td><td class="warn">やや低い</td></tr>
+<tr><td>暑さの中で心拍を守る経験</td><td>暑いほど遅くなり、遅いランナーほど落ち幅が大きい（<a href="#s9">出典 ⑤</a>）</td><td>東京 11 月の夕方（10℃台）。未経験</td><td class="blue">未検証</td></tr>
+<tr><td>翌日は軽い筋肉痛だけで回復</td><td>翌日に関節痛・頭痛が残る＝負荷か補給が体の上限を超えた合図。本番はこの 3 倍の時間</td><td>頭痛・だるさ・股関節・左膝痛</td><td class="bad">超えた</td></tr>
+</table>
+<p><b>読み方:</b> 時間と距離が 3 分の 1 なのは計画どおり。問題は<b>「本番の 3 分の 1 の負荷で、体が翌日に悲鳴を上げた」</b>こと。その原因が補給・ペース・増やし方の 3 つに分解できるので、§2〜§3 で根拠を示し、§4〜§5 で直す。</p>
+</div>
+
+<h2 id="s2">2. 今回の走りのレビュー — 良かった点・直す点と、その根拠</h2>
+<div class="card">
+<h3>🟢 良かった点（4 つ）</h3>
+<table><tr><th>何が良かったか</th><th>根拠（今回のデータ）</th><th>なぜ「良い」と言えるか</th><th>本番への意味</th></tr>
+<tr><td><b>① 後半のほうが速く、心拍は横ばい</b></td><td>前半 7 km 8:56・心拍 150 → 後半 7 km 8:43・心拍 151</td><td>ペースを上げても心拍が追従しなかった＝2 時間動いても心臓・血液量に余裕があった。疲れて心拍がじわじわ上がる「カーディアック・ドリフト」が出ていない</td><td>6 時間の後半でも「走・歩」を崩さない土台がある。ネガティブスプリットは本番でもいちばん安全な配分</td></tr>
+<tr><td><b>② 4 週間で 43 秒/km 速くなった（同じ心拍）</b></td><td>10/25: 9:33/km・心拍 152 → 11/21: 8:50/km・心拍 152。距離 11.1 → 14.2 km、今回は坂 3 回・信号 8.5 分つき</td><td>同じ心拍で速い＝有酸素の効率が上がった証拠。10/25 は平坦・信号少なめの多摩川だったので、条件は今回のほうが厳しい</td><td>走り区間を 9:00 に落としても、心拍は 10/27（140）寄りに下がる余地がある。「遅くして心拍を守る」作戦の裏付け</td></tr>
+<tr><td><b>③ 心拍が上がった場所が全部説明できる</b></td><td>158 の 3 か所（km 7・12・13）＝速い km の直後・竹橋→半蔵門の登り。165 以上は合計 8.5 分（7%）</td><td>原因不明の心拍上昇がない。平坦をゆっくり走っている限り 150 以下に収まっていた（km 8・9・14）</td><td>本番で「登りは歩く・速くしない」を守れば心拍は制御できる。ダイヤモンドヘッド 2 回を歩く方針は正しい</td></tr>
+<tr><td><b>④ 2 時間、走・歩の構造を崩さなかった</b></td><td>走 3 分／歩 1 分を 14 km 完遂。信号で止まっても再開できた</td><td>初めての 2 時間超で「歩きに崩れる」が起きなかった。精神的にも時計に従えた</td><td>Galloway 式の前提（最初から最後まで同じリズム）は二人に合っている</td></tr></table>
+
+<h3>🔴 直す点（6 つ・影響の大きい順）</h3>
+<table><tr><th>何を直すか</th><th>根拠（今回のデータ）</th><th>なぜ問題か（理屈・文献）</th><th>本番で起きること（直さない場合）</th></tr>
+<tr><td><b>① 補給がほぼゼロ</b></td><td>1 人あたり水 250 ml・糖 50 kcal・塩 0 を 2 時間 14 分で。必要量の 12〜25%（§1）</td><td>2 時間なら体の貯金（糖 約 1,400 kcal）で動けるが、肝臓の糖（約 300〜400 kcal・血糖を保つ分）は先に減る→脳が省エネに入り「だるい・頭が重い」が出る。水が足りないと血液が濃くなり同じ速さで心拍が +5〜8 上がる（<a href="#s9">③</a>）。<b>翌日の頭痛・だるさの主犯</b>（§3）</td><td>3 時間 30 分なら 2 時間半で糖が切れて歩くしかなくなる。42 km なら 25〜30 km で「壁」。練習で一度も補給しないと、本番で胃が受け付けない</td></tr>
+<tr><td><b>② 走り区間が 30〜60 秒速い</b></td><td>走り区間 約 8:00（目標 8:30〜9:00）、1 本目 6:30。速い km（10・11: 8:20・8:12）の直後に心拍 158</td><td>走りと速歩きの速さの差が小さい走法では、走りを速くしてもゴールはほとんど縮まない（8:00 → 9:00 で 42 km 差 37 分、心拍差 10）。一方で着地衝撃はペースに比例して増え、膝・股関節に効く</td><td>心拍 158〜160 で 6 時間→糖の消費が増え 30 km で壁。膝・股関節の痛みが本番の 20 km 以降で再発</td></tr>
+<tr><td><b>③ 距離を一気に増やした</b></td><td>最長 11.13 km（10/25）→ 14.17 km（+27%）。時間 1:46 → 2:14（+26%）。11/2〜11/19 の練習は記録なし（未確認）</td><td>初心者では週の走行距離を 30% 超で増やすと距離型の怪我（膝前面痛・腸脛靱帯・膝蓋腱）が増える（<a href="#s9">⑥</a>）。もし 11 月前半をほとんど走っていなければ、直近の負荷に対する跳ね幅は +27% よりずっと大きい</td><td>11/28 を予定の 24.6 km（+74%）で行くと、怪我のリスクが完走の可能性を上回る</td></tr>
+<tr><td><b>④ ピッチが低い（歩幅が大きい）</b></td><td>平均ピッチ 148（歩き込み）。歩き 1 分を 115 と仮定すると走り区間は約 158</td><td>ピッチを 5〜10% 上げると（158 → 166〜174）歩幅・上下動・ブレーキが減り、膝と股関節で吸収するエネルギーが有意に減る（<a href="#s9">④</a>）。膝蓋大腿関節（膝前面）の力も減る（<a href="#s9">④'</a>）。3 週間で筋力は付かないが、ピッチは明日から変えられる</td><td>左膝・股関節の痛みが毎回出る。本番 42 km で 2 万 5 千歩以上の衝撃を膝で受ける</td></tr>
+<tr><td><b>⑤ 坂と信号を選んだ</b></td><td>登り 3 回（白金台・麻布台 31 m・竹橋→半蔵門）、下り 3 回、信号停止 8.5 分</td><td>下りは大腿四頭筋のブレーキ動作で膝の負荷が平地より大きい。信号の「止まる→走る」は再加速の負荷。心拍 158 の 3 か所はすべて登り・再加速</td><td>本番はダイヤモンドヘッド以外ほぼ平坦・信号なし。練習の負荷が本番とズレて、怪我だけ増やす</td></tr>
+<tr><td><b>⑥ 走 3 分／歩 1 分 だった</b></td><td>本番は走 4・歩 1 の予定。Watch の設定が 3 分（4 分のつもりだった）</td><td>害はない。むしろ痛みが出た今は 3:1 が正解寄り。ただし本番と同じ設定でリハーサルしないと、歩きの入り方・補給のタイミングが本番で初体験になる</td><td>§6 のとおり 3:1 でもゴールは +4 分だけ。<b>直す優先度は低い</b>。11/28 は 4:1 で試し、痛ければ 3:1 に落とす</td></tr></table>
+
+<h3>根拠データ</h3>
+<svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">1 km ごとのペース（分/km・歩き込み）</text><polyline points="84.3,155.7 132.9,144.9 181.4,161.1 230.0,77.0 278.6,117.7 327.1,102.8 375.7,101.4 424.3,124.5 472.9,136.7 521.4,74.3 570.0,63.4 618.6,109.6 667.1,115.0 715.7,117.7" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="101.4" width="680" height="40.7" fill="#4ade80" opacity="0.18"/><text x="736" y="97.4" class="bl">本番の全体目標 8:40〜9:10</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">7:40</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">8:08</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">8:36</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">9:04</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">9:32</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">10:00</text><text x="84.3" y="226" class="xl">1</text><circle cx="84.3" cy="155.7" r="6" fill="#ffd166"/><text x="84.3" y="145.7" class="vl">9:20</text><text x="132.9" y="226" class="xl">2</text><circle cx="132.9" cy="144.9" r="6" fill="#ffd166"/><text x="132.9" y="134.9" class="vl">9:12</text><text x="181.4" y="226" class="xl">3</text><text x="181.4" y="240" class="xl" fill="#ffd166">登り</text><circle cx="181.4" cy="161.1" r="6" fill="#ffd166"/><text x="181.4" y="151.1" class="vl">9:24</text><text x="230.0" y="226" class="xl">4</text><circle cx="230.0" cy="77.0" r="6" fill="#ff4d8d"/><text x="230.0" y="67.0" class="vl">8:22</text><text x="278.6" y="226" class="xl">5</text><text x="278.6" y="240" class="xl" fill="#ffd166">登り(31 m)</text><circle cx="278.6" cy="117.7" r="6" fill="#ffd166"/><text x="278.6" y="107.7" class="vl">8:52</text><text x="327.1" y="226" class="xl">6</text><circle cx="327.1" cy="102.8" r="6" fill="#ffd166"/><text x="327.1" y="92.8" class="vl">8:41</text><text x="375.7" y="226" class="xl">7</text><text x="375.7" y="240" class="xl" fill="#ffd166">★</text><circle cx="375.7" cy="101.4" r="6" fill="#ffd166"/><text x="375.7" y="91.4" class="vl">8:40</text><text x="424.3" y="226" class="xl">8</text><circle cx="424.3" cy="124.5" r="6" fill="#ffd166"/><text x="424.3" y="114.5" class="vl">8:57</text><text x="472.9" y="226" class="xl">9</text><circle cx="472.9" cy="136.7" r="6" fill="#ffd166"/><text x="472.9" y="126.7" class="vl">9:06</text><text x="521.4" y="226" class="xl">10</text><circle cx="521.4" cy="74.3" r="6" fill="#ff4d8d"/><text x="521.4" y="64.3" class="vl">8:20</text><text x="570.0" y="226" class="xl">11</text><circle cx="570.0" cy="63.4" r="6" fill="#ff4d8d"/><text x="570.0" y="53.4" class="vl">8:12</text><text x="618.6" y="226" class="xl">12</text><text x="618.6" y="240" class="xl" fill="#ffd166">★皇居の登り</text><circle cx="618.6" cy="109.6" r="6" fill="#ffd166"/><text x="618.6" y="99.6" class="vl">8:46</text><text x="667.1" y="226" class="xl">13</text><text x="667.1" y="240" class="xl" fill="#ffd166">★</text><circle cx="667.1" cy="115.0" r="6" fill="#ffd166"/><text x="667.1" y="105.0" class="vl">8:50</text><text x="715.7" y="226" class="xl">14</text><circle cx="715.7" cy="117.7" r="6" fill="#ffd166"/><text x="715.7" y="107.7" class="vl">8:52</text><text x="60" y="252" class="note">上に行くほど速い。赤＝8:30 より速い km。前半 7 km 平均 8:56 → 後半 7 km 平均 8:43。</text></svg><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">1 km ごとの平均心拍（拍/分）</text><polyline points="84.3,160.6 132.9,111.2 181.4,84.6 230.0,92.2 278.6,77.0 327.1,80.8 375.7,65.6 424.3,99.8 472.9,122.6 521.4,92.2 570.0,84.6 618.6,65.6 667.1,65.6 715.7,103.6" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="96.0" width="680" height="38.0" fill="#4ade80" opacity="0.18"/><text x="736" y="92.0" class="bl">狙い 140〜150</text><line x1="60" y1="77.0" x2="740" y2="77.0" stroke="#4ade80" stroke-dasharray="6 4" stroke-width="2"/><text x="736" y="72.0" class="bl">上限 155</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">120</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">130</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">140</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">150</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">160</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">170</text><text x="84.3" y="226" class="xl">1</text><circle cx="84.3" cy="160.6" r="6" fill="#4ade80"/><text x="84.3" y="150.6" class="vl">133</text><text x="132.9" y="226" class="xl">2</text><circle cx="132.9" cy="111.2" r="6" fill="#4ade80"/><text x="132.9" y="101.2" class="vl">146</text><text x="181.4" y="226" class="xl">3</text><text x="181.4" y="240" class="xl" fill="#ffd166">登り</text><circle cx="181.4" cy="84.6" r="6" fill="#ffd166"/><text x="181.4" y="74.6" class="vl">153</text><text x="230.0" y="226" class="xl">4</text><circle cx="230.0" cy="92.2" r="6" fill="#ffd166"/><text x="230.0" y="82.2" class="vl">151</text><text x="278.6" y="226" class="xl">5</text><text x="278.6" y="240" class="xl" fill="#ffd166">登り(31 m)</text><circle cx="278.6" cy="77.0" r="6" fill="#ffd166"/><text x="278.6" y="67.0" class="vl">155</text><text x="327.1" y="226" class="xl">6</text><circle cx="327.1" cy="80.8" r="6" fill="#ffd166"/><text x="327.1" y="70.8" class="vl">154</text><text x="375.7" y="226" class="xl">7</text><text x="375.7" y="240" class="xl" fill="#ffd166">★</text><circle cx="375.7" cy="65.6" r="6" fill="#ff4d8d"/><text x="375.7" y="55.6" class="vl">158</text><text x="424.3" y="226" class="xl">8</text><circle cx="424.3" cy="99.8" r="6" fill="#4ade80"/><text x="424.3" y="89.8" class="vl">149</text><text x="472.9" y="226" class="xl">9</text><circle cx="472.9" cy="122.6" r="6" fill="#4ade80"/><text x="472.9" y="112.6" class="vl">143</text><text x="521.4" y="226" class="xl">10</text><circle cx="521.4" cy="92.2" r="6" fill="#ffd166"/><text x="521.4" y="82.2" class="vl">151</text><text x="570.0" y="226" class="xl">11</text><circle cx="570.0" cy="84.6" r="6" fill="#ffd166"/><text x="570.0" y="74.6" class="vl">153</text><text x="618.6" y="226" class="xl">12</text><text x="618.6" y="240" class="xl" fill="#ffd166">★皇居の登り</text><circle cx="618.6" cy="65.6" r="6" fill="#ff4d8d"/><text x="618.6" y="55.6" class="vl">158</text><text x="667.1" y="226" class="xl">13</text><text x="667.1" y="240" class="xl" fill="#ffd166">★</text><circle cx="667.1" cy="65.6" r="6" fill="#ff4d8d"/><text x="667.1" y="55.6" class="vl">158</text><text x="715.7" y="226" class="xl">14</text><circle cx="715.7" cy="103.6" r="6" fill="#4ade80"/><text x="715.7" y="93.6" class="vl">148</text><text x="60" y="252" class="note">緑＝150 以下、黄＝151〜155、赤＝156 以上。赤の 3 か所は全部「登り」か「速い km の直後」。前半 150 → 後半 151（横ばい）。</text></svg><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">心拍ゾーンごとの時間（Apple Watch）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">14</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">28</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">42</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">56</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">70</text><rect x="84.5" y="179.3" width="87.0" height="30.7" rx="4" fill="#6ec6ff"/><text x="128.0" y="174.3" class="vl">11.3</text><text x="128.0" y="226" class="xl">〜139</text><rect x="220.5" y="105.8" width="87.0" height="104.2" rx="4" fill="#4ade80"/><text x="264.0" y="100.8" class="vl">38.4</text><text x="264.0" y="226" class="xl">140〜151</text><rect x="356.5" y="52.3" width="87.0" height="157.7" rx="4" fill="#ffd166"/><text x="400.0" y="47.3" class="vl">58.1</text><text x="400.0" y="226" class="xl">152〜164</text><rect x="492.5" y="186.7" width="87.0" height="23.3" rx="4" fill="#ff4d8d"/><text x="536.0" y="181.7" class="vl">8.6</text><text x="536.0" y="226" class="xl">165〜176</text><rect x="628.5" y="210.0" width="87.0" height="0.0" rx="4" fill="#ff4d8d"/><text x="672.0" y="205.0" class="vl">0</text><text x="672.0" y="226" class="xl">177〜</text><text x="60" y="252" class="note">単位: 分。狙いの 140〜151 にいたのは 38 分（31%）。152 以上が 67 分（53%）。</text></svg>
 <table><tr><th>km</th><th>ペース</th><th>心拍</th><th>場所・読み</th></tr>
-<tr><td>1</td><td>9:20</td><td class="good">133</td><td>ウォームアップ 5 分の歩き込み</td></tr>
+<tr><td>1</td><td>9:20</td><td class="good">133</td><td>ウォームアップ 5 分の歩き込み。ただし走り 1 本目は 6:30 で飛び出し</td></tr>
 <tr><td>2</td><td>9:12</td><td class="good">146</td><td></td></tr>
 <tr><td>3</td><td>9:24</td><td class="warn">153</td><td>白金台への登り</td></tr>
-<tr><td>4</td><td>8:22</td><td class="warn">151</td><td>下り</td></tr>
+<tr><td>4</td><td>8:22</td><td class="warn">151</td><td>下り（膝のブレーキ負荷）</td></tr>
 <tr><td>5</td><td>8:52</td><td class="warn">155</td><td>麻布台の登り（最高地点 31 m）</td></tr>
 <tr><td>6</td><td>8:41</td><td class="warn">154</td><td></td></tr>
 <tr><td>7</td><td>8:40</td><td class="bad">158</td><td>速い km の直後、東京タワー付近</td></tr>
@@ -46,61 +91,9 @@ ul,ol{padding-left:20px}li{margin:4px 0}.big{font-size:16px}
 <tr><td>10</td><td>8:20</td><td class="warn">151</td><td>皇居 外周・平坦。速い</td></tr>
 <tr><td>11</td><td>8:12</td><td class="warn">153</td><td>いちばん速い km</td></tr>
 <tr><td>12</td><td>8:46</td><td class="bad">158</td><td>竹橋 → 半蔵門の登り</td></tr>
-<tr><td>13</td><td>8:50</td><td class="bad">158</td><td>同上</td></tr>
-<tr><td>14</td><td>8:52</td><td class="good">148</td><td>下り、ゴールへ</td></tr>
-</table>
-<ul>
-<li><b>後半のほうが速い。</b>前半 7 km 平均 8:56・心拍 150 → 後半 7 km 平均 8:43・心拍 151。ペースを上げたのに心拍は横ばい。2 時間動いても心拍が上に逃げなかった。<b>今回いちばん良いデータ</b></li>
-<li><b>心拍 158 の 3 か所は全部「登り」か「速い km の直後」。</b>平坦をゆっくり走っている限り、心拍は上がっていない</li>
-<li>いちばん速い km（8:12）と、いちばん楽な km（心拍 143）が 2 km しか離れていない。<b>「速くしても楽にならない、遅くしても遅れない」</b>の証拠</li>
-</ul></div>
-
-<h2>2. 心拍の中身</h2>
-<div class="card"><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">心拍ゾーンごとの時間（Apple Watch の推定）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">14</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">28</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">42</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">56</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">70</text><rect x="84.5" y="179.3" width="87.0" height="30.7" rx="4" fill="#6ec6ff"/><text x="128.0" y="174.3" class="vl">11.3</text><text x="128.0" y="226" class="xl">〜139</text><rect x="220.5" y="105.8" width="87.0" height="104.2" rx="4" fill="#4ade80"/><text x="264.0" y="100.8" class="vl">38.4</text><text x="264.0" y="226" class="xl">140〜151</text><rect x="356.5" y="52.3" width="87.0" height="157.7" rx="4" fill="#ffd166"/><text x="400.0" y="47.3" class="vl">58.1</text><text x="400.0" y="226" class="xl">152〜164</text><rect x="492.5" y="186.7" width="87.0" height="23.3" rx="4" fill="#ff4d8d"/><text x="536.0" y="181.7" class="vl">8.6</text><text x="536.0" y="226" class="xl">165〜176</text><rect x="628.5" y="210.0" width="87.0" height="0.0" rx="4" fill="#ff4d8d"/><text x="672.0" y="205.0" class="vl">0</text><text x="672.0" y="226" class="xl">177〜</text><text x="60" y="252" class="note">単位: 分。狙いの 140〜151 にいたのは 38 分（約 3 分の 1）。152 以上が 67 分。</text></svg>
-<p>平均 152 の中身は、狙いの 140〜151 が 38 分、152〜164 が 58 分、165 以上が 8.5 分。<b>狙いに収まっていたのは全体の 3 分の 1</b>。評価は「速さは十分、心拍は高め」。</p>
-<p><b>なぜ心拍 150 にこだわるか（1 行で）:</b> 心拍が高いほど「糖」で走る割合が増える。糖は体に 1,400 kcal くらいしか貯まっていなくて、42 km には約 1,850 kcal 必要（今回 1 km あたり 44 kcal だった）。心拍 150 なら脂肪の割合が増えて糖が最後まで持つ。160 だと 30 km 過ぎで切れて歩くしかなくなる。</p></div>
-
-<h2>3. 走り区間の本当の速さ</h2>
-<div class="card">
-<p>平均 8:50 は歩き込みの数字。歩き区間は 1 分で約 78 m（12:49/km）だったので、逆算すると<b>走り区間は平均 8:00/km 前後</b>。最初の 1 本は 6:30/km で飛び出している。</p>
-<table><tr><th></th><th>10/27 走4・歩1 8 km</th><th>11/21 走3・歩1 14 km</th></tr>
-<tr><td>走り区間の速さ</td><td>約 8:00</td><td>約 8:00（最初の 1 本 6:30）</td></tr>
-<tr><td>時間</td><td>70 分</td><td>125 分</td></tr>
-<tr><td>コース</td><td>平坦</td><td>登り 3 回・信号 8.5 分</td></tr>
-<tr><td>補給</td><td>なし</td><td>水 250 ml・50 kcal</td></tr>
-<tr><td><b>平均心拍</b></td><td class="good"><b>140</b></td><td class="warn"><b>152</b></td></tr></table>
-<p><b>同じ速さで走っても、70 分なら 140、125 分＋坂＋水なしなら 152。</b>6 時間ならさらに上がる。ホノルルは 25℃ なので、暑さでさらに +5〜10。今の走り方をそのまま持っていくと心拍 158〜160 で 6 時間になり、後半に壁が来る可能性が高い。これが本番でいちばん気をつける点。</p>
-<svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">3 本の平均ペース（分/km・歩き込み）</text><polyline points="173.3,167.2 400.0,88.1 626.7,99.2" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="83.3" width="680" height="47.5" fill="#4ade80" opacity="0.18"/><text x="736" y="79.3" class="bl">本番目標 8:40〜9:10</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">8:00</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">8:24</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">8:48</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">9:12</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">9:36</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">10:00</text><text x="173.3" y="226" class="xl">10/25 連続走</text><circle cx="173.3" cy="167.2" r="6" fill="#ff4d8d"/><text x="173.3" y="157.2" class="vl">9:33</text><text x="400.0" y="226" class="xl">10/27 走4・歩1 8 km</text><circle cx="400.0" cy="88.1" r="6" fill="#4ade80"/><text x="400.0" y="78.1" class="vl">8:43</text><text x="626.7" y="226" class="xl">11/21 走3・歩1 14 km</text><circle cx="626.7" cy="99.2" r="6" fill="#ffd166"/><text x="626.7" y="89.2" class="vl">8:50</text><text x="60" y="252" class="note">10/25 → 11/21: 同じ心拍 152 で 43 秒/km 速くなった。距離は 1.3 倍、坂と信号つき。</text></svg><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">3 本の平均心拍（拍/分）</text><polyline points="173.3,88.4 400.0,134.0 626.7,88.4" fill="none" stroke="#a3a8c3" stroke-width="2"/><line x1="60" y1="77.0" x2="740" y2="77.0" stroke="#4ade80" stroke-dasharray="6 4" stroke-width="2"/><text x="736" y="72.0" class="bl">上限 155</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">120</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">130</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">140</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">150</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">160</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">170</text><text x="173.3" y="226" class="xl">10/25 連続走</text><circle cx="173.3" cy="88.4" r="6" fill="#ff4d8d"/><text x="173.3" y="78.4" class="vl">152</text><text x="400.0" y="226" class="xl">10/27 走4・歩1 8 km</text><circle cx="400.0" cy="134.0" r="6" fill="#4ade80"/><text x="400.0" y="124.0" class="vl">140</text><text x="626.7" y="226" class="xl">11/21 走3・歩1 14 km</text><circle cx="626.7" cy="88.4" r="6" fill="#ffd166"/><text x="626.7" y="78.4" class="vl">152</text><text x="60" y="252" class="note">10/27 は 70 分・平坦・補給なしでも 140。11/21 は 125 分・坂・信号・水 250 ml で 152。</text></svg></div>
-
-<h2>4. 補給 — ここが今回の「やばい」</h2>
-<div class="card"><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">補給: 実際 vs 必要（1 人あたり）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">180</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">360</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">540</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">720</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">900</text><rect x="90.6" y="157.2" width="108.8" height="52.8" rx="4" fill="#ff4d8d"/><text x="145.0" y="152.2" class="vl">250</text><text x="145.0" y="226" class="xl">水 実際</text><rect x="260.6" y="41.1" width="108.8" height="168.9" rx="4" fill="#4ade80"/><text x="315.0" y="36.1" class="vl">800</text><text x="315.0" y="226" class="xl">水 必要</text><rect x="430.6" y="199.4" width="108.8" height="10.6" rx="4" fill="#ff4d8d"/><text x="485.0" y="194.4" class="vl">50</text><text x="485.0" y="226" class="xl">糖 実際</text><rect x="600.6" y="134.0" width="108.8" height="76.0" rx="4" fill="#4ade80"/><text x="655.0" y="129.0" class="vl">360</text><text x="655.0" y="226" class="xl">糖 必要</text><text x="60" y="252" class="note">左 2 本は ml、右 2 本は kcal（2 時間 05 分・1 人あたり）。必要量は「400 ml/時・30〜60 g/時」の中央値で計算。</text></svg>
-<p>二人で水 500 ml を 1 本、100 kcal のジェルを 1 個、半分ずつ。1 人あたり <b>水 250 ml・糖 50 kcal</b> は、2 時間に必要な量の 1/4〜1/8。</p>
-<ul>
-<li>2 時間は体の貯金（糖 約 1,400 kcal）で動けるので、今回は無事だった</li>
-<li><b>心拍 152 の一部は脱水のせい。</b>水が足りないと血が濃くなって、同じ速さでも心拍が上がる（2 時間で +5〜8 はふつう）。つまり 11/21 は「空タンク・水なし」で出した数字で、ちゃんと補給すれば心拍はもう少し下がるはず</li>
-<li><b>11/28 の 3 時間 30 分を同じやり方でやると、2 時間半前後で糖が切れて歩くしかなくなる。</b>本番の「壁」を練習で体験することになる。ここは絶対に直す</li>
-</ul>
-<table><tr><th></th><th>11/21 実際（1 人）</th><th>2 時間なら必要</th><th>11/28 3h30 なら必要</th></tr>
-<tr><td>水</td><td class="bad">250 ml</td><td>700〜900 ml</td><td>1.3〜1.5 L</td></tr>
-<tr><td>糖質</td><td class="bad">50 kcal（12 g）</td><td>240〜480 kcal（60〜120 g）</td><td>400〜800 kcal</td></tr>
-<tr><td>塩</td><td class="bad">0</td><td>タブレット 1 個</td><td>2 個</td></tr></table></div>
-
-<h2>5. 本番（ホノルル）の数字に直すと</h2>
-<div class="card">
-<p>走4分・歩1分、歩きは速歩き（1 分で 90 m）、給水所 16 か所とダイヤモンドヘッド 2 回の歩きで +10 分、として計算。</p>
-<table><tr><th>走り区間の速さ</th><th>全体ペース</th><th>ゴール予想</th><th>心拍の見込み（暑さ込み）</th><th></th></tr>
-<tr><td>8:00（今回と同じ）</td><td>8:39</td><td>6 時間 15 分</td><td class="bad">158〜160</td><td>30 km 過ぎに壁のリスク</td></tr>
-<tr class="rec"><td><b>8:30</b></td><td>8:54</td><td><b>6 時間 26 分</b></td><td class="warn">150〜155</td><td>◎ ここから</td></tr>
-<tr class="rec"><td><b>8:45</b></td><td>9:07</td><td><b>6 時間 35 分</b></td><td class="good">148〜152</td><td>◎ いちばん安全</td></tr>
-<tr><td>9:00</td><td>9:20</td><td>6 時間 44 分</td><td class="good">145〜150</td><td>暑い日はここでも正解</td></tr></table>
-<ul class="big">
-<li>走り区間を今より <b>30〜60 秒遅く（8:30〜9:00）</b>すると、ゴールは 10〜20 分遅くなるだけで、心拍が 150 に収まり後半を歩かずに終われる。<b>歩く割合が同じなら、走り区間を速くしてもタイムはほとんど変わらないのに、心拍だけ上がって損をする</b></li>
-<li>目標は「6 時間 05 分」ではなく <b>「心拍を守って最後まで走・歩を崩さず、6 時間 25〜45 分」</b>。遅い方で着いても心拍を守った結果なら正解</li>
-<li>歩き区間はダラダラ歩かない。1 分で 90 m（速歩き）にすると、12:49/km の歩きより 42 km で 10 分速い</li>
-</ul></div>
-
-<h2>6. コースの記録</h2>
-<div class="card"><svg viewBox="0 0 760 170" class="chart"><text x="60" y="14" class="ct">コース（目黒本町 → 東京タワー → 皇居 1 周 → 半蔵門・14.2 km・高低差 27 m）</text>
+<tr><td>13</td><td>8:50</td><td class="bad">158</td><td>同上。疲れ＋補給なし＋登り＝翌日の痛みはここで決まった可能性</td></tr>
+<tr><td>14</td><td>8:52</td><td class="good">148</td><td>下り、ゴールへ</td></tr></table>
+<svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">3 本の平均ペース（分/km・歩き込み）</text><polyline points="173.3,167.2 400.0,88.1 626.7,99.2" fill="none" stroke="#a3a8c3" stroke-width="2"/><rect x="60" y="83.3" width="680" height="47.5" fill="#4ade80" opacity="0.18"/><text x="736" y="79.3" class="bl">本番目標 8:40〜9:10</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">8:00</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">8:24</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">8:48</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">9:12</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">9:36</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">10:00</text><text x="173.3" y="226" class="xl">10/25 連続走 11 km</text><circle cx="173.3" cy="167.2" r="6" fill="#ff4d8d"/><text x="173.3" y="157.2" class="vl">9:33</text><text x="400.0" y="226" class="xl">10/27 走4・歩1 8 km</text><circle cx="400.0" cy="88.1" r="6" fill="#4ade80"/><text x="400.0" y="78.1" class="vl">8:43</text><text x="626.7" y="226" class="xl">11/21 走3・歩1 14 km</text><circle cx="626.7" cy="99.2" r="6" fill="#ffd166"/><text x="626.7" y="89.2" class="vl">8:50</text><text x="60" y="252" class="note">10/25 → 11/21: 同じ心拍 152 で 43 秒/km 速い。距離 1.3 倍、坂と信号つき。</text></svg><svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">3 本の平均心拍（拍/分）</text><polyline points="173.3,88.4 400.0,134.0 626.7,88.4" fill="none" stroke="#a3a8c3" stroke-width="2"/><line x1="60" y1="77.0" x2="740" y2="77.0" stroke="#4ade80" stroke-dasharray="6 4" stroke-width="2"/><text x="736" y="72.0" class="bl">上限 155</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">120</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">130</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">140</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">150</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">160</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">170</text><text x="173.3" y="226" class="xl">10/25 連続走 11 km</text><circle cx="173.3" cy="88.4" r="6" fill="#ff4d8d"/><text x="173.3" y="78.4" class="vl">152</text><text x="400.0" y="226" class="xl">10/27 走4・歩1 8 km</text><circle cx="400.0" cy="134.0" r="6" fill="#4ade80"/><text x="400.0" y="124.0" class="vl">140</text><text x="626.7" y="226" class="xl">11/21 走3・歩1 14 km</text><circle cx="626.7" cy="88.4" r="6" fill="#ffd166"/><text x="626.7" y="78.4" class="vl">152</text><text x="60" y="252" class="note">10/27 は 70 分・平坦・補給なしでも 140。11/21 は 125 分・坂・信号・水 250 ml で 152。</text></svg><svg viewBox="0 0 760 170" class="chart"><text x="60" y="14" class="ct">コース（目黒本町 → 東京タワー → 皇居 1 周 → 半蔵門・14.2 km・高低差 27 m・登り 3 回）</text>
 <polyline points="70,110 130,80 190,95 250,60 300,100 360,105 430,100 500,100 560,85 620,65 680,95" fill="none" stroke="#6ec6ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="70" cy="110" r="7" fill="#4ade80"/><text x="70" y="135" class="xl">目黒本町 15:49</text>
 <text x="130" y="70" class="xl">白金台の登り（km 3）</text>
@@ -109,35 +102,122 @@ ul,ol{padding-left:20px}li{margin:4px 0}.big{font-size:16px}
 <text x="430" y="125" class="xl">桜田門 → 皇居 外周（km 9〜11・平坦・速い）</text>
 <text x="620" y="55" class="xl">竹橋 → 半蔵門の登り（km 12〜13・心拍 158）</text>
 <circle cx="680" cy="95" r="7" fill="#ff4d8d"/><text x="680" y="135" class="xl">半蔵門 18:03</text>
-<text x="60" y="162" class="note">信号待ち 8.5 分（経過 2:13:48 − ワークアウト 2:05:18）。再発進のたびに心拍が上がる。11/28 は信号なしの多摩川で。</text></svg>
-<p>都心の坂と信号は練習としては良い刺激だったが、本番と条件が違う（ホノルルは平坦・信号なし・給水所あり）。<b>11/28 の 3 時間 30 分は多摩川の河川敷</b>で、心拍 5〜8 低い条件で「同じペース」が出るかを見る。</p></div>
+<text x="60" y="162" class="note">信号待ち 8.5 分（経過 2:13:48 − ワークアウト 2:05:18）。再発進のたびに心拍が上がり、膝には「止まる→走る」の負荷。11/28 は信号なしの多摩川で。</text></svg>
+</div>
 
-<h2>7. 11/28（3 時間 30 分・走4歩1 ×40）の二人のルール</h2>
+<h2 id="s3">3. 翌日の頭痛・だるさ・股関節・左膝 — 何が起きたか、どう読むか</h2>
+<div class="card">
+<p>「翌日に頭痛（目の奥がズーン）・体がだるい・股関節と左膝が痛い・20 km は到底走れないと感じた」。<b>正直に言うと、これは「体力が足りない」のサインではなく、「補給ゼロで 2 時間 14 分動いた体が翌日まで回復できなかった」サイン</b>が大半で、そこに「増やし方が急すぎた」関節の悲鳴が重なっている。分解すると:</p>
+<table><tr><th>症状</th><th>いちばん可能性が高い原因</th><th>根拠</th><th>今やること</th></tr>
+<tr><td><b>頭痛（目の奥、重い）</b></td><td>脱水 ＋ 糖切れ ＋ 走後の水分・糖の補充不足</td><td>2 時間の運動で汗は 11 月でも 1 L 前後。補給 250 ml → 0.75〜1 L の不足＝体重 50 kg なら 1.5〜2%。2% で心拍上昇・頭痛・だるさが出る（<a href="#s9">③</a>）。脱水の頭痛は両側・前頭部〜目の奥で、頭を動かすと響く。水を飲んで 30 分〜3 時間で軽くなるのが特徴（<a href="#s9">⑦</a>）。翌日まで残った＝走後も戻しきれていない</td><td>走後 2 時間以内に 水 500 ml＋塩＋糖（おにぎり 2 個）。体重を測って減った 1 kg につき 1.5 L を寝るまでに。<b>次も同じなら受診</b>（運動後に毎回出る頭痛は別の原因を一度調べる）</td></tr>
+<tr><td><b>体がだるい</b></td><td>肝臓の糖が空のまま寝た ＋ 夕方〜夜の高心拍で睡眠の質が落ちた</td><td>消費 620 kcal のうち 6 割前後が糖。摂取 50 kcal。走後に食べていなければ、脳のエネルギー源（血糖）を一晩かけて作り続ける状態。18 時終了・心拍 152 の後は深部体温が下がりにくく寝つきが悪くなりやすい</td><td>走後 30 分以内に糖＋たんぱく（🩹 ケア タブ「ゴール後」）。ロングは午前にずらす（本番も 5:00 スタート。体を朝型に）</td></tr>
+<tr><td><b>股関節の痛み</b></td><td>急な距離増 ＋ 速い走り区間 ＋ 歩幅が大きい ＋ 登り</td><td>股関節前面（腸腰筋・内転筋）は歩幅を大きく蹴り出す走りと登りで酷使される。ピッチが低い（≈158）＝1 歩が大きい。距離 +27%・11 月前半の練習量が少なければもっと大きな跳ね（<a href="#s9">⑥</a>）</td><td>痛みが消えるまで走らない（歩き・自転車は OK）。再開後はピッチ 165〜170・走り 9:00。1 日 10 分の お尻・股関節 の体操（下）</td></tr>
+<tr><td><b>左膝の痛み</b></td><td>同上 ＋ 下り 3 回 ＋ 信号の止まる・走る</td><td>膝前面の痛み（膝蓋大腿関節）は初心者の距離増でいちばん多い怪我（<a href="#s9">⑥</a>）。ピッチを上げると膝蓋大腿関節の力が減る（<a href="#s9">④'</a>）。片側だけ＝左右差（着地のクセ・骨盤の傾き）が疲れで出た</td><td>同上。<b>腫れ・安静時痛・階段で鋭い痛み・3 日経っても歩行時痛が残る → 今週 スポーツ整形外科</b>。本番で初めて診断されるより、今 20 日前に知るほうが圧倒的に有利</td></tr>
+<tr><td><b>「20 km は到底走れない」感覚</b></td><td>糖切れの主観</td><td>血糖が下がると「きつさ」の感じ方が実際の負荷より跳ね上がる。補給ゼロの 14 km は、補給ありの 20 km よりきつく感じる。10/27 の 8 km（補給なし・70 分）が難易度 4 だったのと整合する</td><td>感覚は本物として尊重する。ただし予測には使わない。<b>11/28 に補給ありで 3 時間やって、同じ感覚が出るかで判定</b></td></tr></table>
+<svg viewBox="0 0 760 260" class="chart"><text x="60" y="14" class="ct">補給: 実際 vs 必要（1 人あたり）</text><line x1="60" y1="210.0" x2="740" y2="210.0" class="grid"/><text x="54" y="214.0" class="yl">0</text><line x1="60" y1="172.0" x2="740" y2="172.0" class="grid"/><text x="54" y="176.0" class="yl">180</text><line x1="60" y1="134.0" x2="740" y2="134.0" class="grid"/><text x="54" y="138.0" class="yl">360</text><line x1="60" y1="96.0" x2="740" y2="96.0" class="grid"/><text x="54" y="100.0" class="yl">540</text><line x1="60" y1="58.0" x2="740" y2="58.0" class="grid"/><text x="54" y="62.0" class="yl">720</text><line x1="60" y1="20.0" x2="740" y2="20.0" class="grid"/><text x="54" y="24.0" class="yl">900</text><rect x="90.6" y="157.2" width="108.8" height="52.8" rx="4" fill="#ff4d8d"/><text x="145.0" y="152.2" class="vl">250</text><text x="145.0" y="226" class="xl">水 実際</text><rect x="260.6" y="41.1" width="108.8" height="168.9" rx="4" fill="#4ade80"/><text x="315.0" y="36.1" class="vl">800</text><text x="315.0" y="226" class="xl">水 必要</text><rect x="430.6" y="199.4" width="108.8" height="10.6" rx="4" fill="#ff4d8d"/><text x="485.0" y="194.4" class="vl">50</text><text x="485.0" y="226" class="xl">糖 実際</text><rect x="600.6" y="134.0" width="108.8" height="76.0" rx="4" fill="#4ade80"/><text x="655.0" y="129.0" class="vl">360</text><text x="655.0" y="226" class="xl">糖 必要</text><text x="60" y="252" class="note">左 2 本は ml、右 2 本は kcal（2 時間 05 分・1 人あたり）。必要量: 水 400 ml/時、糖 45 g/時（30〜60 g の中央）。</text></svg>
+<h3>この 3 日間（11/23〜11/25）の方針</h3>
+<ul class="big">
+<li><b>走らない。</b>歩き 20〜30 分と自転車は OK。痛みが消えて 48 時間たってから走る</li>
+<li>膝・股関節: 冷やす 15 分 ×2〜3/日、外用の鎮痛（ロキソニンテープ可。内服 NSAIDs は走る前後に使わない＝🩹 ケア タブ）</li>
+<li>水を 1 日 1.5〜2 L＋食事で塩。頭痛が 48 時間以上続く、吐き気・発熱・首の硬さを伴う → 受診</li>
+<li>股関節・お尻の体操 10 分/日: お尻上げ（ヒップリフト）10 回 ×2、横向き足上げ 10 回 ×2、クラムシェル 10 回 ×2。3 週間で筋力は付かないが「使う感覚」は戻る</li>
+<li><b>受診の目安:</b> 腫れがある／じっとしていても痛い／階段の下りで鋭い痛み／11/25 時点で歩いて痛い。1 つでも当てはまれば スポーツ整形外科（11/26 までに）</li>
+</ul></div>
+
+<h2 id="s4">4. 本番に向けた改善点（優先順・具体的な設定）</h2>
+<div class="card">
+<table><tr><th>#</th><th>改善点</th><th>具体的にどうする</th><th>根拠</th><th>11/28 で確認すること</th></tr>
+<tr><td>1</td><td><b>補給を「1 人 1 本・1 人 1 個」に</b></td><td>水 500 ml/時（10〜15 分ごとに 2〜3 口）、ジェル 45 分ごと（100 kcal）、塩タブ 1 時間ごと。スタート 2 時間前におにぎり 1 個＋水 200〜300 ml。走後 30 分以内に糖＋たんぱく＋塩</td><td>§1 の 3 行。2 時間半以上は 60〜90 g/時まで吸収できるが、胃は練習で慣らす必要がある（<a href="#s9">②</a>）</td><td>頭痛・だるさが翌日に出ないか。心拍が 11/21 より下がるか（脱水分 −5〜8 の見込み）</td></tr>
+<tr><td>2</td><td><b>走り区間を 9:00/km に固定</b></td><td>Watch のペースアラートを <b>8:45〜9:15</b> に。1 本目は 9:30 で入る。「速いな」と感じたら正解</td><td>§6: 8:00 → 9:00 でゴール差は 37 分、心拍差 10。42 km の最後の 10 km を走・歩で終えられるかはこの 10 の差で決まる</td><td>心拍 平均 ≤150、狙い 140〜151 に 70% 以上。難易度 ≤5</td></tr>
+<tr><td>3</td><td><b>ピッチ 165〜170</b></td><td>Watch のカスタムワークアウトで走りステップに「ケイデンス 165〜175」アラートを追加（ペース・心拍と同じ場所）。できなければ 170 BPM の曲で合わせる。感覚は「小さく・速く・静かに着地」</td><td>+5〜10% で膝・股関節の負荷減（<a href="#s9">④ ④'</a>）。今日から変えられる唯一の怪我対策</td><td>走り区間のピッチ 165 以上。膝・股関節の違和感が走後に残らないか</td></tr>
+<tr><td>4</td><td><b>長さは「時間」で管理、上限 3 時間</b></td><td>11/28 は 走4歩1 ×36 ＝ 3 時間 10 分（約 19〜20 km）で<b>時計で終える</b>。km は見ない。12/5 は 2 時間。以後は 40 分以下</td><td>最長練習は本番の 45〜50% で十分、残り 3 週間で伸びる体力は小さく、怪我のリスクだけ増える。14 → 24.6 km（+74%）は 30% 線を大きく超える（<a href="#s9">⑥</a>）</td><td>3 時間を「補給あり・心拍 150・痛みなし」で終えられるか。これが本番の GO 判定</td></tr>
+<tr><td>5</td><td><b>平坦・信号なしで本番と同じ条件に</b></td><td>多摩川 河川敷。坂の練習はしない（ダイヤモンドヘッドは歩く方針なので不要）</td><td>§2 直す点 ⑤。本番に無い負荷で怪我するのが最悪</td><td>コース由来の心拍上昇ゼロか</td></tr>
+<tr><td>6</td><td><b>暑さ対策を「飲み方」で代用</b></td><td>東京で暑さは再現できない。代わりに ①給水所 2.6 km ごとに歩いて飲む練習 ②帽子・サングラス・日焼け止めを 12/5 に着用 ③本番は心拍上限を 150 に下げ、150〜155 は「黄」扱い</td><td>遅いランナーほど暑さの影響が大きい（<a href="#s9">⑤</a>）。心拍で管理するのが唯一の安全弁</td><td>12/5 に装備一式で 2 時間。本番の初物ゼロ</td></tr>
+<tr><td>7</td><td><b>目標を「完走・6:40〜7:00」に置き直す</b></td><td>6:25 は走り 8:30・心拍 155・無補給で 11/28 が完璧に行った場合のボーナス。本番の KPI は <b>①心拍 ≤155 を守った時間 ②歩きに崩れなかったか ③翌日歩けるか</b></td><td>§6。走り 9:00・走4歩1・暑さ +4% で 6:45〜7:01</td><td>11/28 の結果で §6 の表から 1 行を選ぶ</td></tr></table>
+</div>
+
+<h2 id="s5">5. 残り 20 日の逆算カレンダー（修正案）</h2>
+<div class="card">
+<p>原則: <b>①怪我をしないこと ②11/28 に 3 時間を補給ありで ③12/5 に本番装備で 2 時間 ④最後の 8 日は短く</b>。黄色の行が今のプランからの変更。</p>
+<table><tr><th>日</th><th>今のプラン</th><th>修正案</th><th>目的</th><th>条件・判定</th></tr>
+<tr class="chg"><td>11/23(月祝)</td><td>ラン ×8（50 分）</td><td><b>休み。</b>歩き 20〜30 分・体操 10 分・水 2 L</td><td>股関節・膝の回復</td><td>痛みの場所・強さをメモ（10 点）</td></tr>
+<tr class="chg"><td>11/24(火)〜25(水)</td><td>—</td><td>歩き 30 分 or 自転車・体操 10 分。25(水) に痛みチェック</td><td>回復 ＋ 判定</td><td>歩いて痛い／腫れ／階段で鋭い痛み → <b>スポーツ整形外科</b></td></tr>
+<tr class="chg"><td>11/26(木)</td><td>中ロング ×15（85 分）＋筋トレ</td><td><b>テスト走 走3歩1 ×6（35 分）</b>。走り 9:00、ピッチ 165、平坦。筋トレは体操 10 分に置き換え</td><td>痛みが走りで戻るか確認</td><td>痛みゼロ → 11/28 プラン A ／ 違和感 → プラン B ／ 痛み → プラン C</td></tr>
+<tr class="chg"><td>11/27(金)</td><td>—</td><td>休み。買い物: ジェル 5 個・塩タブ・水。Watch Series 12（0:00 先行セール）</td><td>準備</td><td>補給表（§7）の物を揃える</td></tr>
+<tr class="chg"><td><b>11/28(土)</b></td><td>🏆 最長 ×40（3h30・24.6 km）</td><td><b>A: 走4歩1 ×36 ＝ 3 時間 10 分で時計終了（約 19〜20 km）</b><br>B: ×30 ＝ 2 時間 40 分（約 16 km）<br>C: 走らない → 受診・本番は歩き多め作戦へ</td><td>補給・9:00・ピッチ・3 時間を一度に本番形式で</td><td>§7 のルール。終わったら体重・難易度・翌日の体をメモ。<b>翌日に関節痛が残らなければ本番 GO</b></td></tr>
+<tr><td>11/30(月)</td><td>ラン ×6（40 分）</td><td>そのまま（走り 9:00・ピッチ 165）</td><td>回復走</td><td>11/28 の翌々日。痛みがあれば歩きに</td></tr>
+<tr><td>12/3(木)</td><td>ラン ×8（50 分）</td><td>そのまま＋体操</td><td>刺激維持</td><td></td></tr>
+<tr class="chg"><td><b>12/5(土)</b></td><td>外ロング ×18（1h40）</td><td><b>×24 ＝ 2 時間 10 分（約 13 km）・本番装備一式</b>（靴・靴下・ウェア・FlipBelt・帽子・ヴァセリン・ジェル・塩・Series 12）</td><td>最終リハーサル。初物ゼロの確認</td><td>補給表を本番と同じタイミングで。ここで「新しい物」が出たら本番では使わない</td></tr>
+<tr><td>12/8(火)</td><td>ラン ×6（40 分）</td><td>そのまま</td><td>軽く</td><td></td></tr>
+<tr><td>12/10(木)</td><td>ラン ×4（30 分）</td><td>そのまま（最後の走り）</td><td>刺激だけ</td><td>3 日前から糖質多め・前々日に睡眠（🩹 ケア タブ）</td></tr>
+<tr><td>12/11(金)〜12(土)</td><td>出発 → 到着・エキスポ</td><td>そのまま</td><td></td><td>機内で水・ふくらはぎ。12(土) 20 時就寝</td></tr>
+<tr><td><b>12/13(日) 5:00</b></td><td>🏁 本番</td><td>走4歩1・走り 9:00・心拍上限 150（155 は黄）・給水所 16 全部歩く・ダイヤモンドヘッド 2 回歩く・ジェル 45 分ごと・塩 10 km ごと</td><td>完走</td><td>痛みが出たら 3:1 → 2:1 → 歩き。制限時間なし</td></tr></table>
+<p><b>プラン C になった場合（11/26 に痛み）:</b> 本番は捨てない。<b>走 2 分／歩 1 分</b>（走り 9:00・歩き速歩き）なら約 7 時間、全部速歩きでも約 8 時間で、どちらも完走（§6）。42 km の「歩き中心」は膝への衝撃が走りの半分以下。受診して「走って良いか」を医師に聞いた上で決める。</p>
+</div>
+
+<h2 id="s6">6. 本番予想の更新 — 走り区間の速さ × 走歩比</h2>
+<div class="card">
+<p>計算の前提: 歩きは速歩き 1 分 90 m（11:07/km）、給水所 16 か所とダイヤモンドヘッド 2 回の歩きで +10 分。「全体ペース」はその +10 分込み。暑さの影響は別途 +4%（<a href="#s9">⑤</a>）。</p>
+<table><tr><th>走り区間</th><th>走歩比</th><th>全体ペース</th><th>ゴール（涼しい）</th><th>ゴール（暑さ +4%）</th><th>心拍の見込み</th><th></th></tr>
+<tr><td>8:00（11/21 と同じ）</td><td>4:1</td><td>8:43</td><td>6:08</td><td>6:22</td><td class="bad">158〜160</td><td>30 km 過ぎに壁・膝の再発リスク</td></tr>
+<tr><td>8:30</td><td>4:1</td><td>9:09</td><td>6:26</td><td>6:41</td><td class="warn">150〜155</td><td>11/28 が完璧なら</td></tr>
+<tr class="rec"><td><b>9:00</b></td><td><b>4:1</b></td><td>9:36</td><td><b>6:45</b></td><td><b>7:01</b></td><td class="good">145〜150</td><td>◎ 基本作戦</td></tr>
+<tr class="rec"><td><b>9:00</b></td><td><b>3:1</b></td><td>9:41</td><td>6:49</td><td>7:05</td><td class="good">143〜148</td><td>◎ 痛みが出たら。<b>+4 分だけ</b></td></tr>
+<tr><td>9:00</td><td>2:1</td><td>9:51</td><td>6:56</td><td>7:12</td><td class="good">140〜145</td><td>プラン C</td></tr>
+<tr><td>—</td><td>全部 速歩き</td><td>11:21</td><td>7:59</td><td>8:18</td><td class="good">125〜135</td><td>最終手段。それでも完走</td></tr></table>
+<ul class="big">
+<li><b>走りを速くしても得は小さい。</b>8:00 と 9:00 の差は 42 km で 37 分。その代わり心拍 10・着地衝撃・膝のリスクを全部背負う。11/21 の翌日の体が、その「代償」の実物</li>
+<li><b>歩きを増やしても損は小さい。</b>4:1 → 3:1 は +4 分、2:1 でも +11 分。走り 9:00 と速歩き 11:07 の差が小さいから。<b>痛みが出たら迷わず歩きを増やす</b></li>
+<li><b>歩きの速さは効く。</b>11/21 の歩きは 12:49/km（78 m/分）。速歩き 90 m/分 にするだけで 42 km で約 10 分速い。腕を振る・歩幅を狭く速く</li>
+<li>5 km ごとの通過目安（走り 9:00・4:1）: <b>48 分</b>。前半 10 km で「遅いかも」と思ったら正解</li>
+</ul></div>
+
+<h2 id="s7">7. 11/28（プラン A: 3 時間 10 分・走4歩1 ×36）の二人のルール</h2>
 <div class="card"><ol class="big">
-<li><b>多摩川の平坦・信号なしで。</b>二子玉川の駅前（コンビニ）を 1 時間ちょっとで通るコースに</li>
-<li><b>走 4 分／歩 1 分。</b>時計に従う。「楽だから走り続ける」はしない。Watch に「ワーク 4:00／リカバリー 1:00 ×40」を新しく作る（「15 キロ走」はワーク 3:00 なので使わない）</li>
-<li><b>最初の 1 本目をいちばんゆっくり。</b>6:30 は禁止。走り区間は 8:30〜9:00（ペースアラート）</li>
-<li><b>心拍上限 155 のアラートが鳴ったらその場で歩く。</b>登りは最初から歩く</li>
-<li><b>遅い方の心拍に合わせる。</b>速い側が「遅すぎる」と感じていれば正解</li>
-<li><b>補給は 1 人 1 個・1 人 1 本。</b>「半分ずつ」は禁止（下の表）</li>
-<li><b>走る前と後に体重を測る</b>（発汗量を知るため）。終わったら二人とも「きつさ 10 点」を付ける</li>
+<li><b>多摩川の平坦・信号なしで。</b>二子玉川の駅前（コンビニ）を 1 時間ちょっとで通る往復コースに。午前スタート（本番 5:00 に体を寄せる）</li>
+<li><b>走 4 分／歩 1 分、×36 を時計で。</b>Watch に「ワーク 4:00／リカバリー 1:00 ×36」を新規作成（「15 キロ走」はワーク 3:00 なので使わない）。<b>3 時間 10 分で終了。km は見ない</b></li>
+<li><b>走りのアラート 8:45〜9:15／心拍上限 150／ケイデンス 165〜175。</b>1 本目は 9:30。6:30 は禁止</li>
+<li><b>心拍アラートが鳴ったら歩く。</b>遅い方の心拍に合わせる。速い側が「遅すぎる」と感じていれば正解</li>
+<li><b>補給は 1 人 1 個・1 人 1 本。</b>「半分ずつ」は禁止（下の表）。給水所の代わりに 2.6 km ごとに歩いて 2〜3 口</li>
+<li><b>膝・股関節に痛みが出たら 3:1 に落とす。</b>それでも出たら歩いて終える。「我慢して走る」は本番の権利を失う行為</li>
+<li><b>走る前と後に体重を測る。</b>終わったら二人とも「きつさ 10 点」と「翌朝の体」をメモ。これが本番の GO／NO-GO 判定材料</li>
 </ol>
-<h3 style="margin:16px 0 6px">補給プラン（1 人分・二人とも同じ量）</h3>
+<h3>補給プラン（1 人分・二人とも同じ量・3 時間 10 分）</h3>
 <table><tr><th>時刻</th><th>食べる</th><th>飲む</th></tr>
-<tr><td>スタート 2 時間前</td><td>おにぎり 1 個</td><td>水 200 ml</td></tr>
+<tr><td>スタート 2 時間前</td><td>おにぎり 1 個（＋バナナ）</td><td>水 200〜300 ml</td></tr>
+<tr><td>0:00〜</td><td></td><td>500 ml を手に。10〜15 分ごとに 2〜3 口（1 時間で空ける）</td></tr>
 <tr><td>0:45</td><td>ジェル or 羊羹 1 個（100〜170 kcal）</td><td></td></tr>
-<tr><td>1:00</td><td></td><td>自販機・コンビニで 500 ml 補充 ①。塩タブレット 1 個</td></tr>
+<tr><td>1:00</td><td></td><td>コンビニで 500 ml 補充 ①。<b>塩タブレット 1 個</b></td></tr>
 <tr><td>1:30</td><td>ジェル 1 個</td><td></td></tr>
-<tr><td>2:15</td><td>ジェル 1 個</td><td>補充 ②。塩タブレット 1 個</td></tr>
-<tr><td>3:00</td><td>ジェル 1 個（カフェイン入りならここ）</td><td></td></tr>
-<tr><td>常時</td><td></td><td>10〜15 分ごとに 2〜3 口。1 時間で 500 ml 空ける目安</td></tr>
-<tr><td>終了直後</td><td>おにぎり 2 個＋チョコミルク</td><td>水 500 ml＋塩</td></tr></table>
-<p><b>買い物（1 人分）:</b> ジェル 4 個（アミノバイタル パーフェクトエネルギー／Mag-on／井村屋 スポーツようかん、どれでも）、塩タブレット 2 個、水 500 ml ×3 本分（1 本持って出発、2 回買う）。水は 11/28 だけ手持ちで OK（本番は給水所があるので持たない）。体の大きいほうが汗も多いので、水はそちらを基準に足りているか見る。</p></div>
+<tr><td>2:00</td><td></td><td>補充 ②。<b>塩タブレット 1 個</b></td></tr>
+<tr><td>2:15</td><td>ジェル 1 個</td><td></td></tr>
+<tr><td>2:50</td><td>ジェル 1 個（カフェイン入りならここ・予備）</td><td></td></tr>
+<tr><td>終了 30 分以内</td><td>おにぎり 2 個＋チョコミルク or ザバス</td><td>水 500 ml＋塩。体重が減った 1 kg につき 1.5 L を寝るまでに</td></tr></table>
+<p><b>買い物（1 人分）:</b> ジェル 4〜5 個（アミノバイタル パーフェクトエネルギー／Mag-on／井村屋 スポーツようかん、どれでも。本番用も同じ物を 6〜8 個）、塩タブレット 3 個、水 500 ml ×3 本分（1 本持って出発、2 回買う）。水は 11/28 だけ手持ち OK（本番は給水所があるので持たない）。体の大きいほうが汗も多いので、水はそちら基準で足りているか見る。</p></div>
 
-<h2>8. パートナーへのお願い</h2>
-<div class="card"><p>同じ 4 画面のスクショがほしい: フィットネス アプリ → 11/21 のワークアウト → <b>①いちばん上の概要 ②「スプリット」をタップして全 km ③「心拍数」をタップ ④「インターバル」</b>。二人の心拍を並べると、本番でどちらに合わせるべきかが数字で決まる。</p></div>
+<h2 id="s8">8. パートナーへのお願い ＋ shunka への質問</h2>
+<div class="card"><p><b>パートナーへ:</b> 同じ 4 画面のスクショがほしい。フィットネス アプリ → 11/21 のワークアウト → <b>①いちばん上の概要 ②「スプリット」で全 km ③「心拍数」 ④「インターバル」</b>。二人の心拍を並べると、本番でどちらに合わせるかが数字で決まる。それと <b>翌日の体（頭痛・だるさ・痛み）</b>も教えてほしい。同じなら原因は補給で確定、違うなら個人差を見る。</p>
+<p><b>shunka へ（判定の精度が上がる 6 つ）:</b></p>
+<ol>
+<li>11/21 の難易度（1〜10）</li>
+<li>11/2〜11/19 に走った日と内容（Fitness のワークアウト一覧スクショ 1 枚で OK）。<b>§2 ③の「増やし方」の判定が変わる</b></li>
+<li>走る前（昼）に何を食べたか／走った後に何を食べて何を飲んだか／その夜の睡眠時間</li>
+<li>股関節は左右どちらか。膝の痛みの場所（前・内側・外側）。階段の下りで痛むか。今日（11/23）の痛みは 10 点で何点か</li>
+<li>頭痛は今も残っているか。カフェイン（コーヒー）を普段飲むか</li>
+<li>痛みが出たとき「筋トレ（木曜）」を 11 月に何回やったか</li>
+</ol></div>
 
-<h2>9. 一言で</h2>
-<div class="verdict">速さはもう二人とも足りている。11/21 で分かったのは「2 時間なら心拍が逃げない体になった」こと。あとは <b>走り区間を 30 秒ゆっくり</b>、<b>補給を 1 人分ちゃんと</b>。それだけで 11/28 の 3 時間 30 分は「長いだけ」で終わる。</div>
-<p class="sub">データ: Apple Watch（ワークアウト 2:05:18・14.17 km・平均心拍 152・1 km スプリット・心拍ゾーン・インターバル）。必要量の根拠: マラソン前後ケア調査レポート（<a href="honolulu_plan_shunka.html#care">🩹 前後ケア タブ</a>）。</p>
+<h2 id="s9">出典</h2>
+<div class="card"><ol style="font-size:13px">
+<li>① 心拍と糖の消費・42 km の必要エネルギー: 練習プラン 📝 FB タブ 理論①（Rapoport 2010）。<a href="honolulu_plan_shunka.html#fb">FB タブ</a></li>
+<li>② 運動中の糖質 30〜60 g/時、2.5 時間超は最大 90 g/時・胃は練習で慣らす: Jeukendrup A. <i>Sports Med</i> 2014. <a href="https://pubmed.ncbi.nlm.nih.gov/24791914/" target="_blank">PubMed</a></li>
+<li>③ 体重 2% 以上の脱水で有酸素パフォーマンス低下・心拍上昇、発汗 0.4〜1.8 L/時、減った体重 1 kg につき約 1.5 L で戻す: ACSM Position Stand "Exercise and Fluid Replacement" 2007. <a href="https://pubmed.ncbi.nlm.nih.gov/17277604/" target="_blank">PubMed</a></li>
+<li>④ ピッチ +5〜10% で歩幅・上下動・ブレーキが減り、膝・股関節で吸収するエネルギーが減る: Heiderscheit BC et al. <i>Med Sci Sports Exerc</i> 2011. <a href="https://pubmed.ncbi.nlm.nih.gov/20581720/" target="_blank">PubMed</a>　④' ピッチ増で膝蓋大腿関節の力が減る: Lenhart RL et al. <i>Med Sci Sports Exerc</i> 2014. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3925193/" target="_blank">PMC</a></li>
+<li>⑤ 気温が高いほどマラソンは遅くなり、遅いランナーほど影響が大きい: Ely MR et al. <i>Med Sci Sports Exerc</i> 2007. <a href="https://pubmed.ncbi.nlm.nih.gov/17473775/" target="_blank">PubMed</a></li>
+<li>⑥ 初心者で週距離を 30% 超で増やすと距離型の怪我（膝前面痛・腸脛靱帯・膝蓋腱など）が増える: Nielsen RØ et al. <i>J Orthop Sports Phys Ther</i> 2014. <a href="https://pubmed.ncbi.nlm.nih.gov/25155475/" target="_blank">PubMed</a></li>
+<li>⑦ 脱水の頭痛（両側・前頭部〜目の奥・頭を動かすと響く・飲水で 30 分〜3 時間で改善）: Blau JN et al. <i>Headache</i> 2004 <a href="https://pubmed.ncbi.nlm.nih.gov/14979888" target="_blank">PubMed</a>; Arca KN, Halker Singh RB. <i>Curr Pain Headache Rep</i> 2021 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8280611" target="_blank">PMC</a></li>
+<li>本番コース・給水・気温: 練習プラン 🏁 本番タブ・📝 FB タブ。前後ケア・薬・塩: <a href="honolulu_plan_shunka.html#care">🩹 前後ケア タブ</a>（Muse 調査レポート 2 本）</li>
+<li>データ: Apple Watch（ワークアウト 2:05:18・14.17 km・平均心拍 152・1 km スプリット・心拍ゾーン・インターバル・ピッチ 148・620 kcal）。11/21 の走り区間ピッチ ≈158 と発汗 1 L は推定値</li>
+</ol>
+<p class="sub">このレポートは医療診断ではない。痛み・頭痛が続く場合は受診を優先する。</p></div>
 </div></body></html>
